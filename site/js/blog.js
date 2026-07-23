@@ -165,6 +165,8 @@ function renderMagazineBlogPreview(posts) {
             </div>
         </div>
     `;
+
+    initBlogAnimations(container);
 }
 
 function renderFeaturedPost(post, containerId) {
@@ -186,6 +188,8 @@ function renderFeaturedPost(post, containerId) {
             </div>
         </div>
     `;
+
+    initBlogAnimations(container);
 }
 
 function renderBlogGrid(posts, containerId) {
@@ -207,6 +211,8 @@ function renderBlogGrid(posts, containerId) {
             </div>
         </div>`;
     }).join('');
+
+    initBlogAnimations(container);
 }
 
 function renderSinglePost(posts) {
@@ -268,6 +274,7 @@ function renderSinglePost(posts) {
         `;
         console.log('[Blog-Post] Contenido renderizado correctamente.');
 
+        initBlogAnimations(container);
     } catch(err) {
         console.error('[Blog-Post] ERROR CRÍTICO:', err.message, err.stack);
     }
@@ -357,3 +364,55 @@ function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('es-ES', options);
 }
+
+// Inicializar animaciones de GSAP para elementos creados de forma dinámica
+function initBlogAnimations(container) {
+    if (typeof gsap === 'undefined') return;
+
+    // 1. Elementos con clase .gsap-fade-up (fade-in secuencial)
+    const fadeUps = container.querySelectorAll('.gsap-fade-up');
+    fadeUps.forEach(elem => {
+        if (elem.dataset.gsapAnimated) return;
+        elem.dataset.gsapAnimated = "true";
+
+        gsap.from(elem, {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 85%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // 2. Elementos staggered (.gsap-stagger-container y .gsap-stagger-item)
+    const staggerContainers = [];
+    if (container.classList.contains('gsap-stagger-container')) {
+        staggerContainers.push(container);
+    }
+    container.querySelectorAll('.gsap-stagger-container').forEach(c => staggerContainers.push(c));
+
+    staggerContainers.forEach(subContainer => {
+        const items = subContainer.querySelectorAll('.gsap-stagger-item');
+        if (items.length === 0) return;
+
+        if (items[0].dataset.gsapAnimated) return;
+        items.forEach(it => it.dataset.gsapAnimated = "true");
+
+        gsap.from(items, {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: subContainer,
+                start: "top 80%"
+            }
+        });
+    });
+}
+
