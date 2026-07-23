@@ -30,7 +30,7 @@
             font-family: var(--fuente-cuerpo);
             background-color: #f7f1eb;
             color: var(--color-texto);
-            line-height: 1.6;
+            line-height: 1.5;
             padding: 40px 20px;
         }
 
@@ -89,8 +89,8 @@
         }
 
         .page {
-            padding: 80px 70px;
-            min-height: 1000px;
+            padding: 60px 60px;
+            min-height: 1050px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -102,6 +102,7 @@
             justify-content: center;
             text-align: center;
             background: linear-gradient(135deg, #FFF8F0 0%, #F5E6D0 100%);
+            min-height: 1000px;
         }
 
         .logo-area {
@@ -155,8 +156,8 @@
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid rgba(232, 145, 58, 0.2);
-            padding-bottom: 15px;
-            margin-bottom: 40px;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
         }
 
         .header-title {
@@ -177,22 +178,12 @@
         }
 
         .service-title-area {
-            margin-bottom: 30px;
-        }
-
-        .service-number {
-            font-family: var(--fuente-serif);
-            font-size: 4rem;
-            line-height: 1;
-            color: var(--color-naranja);
-            opacity: 0.6;
-            font-weight: 300;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
         }
 
         .service-title {
             font-family: var(--fuente-serif);
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 700;
             color: var(--color-texto);
             line-height: 1.2;
@@ -200,17 +191,17 @@
 
         .service-desc {
             font-family: var(--fuente-cuerpo);
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--color-texto-secundario);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             font-weight: 300;
         }
 
         .grid-sections {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 25px 40px;
+            margin-bottom: 30px;
         }
 
         .grid-col h4 {
@@ -220,7 +211,7 @@
             color: var(--color-naranja);
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .list-items {
@@ -228,9 +219,9 @@
         }
 
         .list-items li {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--color-texto-secundario);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 300;
             display: flex;
             align-items: flex-start;
@@ -241,15 +232,15 @@
             content: "✓";
             color: var(--color-naranja);
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .format-box {
-            background-color: rgba(232, 145, 58, 0.04);
+            background-color: rgba(232, 145, 58, 0.03);
             border-left: 3px solid var(--color-naranja);
-            padding: 20px;
+            padding: 15px 20px;
             border-radius: 0 8px 8px 0;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .format-box h5 {
@@ -258,12 +249,12 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--color-texto);
         }
 
         .format-box p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--color-texto-secundario);
             font-weight: 300;
         }
@@ -275,7 +266,7 @@
             color: var(--color-naranja);
             margin-top: auto;
             border-top: 1px solid rgba(232, 145, 58, 0.1);
-            padding-top: 20px;
+            padding-top: 15px;
         }
 
         .price-tag span {
@@ -286,15 +277,15 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .page-footer {
             display: flex;
             justify-content: space-between;
             border-top: 1px solid rgba(232, 145, 58, 0.1);
-            padding-top: 15px;
-            margin-top: 40px;
+            padding-top: 12px;
+            margin-top: 30px;
             font-family: var(--fuente-sans);
             font-size: 0.7rem;
             color: var(--color-texto-secundario);
@@ -323,11 +314,12 @@
                 page-break-after: always;
                 min-height: 297mm; /* Standard A4 height */
                 height: 297mm;
-                padding: 20mm 15mm;
+                padding: 15mm 15mm;
             }
 
             .cover-page {
                 background: #fff !important;
+                min-height: 297mm;
             }
 
             .format-box {
@@ -363,7 +355,7 @@
             </div>
         </div>
 
-        <!-- PAGE 2: LAB GASTRONOMY CONSULTING - PARTE 1 -->
+        <!-- PAGE 2: LAB GASTRONOMY CONSULTING -->
         <div class="page">
             <div>
                 <div class="page-header">
@@ -372,7 +364,6 @@
                 </div>
                 
                 <div class="service-title-area">
-                    <div class="service-number">01</div>
                     <h2 class="service-title">LAB GASTRONOMY CONSULTING</h2>
                 </div>
 
@@ -401,36 +392,6 @@
                             <li>Estandarización de recetas y fichas técnicas</li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="format-box">
-                    <h5>Enfoque Estratégico:</h5>
-                    <p>Trabajamos integrando las finanzas con la operación diaria, facilitando la toma de decisiones basada en datos concretos y métricas de rendimiento reales para el sector gastronómico.</p>
-                </div>
-            </div>
-
-            <div>
-                <div class="page-footer">
-                    <span>Pág. 2</span>
-                    <span>www.labgastronomy.com</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- PAGE 3: LAB GASTRONOMY CONSULTING - PARTE 2 -->
-        <div class="page">
-            <div>
-                <div class="page-header">
-                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
-                    <span class="header-title">PROGRAMA DE GESTIÓN</span>
-                </div>
-                
-                <div class="service-title-area">
-                    <div class="service-number">01</div>
-                    <h2 class="service-title">LAB GASTRONOMY CONSULTING</h2>
-                </div>
-
-                <div class="grid-sections">
                     <div class="grid-col">
                         <h4>3. Identidad y Propuesta de Valor</h4>
                         <ul class="list-items">
@@ -445,7 +406,7 @@
                         <ul class="list-items">
                             <li>Storytelling y comunicación del menú</li>
                             <li>Mapeo de la experiencia del cliente (Customer Journey)</li>
-                            <li>Diseño emocional de la hospitalidad</li>
+                            <li>Diseño de la hospitalidad emocional</li>
                             <li>Estrategias aplicadas de fidelización y recurrencia</li>
                         </ul>
                     </div>
@@ -464,13 +425,13 @@
                     Desde USD 800
                 </div>
                 <div class="page-footer">
-                    <span>Pág. 3</span>
+                    <span>Pág. 2</span>
                     <span>www.labgastronomy.com</span>
                 </div>
             </div>
         </div>
 
-        <!-- PAGE 4: LAB CONSCIOUS HOSPITALITY - PARTE 1 -->
+        <!-- PAGE 3: LAB CONSCIOUS HOSPITALITY -->
         <div class="page">
             <div>
                 <div class="page-header">
@@ -479,7 +440,6 @@
                 </div>
                 
                 <div class="service-title-area">
-                    <div class="service-number">02</div>
                     <h2 class="service-title">LAB CONSCIOUS HOSPITALITY</h2>
                 </div>
 
@@ -506,36 +466,6 @@
                             <li>Brunches conscientes y ceremonias temáticas</li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="format-box">
-                    <h5>Filosofía Consciente:</h5>
-                    <p>No trabajamos únicamente el restaurante del hotel, sino la experiencia completa del huésped durante su estancia, aumentando significativamente el valor percibido del servicio.</p>
-                </div>
-            </div>
-
-            <div>
-                <div class="page-footer">
-                    <span>Pág. 4</span>
-                    <span>www.labgastronomy.com</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- PAGE 5: LAB CONSCIOUS HOSPITALITY - PARTE 2 -->
-        <div class="page">
-            <div>
-                <div class="page-header">
-                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
-                    <span class="header-title">PROGRAMA DE BIENESTAR</span>
-                </div>
-                
-                <div class="service-title-area">
-                    <div class="service-number">02</div>
-                    <h2 class="service-title">LAB CONSCIOUS HOSPITALITY</h2>
-                </div>
-
-                <div class="grid-sections">
                     <div class="grid-col">
                         <h4>3. Retreat Design & Curation</h4>
                         <ul class="list-items">
@@ -569,7 +499,7 @@
                     Cotización personalizada a medida
                 </div>
                 <div class="page-footer">
-                    <span>Pág. 5</span>
+                    <span>Pág. 3</span>
                     <span>www.labgastronomy.com</span>
                 </div>
             </div>
