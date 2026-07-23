@@ -2,6 +2,14 @@
 /* Fallback for Holimount script if not loaded via @font-face */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
+@font-face {
+    font-family: 'Holimount';
+    src: url('../assets/fonts/Holimount.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* RESET Y BASE */
 * {
     margin: 0;
