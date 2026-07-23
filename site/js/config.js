@@ -5,8 +5,8 @@ const SITE_CONFIG = {
     // === CONFIGURACIONES GLOBALES Y ENLACES ===
     "enlaces": {
         "whatsapp": "https://wa.me/5493834925427?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20diagn%C3%B3stico.", // Configurable
-        "brochure_gastronomy": "#", // Configurable: Ruta al PDF del brochure Gastronomy
-        "brochure_hospitality": "#", // Configurable: Ruta al PDF del brochure Hospitality
+        "brochure_gastronomy": "brochure-metodo-lab.html", // Configurable: Ruta al PDF del brochure Gastronomy
+        "brochure_hospitality": "brochure-metodo-lab.html", // Configurable: Ruta al PDF del brochure Hospitality
         "instagram": "https://www.instagram.com/", // Configurable
         "facebook": "https://www.facebook.com/" // Configurable
     },

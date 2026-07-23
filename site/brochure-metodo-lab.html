@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brochure Método LAB - Laura Bailone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-fondo: #FFF8F0;
+            --color-naranja: #E8913A;
+            --color-naranja-claro: #F5C88A;
+            --color-texto: #2D2016;
+            --color-texto-secundario: #6B5744;
+            --fuente-serif: 'Fraunces', serif;
+            --fuente-sans: 'Plus Jakarta Sans', sans-serif;
+            --fuente-cuerpo: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: #f7f1eb;
+            color: var(--color-texto);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* Floating action bar for browser preview */
+        .actions-bar {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .btn-action {
+            display: inline-block;
+            background-color: var(--color-naranja);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 25px;
+            font-family: var(--fuente-sans);
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: #d17b2c;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-texto-secundario);
+            border: 1px solid var(--color-texto-secundario);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-texto-secundario);
+            color: #fff;
+        }
+
+        /* Brochure Sheet styling */
+        .brochure-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-fondo);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .page {
+            padding: 80px 70px;
+            min-height: 1000px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Cover Page Styling */
+        .cover-page {
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF8F0 0%, #F5E6D0 100%);
+        }
+
+        .logo-area {
+            font-family: var(--fuente-sans);
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            color: var(--color-texto-secundario);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .cover-title {
+            font-family: var(--fuente-serif);
+            font-size: 3.8rem;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--color-texto);
+            margin-bottom: 20px;
+        }
+
+        .cover-subtitle {
+            font-family: var(--fuente-sans);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 80px;
+        }
+
+        .cover-intro {
+            font-family: var(--fuente-cuerpo);
+            font-size: 1.15rem;
+            color: var(--color-texto-secundario);
+            max-width: 550px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+
+        .cover-footer {
+            margin-top: 50px;
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            color: var(--color-texto-secundario);
+            letter-spacing: 0.05em;
+        }
+
+        /* Content Page Styling */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(232, 145, 58, 0.2);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        .header-title {
+            font-family: var(--fuente-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .header-brand {
+            font-family: var(--fuente-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-texto-secundario);
+            letter-spacing: 0.1em;
+        }
+
+        .service-title-area {
+            margin-bottom: 30px;
+        }
+
+        .service-number {
+            font-family: var(--fuente-serif);
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--color-naranja);
+            opacity: 0.6;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .service-title {
+            font-family: var(--fuente-serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-texto);
+            line-height: 1.2;
+        }
+
+        .service-desc {
+            font-family: var(--fuente-cuerpo);
+            font-size: 1.05rem;
+            color: var(--color-texto-secundario);
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .grid-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .grid-col h4 {
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 15px;
+        }
+
+        .list-items {
+            list-style: none;
+        }
+
+        .list-items li {
+            font-size: 0.95rem;
+            color: var(--color-texto-secundario);
+            margin-bottom: 8px;
+            font-weight: 300;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .list-items li::before {
+            content: "✓";
+            color: var(--color-naranja);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .format-box {
+            background-color: rgba(232, 145, 58, 0.04);
+            border-left: 3px solid var(--color-naranja);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 30px;
+        }
+
+        .format-box h5 {
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            color: var(--color-texto);
+        }
+
+        .format-box p {
+            font-size: 0.95rem;
+            color: var(--color-texto-secundario);
+            font-weight: 300;
+        }
+
+        .price-tag {
+            font-family: var(--fuente-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            margin-top: auto;
+            border-top: 1px solid rgba(232, 145, 58, 0.1);
+            padding-top: 20px;
+        }
+
+        .price-tag span {
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-texto-secundario);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(232, 145, 58, 0.1);
+            padding-top: 15px;
+            margin-top: 40px;
+            font-family: var(--fuente-sans);
+            font-size: 0.7rem;
+            color: var(--color-texto-secundario);
+            letter-spacing: 0.05em;
+        }
+
+        /* PRINT STYLE RULES */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+                color: #000;
+            }
+
+            .actions-bar {
+                display: none;
+            }
+
+            .brochure-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .page {
+                page-break-after: always;
+                min-height: 297mm; /* Standard A4 height */
+                height: 297mm;
+                padding: 20mm 15mm;
+            }
+
+            .cover-page {
+                background: #fff !important;
+            }
+
+            .format-box {
+                background-color: #fafafa !important;
+                border-left: 3px solid #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating action bar for browser preview -->
+    <div class="actions-bar">
+        <a href="index.html" class="btn-action btn-secondary">← VOLVER A LA WEB</a>
+        <button onclick="window.print()" class="btn-action">IMPRIMIR / PDF ➔</button>
+    </div>
+
+    <!-- Brochure Sheet container -->
+    <div class="brochure-container">
+        
+        <!-- PAGE 1: PORTADA -->
+        <div class="page cover-page">
+            <div class="logo-area">LAURA BAILONE</div>
+            <div>
+                <h1 class="cover-title">MÉTODO LAB™</h1>
+                <p class="cover-subtitle">Programas de Consultoría y Gestión Estratégica</p>
+                <p class="cover-intro">
+                    Una metodología integral que equilibra administración, orden y bienestar para impulsar negocios gastronómicos y proyectos de hospitalidad hacia un crecimiento rentable y de triple impacto.
+                </p>
+            </div>
+            <div class="cover-footer">
+                ©2026 LAB Gastronomy Advisory • Buenos Aires, Argentina
+            </div>
+        </div>
+
+        <!-- PAGE 2: LAB GASTRONOMY CONSULTING - PARTE 1 -->
+        <div class="page">
+            <div>
+                <div class="page-header">
+                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
+                    <span class="header-title">PROGRAMA DE GESTIÓN</span>
+                </div>
+                
+                <div class="service-title-area">
+                    <div class="service-number">01</div>
+                    <h2 class="service-title">LAB GASTRONOMY CONSULTING</h2>
+                </div>
+
+                <p class="service-desc">
+                    Acompañamos a cafeterías, restaurantes y proyectos gastronómicos a ordenar y optimizar sus finanzas sin perder su esencia e identidad culinaria. Convertimos la operación diaria en una herramienta de crecimiento.
+                </p>
+
+                <div class="grid-sections">
+                    <div class="grid-col">
+                        <h4>1. Costos y Rentabilidad</h4>
+                        <ul class="list-items">
+                            <li>Cálculo y monitoreo de Food Cost real</li>
+                            <li>Control estructurado de stock e insumos</li>
+                            <li>Sistemas de registro de mermas y desperdicios</li>
+                            <li>Diseño de Dashboards financieros a medida</li>
+                            <li>Cálculo exacto del punto de equilibrio</li>
+                        </ul>
+                    </div>
+                    <div class="grid-col">
+                        <h4>2. Menú & Pricing Estratégico</h4>
+                        <ul class="list-items">
+                            <li>Análisis bajo matriz de Ingeniería de Menú</li>
+                            <li>pricing estructurado por popularidad y margen</li>
+                            <li>Simulaciones de rentabilidad de recetas</li>
+                            <li>Curaduría de propuesta e inclusión alimentaria</li>
+                            <li>Estandarización de recetas y fichas técnicas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="format-box">
+                    <h5>Enfoque Estratégico:</h5>
+                    <p>Trabajamos integrando las finanzas con la operación diaria, facilitando la toma de decisiones basada en datos concretos y métricas de rendimiento reales para el sector gastronómico.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="page-footer">
+                    <span>Pág. 2</span>
+                    <span>www.labgastronomy.com</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3: LAB GASTRONOMY CONSULTING - PARTE 2 -->
+        <div class="page">
+            <div>
+                <div class="page-header">
+                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
+                    <span class="header-title">PROGRAMA DE GESTIÓN</span>
+                </div>
+                
+                <div class="service-title-area">
+                    <div class="service-number">01</div>
+                    <h2 class="service-title">LAB GASTRONOMY CONSULTING</h2>
+                </div>
+
+                <div class="grid-sections">
+                    <div class="grid-col">
+                        <h4>3. Identidad y Propuesta de Valor</h4>
+                        <ul class="list-items">
+                            <li>Definición de propósito y visión comercial</li>
+                            <li>Posicionamiento de marca frente a competencia</li>
+                            <li>Desarrollo de identidad culinaria y de servicio</li>
+                            <li>Diagnóstico y mejora de experiencia de marca</li>
+                        </ul>
+                    </div>
+                    <div class="grid-col">
+                        <h4>4. Experiencia y Fidelización</h4>
+                        <ul class="list-items">
+                            <li>Storytelling y comunicación del menú</li>
+                            <li>Mapeo de la experiencia del cliente (Customer Journey)</li>
+                            <li>Diseño emocional de la hospitalidad</li>
+                            <li>Estrategias aplicadas de fidelización y recurrencia</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="format-box">
+                    <h5>Detalles y Formato del Programa:</h5>
+                    <p><strong>Duración:</strong> 4 semanas de consultoría intensiva + 3 meses de soporte y acompañamiento.<br>
+                    <strong>Incluye:</strong> Diagnóstico estratégico, dashboards de costos personalizados, capacitaciones y sesiones individuales 1:1 semanales.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="price-tag">
+                    <span>Inversión del Programa</span>
+                    Desde USD 800
+                </div>
+                <div class="page-footer">
+                    <span>Pág. 3</span>
+                    <span>www.labgastronomy.com</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 4: LAB CONSCIOUS HOSPITALITY - PARTE 1 -->
+        <div class="page">
+            <div>
+                <div class="page-header">
+                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
+                    <span class="header-title">PROGRAMA DE BIENESTAR</span>
+                </div>
+                
+                <div class="service-title-area">
+                    <div class="service-number">02</div>
+                    <h2 class="service-title">LAB CONSCIOUS HOSPITALITY</h2>
+                </div>
+
+                <p class="service-desc">
+                    Acompañamos a hoteles boutique, hosterías, eco-lodges y espacios de bienestar a diseñar experiencias gastronómicas y programas wellness memorables, donde la salud y la hospitalidad trabajan en armonía.
+                </p>
+
+                <div class="grid-sections">
+                    <div class="grid-col">
+                        <h4>1. Estrategia y Rentabilidad</h4>
+                        <ul class="list-items">
+                            <li>Food Cost y métricas específicas para hotelería</li>
+                            <li>Estructura de precios bajo ingeniería de menú</li>
+                            <li>Optimización y estandarización del restaurante</li>
+                            <li>Menús inclusivos alineados con retiros y estadías</li>
+                        </ul>
+                    </div>
+                    <div class="grid-col">
+                        <h4>2. Programas de Bienestar</h4>
+                        <ul class="list-items">
+                            <li>Diseño de menús y propuestas Ayurveda y Detox</li>
+                            <li>Experiencias holísticas y de reconexión</li>
+                            <li>Desarrollo de paquetes wellness personalizados</li>
+                            <li>Brunches conscientes y ceremonias temáticas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="format-box">
+                    <h5>Filosofía Consciente:</h5>
+                    <p>No trabajamos únicamente el restaurante del hotel, sino la experiencia completa del huésped durante su estancia, aumentando significativamente el valor percibido del servicio.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="page-footer">
+                    <span>Pág. 4</span>
+                    <span>www.labgastronomy.com</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 5: LAB CONSCIOUS HOSPITALITY - PARTE 2 -->
+        <div class="page">
+            <div>
+                <div class="page-header">
+                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
+                    <span class="header-title">PROGRAMA DE BIENESTAR</span>
+                </div>
+                
+                <div class="service-title-area">
+                    <div class="service-number">02</div>
+                    <h2 class="service-title">LAB CONSCIOUS HOSPITALITY</h2>
+                </div>
+
+                <div class="grid-sections">
+                    <div class="grid-col">
+                        <h4>3. Retreat Design & Curation</h4>
+                        <ul class="list-items">
+                            <li>Conceptualización y cronograma del retiro</li>
+                            <li>Gastronometría y diseño de la alimentación</li>
+                            <li>Selección y curaduría de actividades wellness</li>
+                            <li>Capacitación de anfitriones y soporte comercial</li>
+                        </ul>
+                    </div>
+                    <div class="grid-col">
+                        <h4>4. LAB Retreat Full Experience</h4>
+                        <ul class="list-items">
+                            <li>Organización integral de retiros</li>
+                            <li>Gestión comercial y acompañamiento comercial</li>
+                            <li>Presencia onsite en destino (opcional)</li>
+                            <li>Destinos: Patagonia, Córdoba, Costa Rica</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="format-box">
+                    <h5>Detalles y Formato del Programa:</h5>
+                    <p><strong>Duración:</strong> Programas adaptados a la medida de la infraestructura y necesidades de cada establecimiento.<br>
+                    <strong>Incluye:</strong> Consultoría de hospitalidad, manuales operativos, capacitaciones a cocineros y soporte de comunicación.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="price-tag">
+                    <span>Inversión del Programa</span>
+                    Cotización personalizada a medida
+                </div>
+                <div class="page-footer">
+                    <span>Pág. 5</span>
+                    <span>www.labgastronomy.com</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
