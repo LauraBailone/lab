@@ -25,37 +25,8 @@ const SANITY_URL = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VER
 
 // ============================================================
 // BASE DE DATOS ESTÁTICA (Fallback para pruebas en local)
-// Se usa cuando la API de Sanity no es accesible (file://)
 // ============================================================
-const BLOG_POSTS_FALLBACK = [
-    {
-        "id": "restaurantes-que-venden-pero-no-ganan",
-        "titulo": "Restaurantes que venden pero que no ganan",
-        "extracto": "Un problema común en el mundo gastronómico: locales llenos pero cuentas en rojo. Descubre cómo la falta de claridad en los costos está afectando tu rentabilidad.",
-        "imagen": "assets/images/laura-bailone-blog-1.webp",
-        "categoria": "Gestión Financiera",
-        "fecha": "2026-06-30",
-        "contenido_md": "# Restaurantes que venden pero que no ganan\n\nUno de los escenarios más frustrantes para un emprendedor gastronómico es ver su salón lleno, las mesas rotando constantemente, pero al final del mes, **los números simplemente no cierran**.\n\nEste es un problema común en el sector. La ilusión óptica de las altas ventas a menudo oculta problemas estructurales profundos:\n\n1.  **Falta de conocimiento del costo real del plato (Food Cost):** Muchos dueños fijan precios multiplicando el costo de los ingredientes principales por un número arbitrario, ignorando mermas, tiempos de preparación y costos ocultos.\n2.  **Mermas y desperdicios no controlados:** Lo que va a la basura es ganancia directa que se pierde.\n3.  **Falta de estandarización:** Si un plato lleva 150g de carne un día y 200g al siguiente, es imposible proyectar rentabilidad.\n\n## La Solución\n\nEl primer paso para revertir esta situación es **medir**. En LAB Gastronomy Advisory, trabajamos implementando tableros de control simples pero efectivos.\n\n*¿Estás vendiendo mucho pero ganando poco? Es hora de revisar tu estructura de costos.*"
-    },
-    {
-        "id": "importancia-menu-inclusivo",
-        "titulo": "La rentabilidad oculta de los menús inclusivos",
-        "extracto": "Tener opciones sin gluten, veganas o ayurvédicas ya no es una moda, es una necesidad estratégica que fideliza grupos enteros de comensales.",
-        "imagen": "assets/images/laura-bailone-blog-2.webp",
-        "categoria": "Estrategia",
-        "fecha": "2026-06-25",
-        "contenido_md": "# La rentabilidad oculta de los menús inclusivos\n\nHistóricamente, los restaurantes han visto las opciones para celíacos o veganos como un \"problema\" operativo. Hoy, esa visión es un error estratégico que cuesta mucho dinero."
-    },
-    {
-        "id": "hospitalidad-consciente-hoteles",
-        "titulo": "Hospitalidad Consciente: Más allá del desayuno buffet",
-        "extracto": "Cómo transformar la experiencia gastronómica de tu hotel boutique para crear retiros memorables y aumentar el valor percibido.",
-        "imagen": "assets/images/laura-bailone-blog-3.webp",
-        "categoria": "Hospitality",
-        "fecha": "2026-06-15",
-        "contenido_md": "# Hospitalidad Consciente: Más allá del desayuno buffet\n\nLa industria de la hospitalidad boutique está experimentando un cambio de paradigma."
-    }
-];
+const BLOG_POSTS_FALLBACK = [];
 
 // ============================================================
 // FUNCIÓN PRINCIPAL: Intenta cargar desde Sanity, usa fallback si falla
