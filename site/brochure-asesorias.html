@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brochure Asesorías - Laura Bailone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-fondo: #FFF8F0;
+            --color-naranja: #E8913A;
+            --color-naranja-claro: #F5C88A;
+            --color-texto: #2D2016;
+            --color-texto-secundario: #6B5744;
+            --fuente-serif: 'Fraunces', serif;
+            --fuente-sans: 'Plus Jakarta Sans', sans-serif;
+            --fuente-cuerpo: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: #f7f1eb;
+            color: var(--color-texto);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* Floating action bar for browser preview */
+        .actions-bar {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .btn-action {
+            display: inline-block;
+            background-color: var(--color-naranja);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 25px;
+            font-family: var(--fuente-sans);
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: #d17b2c;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-texto-secundario);
+            border: 1px solid var(--color-texto-secundario);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-texto-secundario);
+            color: #fff;
+        }
+
+        /* Brochure Sheet styling */
+        .brochure-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-fondo);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .page {
+            padding: 80px 70px;
+            min-height: 1000px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Cover Page Styling */
+        .cover-page {
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF8F0 0%, #F5E6D0 100%);
+        }
+
+        .logo-area {
+            font-family: var(--fuente-sans);
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            color: var(--color-texto-secundario);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .cover-title {
+            font-family: var(--fuente-serif);
+            font-size: 3.8rem;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--color-texto);
+            margin-bottom: 20px;
+        }
+
+        .cover-subtitle {
+            font-family: var(--fuente-sans);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 80px;
+        }
+
+        .cover-intro {
+            font-family: var(--fuente-cuerpo);
+            font-size: 1.15rem;
+            color: var(--color-texto-secundario);
+            max-width: 550px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+
+        .cover-footer {
+            margin-top: 50px;
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            color: var(--color-texto-secundario);
+            letter-spacing: 0.05em;
+        }
+
+        /* Content Page Styling */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(232, 145, 58, 0.2);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        .header-title {
+            font-family: var(--fuente-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .header-brand {
+            font-family: var(--fuente-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-texto-secundario);
+            letter-spacing: 0.1em;
+        }
+
+        .service-title-area {
+            margin-bottom: 30px;
+        }
+
+        .service-number {
+            font-family: var(--fuente-serif);
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--color-naranja);
+            opacity: 0.6;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .service-title {
+            font-family: var(--fuente-serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-texto);
+            line-height: 1.2;
+        }
+
+        .service-desc {
+            font-family: var(--fuente-cuerpo);
+            font-size: 1.05rem;
+            color: var(--color-texto-secundario);
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .grid-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .grid-col h4 {
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 15px;
+        }
+
+        .list-items {
+            list-style: none;
+        }
+
+        .list-items li {
+            font-size: 0.95rem;
+            color: var(--color-texto-secundario);
+            margin-bottom: 8px;
+            font-weight: 300;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .list-items li::before {
+            content: "✓";
+            color: var(--color-naranja);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .format-box {
+            background-color: rgba(232, 145, 58, 0.04);
+            border-left: 3px solid var(--color-naranja);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 30px;
+        }
+
+        .format-box h5 {
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            color: var(--color-texto);
+        }
+
+        .format-box p {
+            font-size: 0.95rem;
+            color: var(--color-texto-secundario);
+            font-weight: 300;
+        }
+
+        .price-tag {
+            font-family: var(--fuente-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-naranja);
+            margin-top: auto;
+            border-top: 1px solid rgba(232, 145, 58, 0.1);
+            padding-top: 20px;
+        }
+
+        .price-tag span {
+            font-family: var(--fuente-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-texto-secundario);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(232, 145, 58, 0.1);
+            padding-top: 15px;
+            margin-top: 40px;
+            font-family: var(--fuente-sans);
+            font-size: 0.7rem;
+            color: var(--color-texto-secundario);
+            letter-spacing: 0.05em;
+        }
+
+        /* PRINT STYLE RULES */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+                color: #000;
+            }
+
+            .actions-bar {
+                display: none;
+            }
+
+            .brochure-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .page {
+                page-break-after: always;
+                min-height: 297mm; /* Standard A4 height */
+                height: 297mm;
+                padding: 20mm 15mm;
+            }
+
+            .cover-page {
+                background: #fff !important;
+            }
+
+            .format-box {
+                background-color: #fafafa !important;
+                border-left: 3px solid #000 !important;
+                page-break-inside: avoid;
+            }
+
+            .btn-action, .price-tag, .list-items li::before {
+                color: #000 !important;
+            }
+
+            .cover-title {
+                color: #000 !important;
+            }
+
+            .cover-subtitle, .service-number, .service-title, .grid-col h4, .price-tag {
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating navigation for visitor -->
+    <div class="actions-bar">
+        <a href="asesorias.html" class="btn-action btn-secondary">← Volver a la Web</a>
+        <button onclick="window.print()" class="btn-action">Guardar como PDF / Imprimir</button>
+    </div>
+
+    <!-- Brochure Container -->
+    <div class="brochure-container">
+        
+        <!-- PAGE 1: PORTADA -->
+        <div class="page cover-page">
+            <div class="logo-area">LAURA BAILONE | MÉTODO LAB</div>
+            <h1 class="cover-title">Brochure de Servicios</h1>
+            <h3 class="cover-subtitle">Consultoría Estratégica Gastronómica</h3>
+            <p class="cover-intro">
+                Muchos negocios gastronómicos venden. Pocos logran crecer con claridad, rentabilidad y sostenibilidad real. En LAB transformamos proyectos gastronómicos en negocios más ordenados, rentables y sostenibles.
+            </p>
+            <div class="cover-footer">
+                contacto@laurabailone.com | www.laurabailone.com
+            </div>
+        </div>
+
+        <!-- PAGE 2: COSTOS Y MÉTRICAS FINANCIERAS -->
+        <div class="page">
+            <div>
+                <div class="page-header">
+                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
+                    <span class="header-title">SERVICIOS DE CONSULTORÍA</span>
+                </div>
+                
+                <div class="service-title-area">
+                    <div class="service-number">01</div>
+                    <h2 class="service-title">COSTOS Y MÉTRICAS FINANCIERAS</h2>
+                </div>
+
+                <p class="service-desc">
+                    Programa de asesoramiento diseñado para negocios gastronómicos que necesitan ordenar su operación, entender sus números y tomar decisiones más rentables y sostenibles. El objetivo es transformar la información diaria en herramientas concretas de gestión.
+                </p>
+
+                <div class="grid-sections">
+                    <div class="grid-col">
+                        <h4>¿Qué trabajamos?</h4>
+                        <ul class="list-items">
+                            <li>Plantilla de control de mermas</li>
+                            <li>Plantilla de Food Cost</li>
+                            <li>Fichas técnicas estandarizadas</li>
+                            <li>Control simple de stock</li>
+                            <li>Dashboard de rentabilidad</li>
+                            <li>Ingeniería de menú básica</li>
+                            <li>Sistema de alertas de costos</li>
+                            <li>Punto de equilibrio financiero</li>
+                        </ul>
+                    </div>
+                    <div class="grid-col">
+                        <h4>Resultados esperados</h4>
+                        <ul class="list-items">
+                            <li>Mayor claridad financiera</li>
+                            <li>Reducción de pérdidas y desperdicios</li>
+                            <li>Control operativo optimizado</li>
+                            <li>Aumento sostenible de la rentabilidad</li>
+                            <li>Estandarización de procesos</li>
+                            <li>Toma de decisiones con métricas reales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="format-box">
+                    <h5>Formato y Entregables:</h5>
+                    <p>Sesiones 1:1 de 90 minutos (online o presencial), plantillas de trabajo listas para usar con videos explicativos, soporte real por un mes y de regalo el Manual de Sistematización Consciente.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="price-tag">
+                    <span>Inversión del Servicio</span>
+                    USD 250
+                </div>
+                <div class="page-footer">
+                    <span>Pág. 2</span>
+                    <span>www.laurabailone.com</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3: INGENIERÍA DE MENÚ -->
+        <div class="page">
+            <div>
+                <div class="page-header">
+                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
+                    <span class="header-title">SERVICIOS DE CONSULTORÍA</span>
+                </div>
+                
+                <div class="service-title-area">
+                    <div class="service-number">02</div>
+                    <h2 class="service-title">INGENIERÍA DE MENÚ</h2>
+                </div>
+
+                <p class="service-desc">
+                    Un servicio de análisis y rediseño de menú pensado para negocios gastronómicos que desean optimizar su oferta, mejorar la rentabilidad y construir una experiencia más alineada con las nuevas necesidades del consumidor.
+                </p>
+
+                <div class="grid-sections">
+                    <div class="grid-col">
+                        <h4>¿Qué trabajamos?</h4>
+                        <ul class="list-items">
+                            <li>Análisis estratégico del menú</li>
+                            <li>Menu Engineering (Popularidad vs Rentabilidad)</li>
+                            <li>Costeo de platos y escandallos</li>
+                            <li>Reingeniería y optimización de la oferta</li>
+                            <li>Dashboard profesional de KPIs</li>
+                            <li>Desarrollo de menú inclusivo y consciente</li>
+                            <li>Capacitación en recetas inclusivas</li>
+                        </ul>
+                    </div>
+                    <div class="grid-col">
+                        <h4>Resultados esperados</h4>
+                        <ul class="list-items">
+                            <li>Menú más claro, estratégico y atractivo</li>
+                            <li>Mayor rentabilidad por plato</li>
+                            <li>Optimización de costos de producción</li>
+                            <li>Reducción de desperdicios y pérdidas</li>
+                            <li>Oferta moderna, inclusiva y diferenciada</li>
+                            <li>Carta diseñada para vender mejor y operar de forma eficiente</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="format-box">
+                    <h5>Formato y Entregables:</h5>
+                    <p>2 sesiones 1:1 de 90 minutos, templates listos para usar, talleres de capacitación inclusiva a elección (repostería sin azúcar, panes sin gluten, alimentación ayurvédica) con recetarios y documento PDF de Menu Engineering.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="price-tag">
+                    <span>Inversión del Servicio</span>
+                    USD 400
+                </div>
+                <div class="page-footer">
+                    <span>Pág. 3</span>
+                    <span>www.laurabailone.com</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 4: EXPERIENCIAS GASTRONÓMICAS -->
+        <div class="page">
+            <div>
+                <div class="page-header">
+                    <span class="header-brand">LAURA BAILONE | MÉTODO LAB</span>
+                    <span class="header-title">SERVICIOS DE CONSULTORÍA</span>
+                </div>
+                
+                <div class="service-title-area">
+                    <div class="service-number">03</div>
+                    <h2 class="service-title">EXPERIENCIAS GASTRONÓMICAS</h2>
+                </div>
+
+                <p class="service-desc">
+                    En LAB diseñamos propuestas gastronómicas donde cada detalle —desde el concepto de negocio hasta la experiencia del cliente— trabaja para diferenciar tu marca y elevar el valor percibido de tu propuesta gastronómica.
+                </p>
+
+                <div class="grid-sections">
+                    <div class="grid-col">
+                        <h4>¿Qué trabajamos?</h4>
+                        <ul class="list-items">
+                            <li>Identidad y propósito de marca</li>
+                            <li>Propuesta de valor única y diferencial</li>
+                            <li>Storytelling de ingredientes y productores</li>
+                            <li>Diseño de experiencias memorables</li>
+                            <li>Hospitalidad en cada punto de contacto</li>
+                            <li>Estrategias de fidelización de clientes</li>
+                        </ul>
+                    </div>
+                    <div class="grid-col">
+                        <h4>Resultados esperados</h4>
+                        <ul class="list-items">
+                            <li>Propuesta auténtica, diferenciada y coherente</li>
+                            <li>Marca gastronómica sólida</li>
+                            <li>Mayor valor percibido de la oferta</li>
+                            <li>Clientes más fidelizados y recurrentes</li>
+                            <li>Hospitalidad alineada con la marca</li>
+                            <li>Propuesta coherente en todos los puntos de contacto</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="format-box">
+                    <h5>Formato y Entregables:</h5>
+                    <p>Talleres interactivos con el equipo de gestión, auditoría de experiencia del cliente y documento metodológico de marca con recomendaciones prácticas para el área de hospitalidad.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="price-tag">
+                    <span>Inversión del Servicio</span>
+                    Consultar cotización
+                </div>
+                <div class="page-footer">
+                    <span>Pág. 4</span>
+                    <span>www.laurabailone.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

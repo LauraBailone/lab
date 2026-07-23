@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academia LAB | Cursos y capacitaciones descargables de cocina consciente y costos para emprendimientos gastronómicos.">
+    <title>LAB Gastronomy Advisory | Academia LAB</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .detail-page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10rem 5% 5rem;
+        }
+        .tool-detail-block {
+            margin-bottom: 8rem;
+            padding-bottom: 8rem;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .tool-detail-block:last-child {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: none;
+        }
+        .tool-header {
+            margin-bottom: 3rem;
+        }
+        .tool-title {
+            font-family: var(--fuente-h1-h2);
+            font-size: 3.2rem;
+            color: var(--color-texto-principal);
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+        }
+        .tool-subtitle {
+            font-family: var(--fuente-h3-h4);
+            font-size: 1.1rem;
+            color: var(--color-naranja-primario);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        .tool-description {
+            font-family: var(--fuente-cuerpo);
+            font-size: 1.2rem;
+            color: var(--color-texto-secundario);
+            line-height: 1.7;
+            font-weight: 300;
+            max-width: 800px;
+        }
+        .tool-info-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 0.8fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .info-col-title {
+            font-family: var(--fuente-h3-h4);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--color-texto-principal);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            border-bottom: 1.5px solid var(--color-naranja-primario);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .info-list li {
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.95rem;
+            color: var(--color-texto-secundario);
+            line-height: 1.5;
+            font-weight: 300;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .info-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--color-naranja-primario);
+            font-weight: 700;
+        }
+        .recibir-card {
+            background-color: var(--color-fondo-secundario);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .recibir-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .recibir-list li {
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.95rem;
+            color: var(--color-texto-secundario);
+            font-weight: 400;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .recibir-list li::before {
+            content: "📦";
+            position: absolute;
+            left: 0;
+        }
+        .tool-actions {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+        .tool-price-tag {
+            font-family: var(--fuente-h1-h2);
+            font-size: 2rem;
+            color: var(--color-naranja-primario);
+        }
+        @media (max-width: 992px) {
+            .tool-info-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .tool-title {
+                font-size: 2.5rem;
+            }
+            .tool-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (inyectado por app.js) -->
+    <header id="main-header"></header>
+
+    <div class="detail-page-container">
+        
+        <!-- PRODUCTO 1: RECETAS VEGANAS -->
+        <div class="tool-detail-block gsap-fade-up">
+            <div class="tool-header">
+                <span class="tool-subtitle">Recetario y Costos de Elaboraciones Veganas</span>
+                <h1 class="tool-title">RECETAS VEGANAS</h1>
+                <p class="tool-description">
+                    Recetas de elaboración simple y de tendencia con herramientas de control de costos y preparación paso a paso. Diseñado especialmente para cafeterías, restaurantes y emprendimientos que buscan ampliar su menú consciente, ofreciendo alternativas a base de plantas deliciosas y altamente rentables.
+                </p>
+            </div>
+            <div class="tool-info-grid">
+                <div>
+                    <span class="info-col-title">¿Qué obtenés?</span>
+                    <ul class="info-list">
+                        <li>Fichas técnicas listas con cantidades, mermas y procesos paso a paso.</li>
+                        <li>Control de costos de ingredientes para calcular el precio óptimo de venta.</li>
+                        <li>Herramientas para adaptar recetas tradicionales a propuestas plant-based atractivas.</li>
+                        <li>Propuestas de pastelería, panadería y platos simples salados sin ingredientes de origen animal.</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="info-col-title">¿Qué incluye?</span>
+                    <ul class="info-list">
+                        <li>Recetario completo en formato digital (PDF).</li>
+                        <li>Planilla interactiva de Excel para control y simulación de costos.</li>
+                        <li>Fichas técnicas estandarizadas.</li>
+                        <li>Tips de manipulación de insumos y conservación.</li>
+                    </ul>
+                </div>
+                <div class="recibir-card">
+                    <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
+                    <ul class="recibir-list">
+                        <li>Acceso inmediato al eBook de recetas (PDF).</li>
+                        <li>Planillas descargables.</li>
+                        <li>Video demostrativo de uso de las planillas.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tool-actions">
+                <span class="tool-price-tag">$12.000 ARS / u$s 20</span>
+                <button class="btn btn-add-to-cart" data-id="recetas-veganas" data-price-ars="12000" data-price-usd="20" data-title="RECETAS VEGANAS" data-subtitle="Recetario y Costos de Elaboraciones Veganas" data-image="assets/images/laura-bailone-consultoria-gastronomica.webp">AÑADIR AL CARRITO</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 2: DESSERTS SALUDABLES -->
+        <div class="tool-detail-block gsap-fade-up">
+            <div class="tool-header">
+                <span class="tool-subtitle">Recetario y Planillas para Cafeterías</span>
+                <h1 class="tool-title">DESSERTS SALUDABLES</h1>
+                <p class="tool-description">
+                    Recetarios paso a paso y tablas de costos pensadas para postres y cafeterías con paladares exigentes que valoran propuestas reducidas en azúcares refinados, opciones sin gluten y postres saludables de autor sin perder de vista la rentabilidad operativa del negocio.
+                </p>
+            </div>
+            <div class="tool-info-grid">
+                <div>
+                    <span class="info-col-title">¿Qué obtenés?</span>
+                    <ul class="info-list">
+                        <li>Pastelería sin azúcar refinado y adaptaciones sin gluten ricas y de tendencia.</li>
+                        <li>Sistematización de fichas de producción para el personal de cocina.</li>
+                        <li>Control de costos unitarios para maximizar el ticket promedio de cafetería.</li>
+                        <li>Estrategias de presentación que elevan el valor percibido del postre.</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="info-col-title">¿Qué incluye?</span>
+                    <ul class="info-list">
+                        <li>eBook interactivo con recetas exclusivas paso a paso.</li>
+                        <li>Planilla digital para cálculo y actualización de costos de ingredientes.</li>
+                        <li>Fichas de producción estandarizadas.</li>
+                        <li>Guía de reemplazos de endulzantes y harinas alternativas.</li>
+                    </ul>
+                </div>
+                <div class="recibir-card">
+                    <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
+                    <ul class="recibir-list">
+                        <li>Enlace de descarga del eBook de recetas (PDF).</li>
+                        <li>Planilla de Excel / Google Sheets de costos.</li>
+                        <li>Material de video complementario.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tool-actions">
+                <span class="tool-price-tag">$12.000 ARS / u$s 20</span>
+                <button class="btn btn-add-to-cart" data-id="desserts-saludables" data-price-ars="12000" data-price-usd="20" data-title="DESSERTS SALUDABLES" data-subtitle="Recetario y Planillas para Cafeterías" data-image="assets/images/laura-bailone-optimizacion-menu.webp">AÑADIR AL CARRITO</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Secciones de Productos y Servicios (Inyectado por app.js) -->
+    <div id="productos-secciones-globales"></div>
+
+    <!-- Footer (inyectado por app.js) -->
+    <footer id="main-footer"></footer>
+
+    <!-- GSAP & Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Set event listeners for local add to cart buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const btns = document.querySelectorAll('.detail-page-container .btn-add-to-cart');
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    const priceArs = parseInt(btn.getAttribute('data-price-ars'));
+                    const priceUsd = parseInt(btn.getAttribute('data-price-usd'));
+                    const title = btn.getAttribute('data-title');
+                    const subtitle = btn.getAttribute('data-subtitle');
+                    const image = btn.getAttribute('data-image');
+                    
+                    if (typeof addToCart === 'function') {
+                        addToCart({ id, priceArs, priceUsd, title, subtitle, image });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
