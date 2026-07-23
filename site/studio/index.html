@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"><meta content="noindex" name="robots"><meta content="same-origin" name="referrer"><link href="/studio/static/favicon.ico" rel="icon" sizes="any"><link href="/studio/static/favicon.svg" rel="icon" type="image/svg+xml"><link href="/studio/static/apple-touch-icon.png" rel="apple-touch-icon"><link href="/studio/static/manifest.webmanifest" rel="manifest"><title>Sanity Studio</title><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><meta content="noindex" name="robots"/><meta content="same-origin" name="referrer"/><link href="/studio/static/favicon.ico" rel="icon" sizes="any"/><link href="/studio/static/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/studio/static/apple-touch-icon.png" rel="apple-touch-icon"/><link href="/studio/static/manifest.webmanifest" rel="manifest"/><title>Sanity Studio</title><script>
 ;(function () {
   var _caughtErrors = []
 
@@ -165,7 +165,7 @@
     return true
   })
 })()
-</script><style>
+</script><link href="/studio/static/sanity-Dc-Pa-Tl.css" rel="stylesheet"/><link href="/studio/static/lib-B-V8kCtd.css" rel="stylesheet"/><style>
   @font-face {
     font-family: Inter;
     font-style: normal;
@@ -267,104 +267,8 @@
     margin: 0;
     -webkit-font-smoothing: antialiased;
   }
-</style><script type="application/json" id="__imports">{"imports":{"react-dom/client":"/vendor/react-dom/client-B2LyRlsH.mjs","react-dom":"/vendor/react-dom/index-6ENZ9LRZ.mjs","react-dom/package.json":"/vendor/react-dom/package.json-C6c3zOhY.mjs","react-dom/server":"/vendor/react-dom/server-mrSNJuPd.mjs","react-dom/server.browser":"/vendor/react-dom/server.browser-C2-YMCkQ.mjs","react-dom/static":"/vendor/react-dom/static-BXDRqv-z.mjs","react-dom/static.browser":"/vendor/react-dom/static.browser-ieVM4XwH.mjs","react/compiler-runtime":"/vendor/react/compiler-runtime-BVhb7TJd.mjs","react":"/vendor/react/index-j4TbzLnM.mjs","react/jsx-dev-runtime":"/vendor/react/jsx-dev-runtime-DE3tgJ9y.mjs","react/jsx-runtime":"/vendor/react/jsx-runtime-VMk0Qk41.mjs","react/package.json":"/vendor/react/package.json-BUqvnIw7.mjs","styled-components":"/vendor/styled-components/index-DPqiMhAO.mjs","styled-components/package.json":"/vendor/styled-components/package.json-D_Pq9WwQ.mjs","sanity":"https://sanity-cdn.com/v1/modules/sanity/default/%5E6.5.0/t1784819680","sanity/":"https://sanity-cdn.com/v1/modules/sanity/default/%5E6.5.0/t1784819680/","@sanity/vision":"https://sanity-cdn.com/v1/modules/@sanity__vision/default/%5E6.5.0/t1784819680","@sanity/vision/":"https://sanity-cdn.com/v1/modules/@sanity__vision/default/%5E6.5.0/t1784819680/"},"css":["https://sanity-cdn.com/v1/modules/sanity/default/%5E6.5.0/t1784819680/index.css","https://sanity-cdn.com/v1/modules/@sanity__vision/default/%5E6.5.0/t1784819680/index.css"]}</script><script>
-  // auto-generated script to add import map with timestamp
-  const importsJson = document.getElementById('__imports')?.textContent;
-  const { imports = {}, css = [], ...rest } = importsJson ? JSON.parse(importsJson) : {};
-  const importMapEl = document.createElement('script');
-  importMapEl.type = 'importmap';
-  const newTimestamp = `/t${Math.floor(Date.now() / 1000)}`;
-
-  function isSanityCdnHost(hostname) {
-    return /^sanity-cdn\.[a-zA-Z]+$/.test(hostname);
-  }
-
-  function isSanityCdnUrl(urlStr) {
-    try {
-      return isSanityCdnHost(new URL(urlStr).hostname);
-    } catch {
-      return false;
-    }
-  }
-
-  function replaceTimestamp(urlStr) {
-    try {
-      const url = new URL(urlStr);
-      if (isSanityCdnHost(url.hostname)) {
-        url.pathname = url.pathname.replace(/\/t\d+/, newTimestamp);
-      }
-      return url.toString();
-    } catch {
-      return urlStr;
-    }
-  }
-
-  importMapEl.textContent = JSON.stringify({
-    imports: Object.fromEntries(
-      Object.entries(imports).map(([specifier, path]) => [specifier, replaceTimestamp(path)])
-    ),
-    ...rest,
-  });
-  document.head.appendChild(importMapEl);
-
-  // Creates <link rel="stylesheet"> tags with fresh timestamps.
-  for (const cssUrl of css) {
-    const linkEl = document.createElement('link');
-    linkEl.rel = 'stylesheet';
-    linkEl.href = replaceTimestamp(cssUrl);
-    document.head.appendChild(linkEl);
-  }
-
-  // The CDN serves the `sanity` module via a cross-origin 302
-  // (sanity-cdn.com -> modules.sanity-cdn.com). WebKit mishandles a
-  // `modulepreload` that follows a cross-origin redirect: it forces the CORS
-  // credentials flag true even for `crossorigin="anonymous"`, then rejects the
-  // redirect because the CDN sends no `Access-Control-Allow-Credentials`,
-  // which blanks the studio. (This is why these hints were reverted; see
-  // PR #1400.)
-  //
-  // `preconnect` only warms a socket; it never follows the redirect or fetches
-  // the module, so it is safe in every engine and runs unconditionally.
-  const firstCdnImport = Object.values(imports).find(isSanityCdnUrl);
-
-  if (firstCdnImport) {
-    const preconnectEl = document.createElement('link');
-    preconnectEl.rel = 'preconnect';
-    preconnectEl.href = new URL(firstCdnImport).origin;
-    // Module fetches are CORS; without crossorigin the warmed socket is not reused.
-    preconnectEl.crossOrigin = 'anonymous';
-    document.head.appendChild(preconnectEl);
-  }
-
-  // `modulepreload` is the hint that follows the redirect and can blank the
-  // studio in WebKit, so it is gated behind a positive allowlist: it runs only
-  // for engines confirmed to handle the cross-origin redirect, i.e. Chromium or
-  // Gecko. Every Chromium variant (Edge, Opera, Samsung Internet, ...) carries
-  // the `Chrome` token, so matching `Chrom(e|ium)|Firefox` covers them without
-  // enumerating brands. The iOS device-name exclusion is the hard guard for the
-  // brick-prone platform: every iOS browser is WebKit regardless of brand, and
-  // iOS in-app webviews carry messy UAs, so nothing on an iOS device is ever
-  // treated as safe. Anything unrecognised falls through to no preload, costing
-  // a missed download rather than bricking the studio.
-  const userAgent = typeof navigator === 'undefined' ? '' : navigator.userAgent || '';
-  const isKnownSafeEngine =
-    !/\b(iPad|iPhone|iPod)\b/.test(userAgent) && /Chrom(e|ium)|Firefox/.test(userAgent);
-
-  // The href reuses replaceTimestamp so it matches the importmap entry exactly;
-  // a stale timestamp here would double-fetch the largest chunk.
-  const sanityModuleUrl = imports['sanity'];
-  if (isKnownSafeEngine && typeof sanityModuleUrl === 'string' && isSanityCdnUrl(sanityModuleUrl)) {
-    const preloadEl = document.createElement('link');
-    preloadEl.rel = 'modulepreload';
-    preloadEl.href = replaceTimestamp(sanityModuleUrl);
-    // Must match the preconnect's credentials mode, otherwise the browser
-    // treats them as separate connections and the warmed cross-origin socket
-    // is not reused for this fetch.
-    preloadEl.crossOrigin = 'anonymous';
-    document.head.appendChild(preloadEl);
-  }
-</script><script src="https://core.sanity-cdn.com/bridge.js" async type="module" data-sanity-core></script>
-</head><body><div id="sanity"></div><script src="/studio/static/sanity-KVohDU5b.js" type="module"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
+</style><script src="https://core.sanity-cdn.com/bridge.js" async type="module" data-sanity-core></script>
+</head><body><div id="sanity"></div><script src="/studio/static/sanity-BUDd0MaA.js" type="module"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
 .sanity-app-no-js__root {
   position: absolute;
   top: 0;
