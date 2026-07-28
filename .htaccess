@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# 1. Redireccionar /studio sin barra final a /studio/ para evitar que Apache exponga la carpeta física
+RewriteCond %{REQUEST_URI} ^/studio$
+RewriteRule ^(.*)$ /studio/ [R=301,L]
+
+# 2. Redirección silenciosa para cualquier dominio apuntado a la carpeta /LAB/site
+RewriteCond %{REQUEST_URI} !^/LAB/site/
+RewriteRule ^(.*)$ /LAB/site/$1 [L]

@@ -211,6 +211,32 @@ nav a:hover, nav a.active {
     margin: 0;
 }
 
+/* Ajustes específicos para el Hero de la Home (Index) y Detrás de LAB */
+#hero .hero-bg-text-top {
+    font-size: 7vw;
+}
+#hero .hero-bg-text-bottom {
+    font-size: 6vw;
+}
+.behind-lab-title {
+    font-size: 8vw !important;
+}
+
+@media (min-width: 769px) {
+    #hero .hero-bg-text-top {
+        font-size: 5.1vw !important;
+        white-space: nowrap !important;
+    }
+    #hero .hero-bg-text-bottom {
+        font-size: 4.3vw !important;
+        white-space: nowrap !important;
+    }
+    .behind-lab-title {
+        font-size: 7.2vw !important;
+        white-space: nowrap !important;
+    }
+}
+
 /* Floating lines for heros and blocks */
 .floating-line-hero {
     width: 70vw;
@@ -976,8 +1002,8 @@ nav a:hover, nav a.active {
 
 .bio-description {
     font-family: var(--fuente-cuerpo);
-    font-size: 0.95rem;
-    line-height: 1.55; /* Reduced line-height from 1.7 */
+    font-size: 1.05rem;
+    line-height: 1.6;
     color: var(--color-texto-secundario);
 }
 

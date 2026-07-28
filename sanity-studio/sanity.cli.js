@@ -5,11 +5,12 @@ export default defineCliConfig({
     projectId: 'v487s9li',
     dataset: 'production'
   },
+  studioHost: 'labgastronomy',
   deployment: {
-    /**
-     * Enable auto-updates for studios.
-     * Learn more at https://www.sanity.io/docs/studio/latest-version-of-sanity#k47faf43faf56
-     */
-    autoUpdates: true,
+    autoUpdates: false,
   },
+  vite: (config) => {
+    config.base = ''
+    return config
+  }
 })

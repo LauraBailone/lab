@@ -548,7 +548,6 @@ function renderLanding(cfg) {
                 <div class="floating-line-hero"></div>
                 <div class="hero-image-center">
                     <img src="${cfg.imagenes.hero_bg}" alt="Laura Bailone" style="object-position: center bottom;">
-                    <div class="hero-script-over">${d.hero.script}</div>
                 </div>
                 <div class="floating-line-hero"></div>
                 <div class="hero-bg-text-bottom">${d.hero.titulo_abajo}</div>
@@ -569,7 +568,7 @@ function renderLanding(cfg) {
                 </div>
                 <div class="presentacion-imagen gsap-fade-up">
                     <div class="circular-frame">
-                        <img src="assets/images/laura-bailone-blog-7.webp" alt="Laura Bailone">
+                        <img src="${cfg.imagenes.metodo_preview}" alt="Laura Bailone">
                     </div>
                 </div>
             </div>

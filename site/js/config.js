@@ -15,7 +15,7 @@ const SITE_CONFIG = {
         "logo_navbar": "assets/logo/logo-lab.svg", // Configurable
         "logo_footer": "assets/logo/logo-lab.svg", // Configurable
         "hero_bg": "assets/images/laura-bailone-blog-1.webp",
-        "metodo_preview": "assets/images/laura-bailone-metodo-lab.webp",
+        "metodo_preview": "assets/images/presentando-lab.webp",
         "servicios_img_1": "assets/images/laura-bailone-consultoria-gastronomica.webp",
         "servicios_img_2": "assets/images/laura-bailone-optimizacion-menu.webp",
         "servicios_img_3": "assets/images/laura-bailone-experiencias-gastronomicas.webp",
@@ -28,7 +28,7 @@ const SITE_CONFIG = {
         "metodo_hero": "assets/images/laura-bailone-metodo-lab.webp",
         "gastronomy_plan": "assets/images/laura-bailone-rentabilidad-gastronomica.webp",
         "hospitality_plan": "assets/images/laura-bailone-hospitalidad-consciente.webp",
-        "asesorias_hero": "assets/images/laura-bailone-consultoria-gastronomica.webp"
+        "asesorias_hero": "assets/images/asesorando.webp"
     },
 
     // === TEMAS (8 OPCIONES: 4 CÁLIDOS, 4 FRÍOS) ===
@@ -160,7 +160,7 @@ const SITE_CONFIG = {
         { "nombre": "INICIO", "url": "index.html" },
         { "nombre": "ASESORÍAS", "url": "asesorias.html" },
         { "nombre": "MÉTODO LAB", "url": "metodo-lab.html" },
-        { "nombre": "QUIÉN SOY", "url": "quien-soy.html" },
+        { "nombre": "DETRÁS DE LAB", "url": "quien-soy.html" },
         { "nombre": "BLOG", "url": "blog.html" }
     ],
 
@@ -171,9 +171,9 @@ const SITE_CONFIG = {
     },
 
     "quien_soy": {
-        "titulo": "Quién Soy",
+        "titulo": "DETRÁS DE LAB",
         "descripcion": "Soy Laura Bailone, directora de LAB Consultoría Gastronómica. Trabajo con cafeterías y espacios gastronómicos que buscan optimizar su rentabilidad, profesionalizar su gestión y fortalecer su posicionamiento. Mi enfoque integra análisis financiero y de gestion, optimización de menú, curaduría de proveedores y desarrollo de identidad culinaria, con una mirada estratégica y sostenible. Comenzamos siempre con un diagnóstico inicial, que nos permite detectar oportunidades concretas y definir un plan de acción a medida, escalable y alineado a los objetivos del negocio.",
-        "instagram_cta": "Sigueme en Instagram para conocer más!"
+        "instagram_cta": "Descubrí más sobre LAB en Instagram"
     },
 
     "footer": {
@@ -193,7 +193,7 @@ const SITE_CONFIG = {
             ]
         },
         "columna_3": {
-            "titulo": "QUIÉN SOY",
+            "titulo": "DETRÁS DE LAB",
             "links": [
                 { "texto": "Mi Historia", "url": "#quien-soy" },
                 { "texto": "Contacto", "url": "#" }
@@ -207,9 +207,9 @@ const SITE_CONFIG = {
     // === TEXTOS LANDING PAGE ===
     "landing": {
         "hero": {
-            "titulo_arriba": "GASTRONOMÍA",
-            "titulo_abajo": "ESTRATÉGICA",
-            "script": "Gastronomy Advisory",
+            "titulo_arriba": "LAB Gastronomy Consulting",
+            "titulo_abajo": "Gastronomía estratégica",
+            "script": "",
             "cita": "\"Transformamos proyectos gastronómicos en negocios más ordenados, rentables y sostenibles.\"",
             "boton": "SOLICITÁ TU DIAGNÓSTICO ESTRATÉGICO GRATUITO"
         },
