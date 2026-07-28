@@ -10,7 +10,7 @@ export default defineCliConfig({
     autoUpdates: false,
   },
   vite: (config) => {
-    config.base = ''
+    config.base = '/studio/'
     return config
   }
 })
