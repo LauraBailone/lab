@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // === META PIXEL ===
     const META_PIXEL_ID = '4495071064037883';
     !function(f,b,e,v,n,t,s)
@@ -26,7 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("SITE_CONFIG no está definido.");
         return;
     }
-    const cfg = SITE_CONFIG;
+    let cfg = SITE_CONFIG;
+    let sanityData = null;
+
+    // Intentar consultar datos desde la API de Sanity CDN
+    try {
+        const response = await fetch('https://v487s9li.apicdn.sanity.io/v2021-10-21/data/query/production?query=*[_type == "siteSettings"][0]');
+        const result = await response.json();
+        if (result && result.result) {
+            sanityData = result.result;
+            mapSanityDataToConfig(cfg, sanityData);
+        }
+    } catch (error) {
+        console.warn("No se pudo conectar con Sanity API (usando configuración local de config.js):", error);
+    }
 
     // Register GSAP ScrollTrigger if available
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -44,10 +57,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (page === "" || page === "index.html") {
         renderLanding(cfg);
+        if (sanityData) {
+            // Aplicar hotspot a la imagen del hero de la home si existe
+            const heroImg = document.querySelector('#hero img');
+            if (heroImg && sanityData.heroImagen) {
+                applySanityHotspot(heroImg, sanityData.heroImagen);
+            }
+            // Aplicar hotspot a la imagen de presentación del método
+            const previewImg = document.querySelector('.metodo-preview-editorial img, .metodo-preview img');
+            if (previewImg && sanityData.metodoPreviewImagen) {
+                applySanityHotspot(previewImg, sanityData.metodoPreviewImagen);
+            }
+        }
     } else if (page === "metodo-lab.html") {
         renderMetodoLab(cfg);
+        if (sanityData) {
+            // Aplicar hero del método
+            const heroTitle = document.querySelector('.hero-editorial .hero-bg-text-bottom');
+            if (heroTitle && sanityData.metodoTituloHero) heroTitle.innerText = sanityData.metodoTituloHero;
+
+            const heroImg = document.querySelector('.hero-editorial img');
+            if (heroImg && sanityData.metodoImagenHero) {
+                const url = getSanityImageUrl(sanityData.metodoImagenHero);
+                if (url) {
+                    heroImg.src = url;
+                    applySanityHotspot(heroImg, sanityData.metodoImagenHero);
+                }
+            }
+        }
     } else if (page === "asesorias.html") {
         renderAsesorias(cfg);
+        if (sanityData) {
+            renderAsesoriasPage(cfg, sanityData);
+        }
+    } else if (page === "quien-soy.html") {
+        if (sanityData) {
+            renderBioFromSanity(sanityData);
+        }
     }
 
     initAccordions();
@@ -971,4 +1017,244 @@ function injectProductBlocks(cfg) {
             addToCart({ id, priceArs, priceUsd, title, subtitle, image });
         });
     });
+}
+
+// === INTEGRACIÓN DE SANITY HELPER FUNCTIONS ===
+
+function getSanityImageUrl(imageObj) {
+    if (!imageObj || !imageObj.asset || !imageObj.asset._ref) return null;
+    const ref = imageObj.asset._ref;
+    const parts = ref.split('-');
+    if (parts.length < 4) return null;
+    const id = parts[1];
+    const dimensions = parts[2];
+    const extension = parts[3];
+    return `https://cdn.sanity.io/images/v487s9li/production/${id}-${dimensions}.${extension}`;
+}
+
+function getSanityFileUrl(fileObj) {
+    if (!fileObj || !fileObj.asset || !fileObj.asset._ref) return null;
+    const ref = fileObj.asset._ref;
+    const parts = ref.split('-');
+    if (parts.length < 3) return null;
+    const id = parts[1];
+    const extension = parts[2];
+    return `https://cdn.sanity.io/files/v487s9li/production/${id}.${extension}`;
+}
+
+function applySanityHotspot(imgElement, imageObj) {
+    if (imgElement && imageObj && imageObj.hotspot) {
+        const { x, y } = imageObj.hotspot;
+        imgElement.style.objectPosition = `${x * 100}% ${y * 100}%`;
+    }
+}
+
+function mapSanityDataToConfig(cfg, data) {
+    if (!data) return;
+
+    // Pestaña 1: General & Redes
+    if (data.whatsappLink) cfg.enlaces.whatsapp = data.whatsappLink;
+    if (data.instagramLink) cfg.enlaces.instagram = data.instagramLink;
+    if (data.facebookLink) cfg.enlaces.facebook = data.facebookLink;
+    if (data.contactoCta) cfg.contacto_cta = data.contactoCta;
+    if (data.copyright) cfg.footer.copyright = data.copyright;
+    if (data.logoFooter) {
+        const logoUrl = getSanityImageUrl(data.logoFooter);
+        if (logoUrl) cfg.imagenes.logo_footer = logoUrl;
+    }
+
+    // Pestaña 2: Home (Inicio)
+    if (data.heroTituloTop) cfg.landing.hero.titulo_arriba = data.heroTituloTop;
+    if (data.heroTituloBottom) cfg.landing.hero.titulo_abajo = data.heroTituloBottom;
+    if (data.heroImagen) {
+        const bgUrl = getSanityImageUrl(data.heroImagen);
+        if (bgUrl) cfg.imagenes.hero_bg = bgUrl;
+    }
+    if (data.metodoPreviewTexto) cfg.landing.metodo_preview.descripcion = data.metodoPreviewTexto;
+    if (data.metodoPreviewImagen) {
+        const previewUrl = getSanityImageUrl(data.metodoPreviewImagen);
+        if (previewUrl) cfg.imagenes.metodo_preview = previewUrl;
+    }
+
+    // Pestaña 4: Asesorías (Brochure PDF override)
+    if (data.brochureAsesoriasFile) {
+        const pdfUrl = getSanityFileUrl(data.brochureAsesoriasFile);
+        if (pdfUrl) {
+            cfg.enlaces.brochure_gastronomy = pdfUrl;
+            cfg.enlaces.brochure_hospitality = pdfUrl;
+        }
+    }
+
+    // Pestaña 5: Método LAB (Fases del método & Brochure PDF override)
+    if (data.metodoDetallesGastronomy) cfg.metodo_lab.plan_gastronomy.descripcion = data.metodoDetallesGastronomy;
+    if (data.metodoDetallesHospitality) cfg.metodo_lab.plan_hospitality.descripcion = data.metodoDetallesHospitality;
+    if (data.fasesGastronomy && data.fasesGastronomy.length > 0) {
+        cfg.metodo_lab.plan_gastronomy.que_trabajamos = data.fasesGastronomy;
+    }
+    if (data.fasesHospitality && data.fasesHospitality.length > 0) {
+        cfg.metodo_lab.plan_hospitality.que_trabajamos = data.fasesHospitality;
+    }
+    if (data.brochureMetodoFile) {
+        const pdfUrl = getSanityFileUrl(data.brochureMetodoFile);
+        if (pdfUrl) {
+            cfg.enlaces.brochure_gastronomy = pdfUrl;
+            cfg.enlaces.brochure_hospitality = pdfUrl;
+        }
+    }
+
+    // Pestaña 6: Herramientas (Detalle de planillas)
+    if (data.herramientasLista && data.herramientasLista.length > 0) {
+        cfg.herramientas = data.herramientasLista.map(item => {
+            const imgUrl = getSanityImageUrl(item.imagen);
+            return {
+                titulo: item.titulo,
+                subtitulo: item.subtitulo,
+                resumen: item.resumen,
+                imagen: imgUrl || 'assets/images/laura-bailone-rentabilidad-gastronomica.webp'
+            };
+        });
+    }
+}
+
+function renderBioFromSanity(data) {
+    if (!data) return;
+
+    // Título de la página
+    const titleHero = document.querySelector('.behind-lab-title');
+    if (titleHero && data.bioTituloHero) titleHero.innerText = data.bioTituloHero;
+
+    // Intro
+    const intro = document.getElementById('bio-intro');
+    if (intro && data.bioIntro) intro.innerText = data.bioIntro;
+
+    // Bloque 1 (Suiza)
+    if (data.bloque1) {
+        const title1 = document.getElementById('bio-title-1');
+        if (title1 && data.bloque1.titulo) title1.innerText = data.bloque1.titulo;
+
+        const desc1 = document.getElementById('bio-desc-1');
+        if (desc1 && data.bloque1.descripcion) desc1.innerText = data.bloque1.descripcion;
+
+        const img1 = document.getElementById('bio-img-1');
+        if (img1 && data.bloque1.imagen) {
+            const url = getSanityImageUrl(data.bloque1.imagen);
+            if (url) {
+                img1.src = url;
+                applySanityHotspot(img1, data.bloque1.imagen);
+            }
+        }
+    }
+
+    // Bloque 2 (Wellness)
+    if (data.bloque2) {
+        const title2 = document.getElementById('bio-title-2');
+        if (title2 && data.bloque2.titulo) title2.innerText = data.bloque2.titulo;
+
+        const desc2 = document.getElementById('bio-desc-2');
+        if (desc2 && data.bloque2.descripcion) desc2.innerText = data.bloque2.descripcion;
+
+        const img2 = document.getElementById('bio-img-2');
+        if (img2 && data.bloque2.imagen) {
+            const url = getSanityImageUrl(data.bloque2.imagen);
+            if (url) {
+                img2.src = url;
+                applySanityHotspot(img2, data.bloque2.imagen);
+            }
+        }
+    }
+
+    // Bloque 3 (Costa Rica)
+    if (data.bloque3) {
+        const title3 = document.getElementById('bio-title-3');
+        if (title3 && data.bloque3.titulo) title3.innerText = data.bloque3.titulo;
+
+        const desc3 = document.getElementById('bio-desc-3');
+        if (desc3 && data.bloque3.descripcion) desc3.innerText = data.bloque3.descripcion;
+
+        const img3 = document.getElementById('bio-img-3');
+        if (img3 && data.bloque3.imagen) {
+            const url = getSanityImageUrl(data.bloque3.imagen);
+            if (url) {
+                img3.src = url;
+                applySanityHotspot(img3, data.bloque3.imagen);
+            }
+        }
+    }
+
+    // Destacado final
+    const finalDest = document.getElementById('bio-destacado-final');
+    if (finalDest && data.bioDestacadoFinal) finalDest.innerText = data.bioDestacadoFinal;
+}
+
+function renderAsesoriasPage(cfg, data) {
+    if (!data) return;
+
+    // Título e imagen del hero de Asesorías
+    const titleHero = document.querySelector('.hero-editorial .hero-bg-text-bottom');
+    if (titleHero && data.asesoriasTituloHero) titleHero.innerText = data.asesoriasTituloHero;
+
+    const imgHero = document.querySelector('.hero-editorial img');
+    if (imgHero && data.asesoriasImagenHero) {
+        const url = getSanityImageUrl(data.asesoriasImagenHero);
+        if (url) {
+            imgHero.src = url;
+            applySanityHotspot(imgHero, data.asesoriasImagenHero);
+        }
+    }
+
+    // Intro
+    const introSub = document.querySelector('.asesorias-intro-section .intro-heading-light');
+    if (introSub && data.asesoriasIntroSubtitulo) introSub.innerText = data.asesoriasIntroSubtitulo;
+
+    const introTitle = document.querySelector('.asesorias-intro-section .intro-heading-bold');
+    if (introTitle && data.asesoriasIntroTitulo) introTitle.innerText = data.asesoriasIntroTitulo;
+
+    // Listado de servicios dinámicos
+    const wrapper = document.querySelector('.consultancies-timeline-wrapper');
+    if (wrapper && data.asesoriasServicios && data.asesoriasServicios.length > 0) {
+        wrapper.innerHTML = data.asesoriasServicios.map((srv) => {
+            const paraItems = srv.para ? srv.para.split('\n').filter(i => i.trim() !== '') : [];
+            const resItems = srv.resultados ? srv.resultados.split('\n').filter(i => i.trim() !== '') : [];
+            return `
+                <div class="consultancy-grid gsap-fade-up">
+                    <!-- Columna Izquierda -->
+                    <div class="consultancy-left-col">
+                        <span class="consultancy-subtitle">${srv.subtitulo || ''}</span>
+                        <h2 class="consultancy-title">${srv.titulo || ''}</h2>
+                        <p class="consultancy-desc">
+                            ${srv.descripcion || ''}
+                        </p>
+                        ${paraItems.length > 0 ? `
+                        <div class="consultancy-para-area">
+                            <h4 class="list-title">PARA:</h4>
+                            <ul class="consultancy-list">
+                                ${paraItems.map(i => `<li>${i}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+                        <div class="consultancy-cta-wrapper">
+                            <a href="${cfg.enlaces.whatsapp}" target="_blank" class="btn">${cfg.contacto_cta || 'INICIA CON UNA REUNIÓN DIAGNÓSTICO GRATUITA'}</a>
+                            <a href="${cfg.enlaces.brochure_gastronomy || 'brochure-asesorias.html'}" target="_blank" class="btn-brochure">BROCHURE</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Columna Derecha -->
+                    <div class="consultancy-right-col">
+                        ${resItems.length > 0 ? `
+                        <h4 class="list-title">RESULTADOS:</h4>
+                        <ul class="consultancy-list">
+                            ${resItems.map(i => `<li>${i}</li>`).join('')}
+                        </ul>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Texto de inversión
+    const inversionEl = document.querySelector('.inversion-servicio-box p');
+    if (inversionEl && data.inversionTexto) {
+        inversionEl.innerText = data.inversionTexto;
+    }
 }
