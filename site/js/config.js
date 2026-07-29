@@ -159,7 +159,14 @@ const SITE_CONFIG = {
     "navegacion": [
         { "nombre": "INICIO", "url": "index.html" },
         { "nombre": "ASESORÍAS", "url": "asesorias.html" },
-        { "nombre": "MÉTODO LAB", "url": "metodo-lab.html" },
+        { 
+            "nombre": "PRODUCTOS", 
+            "url": "#",
+            "submenu": [
+                { "nombre": "MÉTODO LAB", "url": "metodo-lab.html" },
+                { "nombre": "HERRAMIENTAS DE GESTIÓN LAB", "url": "herramientas-gestion.html" }
+            ]
+        },
         { "nombre": "DETRÁS DE LAB", "url": "quien-soy.html" },
         { "nombre": "BLOG", "url": "blog.html" }
     ],

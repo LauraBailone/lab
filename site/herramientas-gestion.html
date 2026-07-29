@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Herramientas de Gestión LAB | Planillas profesionales para control de costos, inventarios y finanzas gastronómicas.">
-    <title>LAB Gastronomy Advisory | Herramientas de Gestión</title>
+    <title>Herramientas de Gestión LAB™ | Plantillas para Gastronomía</title>
+    <meta name="description" content="Sistemas profesionales en Google Sheets para el control financiero, control de stock e ingeniería de menús en cafeterías, restaurantes y hoteles boutique.">
     <link rel="stylesheet" href="css/index.css">
     <style>
-        /* FONDO UNIFORME EN TODA LA PÁGINA */
-        body, html {
-            background-color: var(--color-fondo-general) !important;
-        }
-
-        /* GRILLA DE TARJETAS DE PLANILLAS (4 EN UNA LÍNEA EN DESKTOP) */
+        /* ESTILOS ESPECÍFICOS PARA LA GRILLA DE HERRAMIENTAS Y CARDS */
         .tools-grid-section {
-            padding: 2rem 5% 6rem;
-            background-color: var(--color-fondo-general);
+            padding: 2rem 5% 5rem;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
         .tools-grid-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
@@ -29,25 +23,27 @@
         .tool-card {
             background-color: var(--color-blanco);
             border-radius: 12px;
-            padding: 1.8rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.04);
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .tool-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
 
         .tool-card-img {
+            height: 180px;
             width: 100%;
-            height: 150px;
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 1.2rem;
+            background-color: var(--color-fondo-secundario);
         }
 
         .tool-card-img img {
@@ -58,44 +54,45 @@
 
         .tool-card-category {
             font-family: var(--fuente-h3-h4);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            font-size: 0.75rem;
             color: var(--color-naranja-primario);
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 0.6rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
         }
 
         .tool-card-title {
             font-family: var(--fuente-h1-h2);
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: var(--color-texto-principal);
-            margin: 0 0 0.6rem 0;
+            margin: 0 0 0.8rem 0;
             line-height: 1.2;
         }
 
         .tool-card-desc {
             font-family: var(--fuente-cuerpo);
-            font-size: 0.88rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
             color: var(--color-texto-secundario);
+            line-height: 1.5;
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            font-weight: 300;
         }
 
         .tool-card-footer {
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            padding-top: 1.2rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            gap: 0.8rem;
         }
 
         .tool-card-price {
-            font-family: var(--fuente-h1-h2);
-            font-size: 1.2rem;
-            color: var(--color-naranja-primario);
-            font-weight: 500;
+            font-family: var(--fuente-h3-h4);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-texto-principal);
         }
 
         .tool-card-actions {
@@ -103,11 +100,11 @@
             gap: 0.5rem;
         }
 
-        /* TARJETAS DE ESPECIFICACIÓN DETALLADA (ENCAPSULADAS) */
+        /* TARJETAS DE ESPECIFICACIÓN DETALLADA */
         .detail-page-container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 5% 8rem;
+            padding: 2rem 5% 6rem;
         }
 
         .tool-spec-card {
@@ -120,17 +117,13 @@
             scroll-margin-top: 8rem;
         }
 
-        .tool-spec-card:last-child {
-            margin-bottom: 0;
-        }
-
         .tool-header {
             margin-bottom: 2.5rem;
         }
 
         .tool-title {
             font-family: var(--fuente-h1-h2);
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--color-texto-principal);
             margin: 0 0 0.5rem 0;
             text-transform: uppercase;
@@ -153,10 +146,9 @@
             color: var(--color-texto-secundario);
             line-height: 1.65;
             font-weight: 300;
-            max-width: 800px;
+            max-width: 850px;
         }
 
-        /* CONTENEDOR MULTI-IMAGEN / GALERÍA DE PREVIEWS FUTURAS */
         .tool-gallery-placeholder {
             margin-top: 2rem;
             margin-bottom: 3rem;
@@ -249,52 +241,188 @@
             font-family: var(--fuente-cuerpo);
             font-size: 0.92rem;
             color: var(--color-texto-secundario);
-            font-weight: 400;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .recibir-list li::before {
-            content: "📦";
-            position: absolute;
-            left: 0;
+            line-height: 1.5;
+            font-weight: 300;
         }
 
         .tool-actions {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 3.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0,0,0,0.06);
         }
 
         .tool-price-tag {
             font-family: var(--fuente-h1-h2);
-            font-size: 1.8rem;
+            font-size: 2rem;
+            color: var(--color-texto-principal);
+        }
+
+        /* SECCIÓN COMBOS */
+        .combos-section {
+            background-color: var(--color-fondo-secundario);
+            padding: 6rem 5%;
+            margin: 4rem 0;
+        }
+
+        .combos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .combos-title-area {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .combos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .combo-card {
+            background-color: var(--color-blanco);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 2px solid var(--color-naranja-claro);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .combo-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background-color: var(--color-naranja-primario);
+            color: #fff;
+            font-family: var(--fuente-h3-h4);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .combo-title {
+            font-family: var(--fuente-h1-h2);
+            font-size: 1.6rem;
+            color: var(--color-texto-principal);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .combo-desc {
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.95rem;
+            color: var(--color-texto-secundario);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .combo-price-area {
+            margin-bottom: 1.5rem;
+        }
+
+        .combo-price {
+            font-family: var(--fuente-h1-h2);
+            font-size: 2.2rem;
+            color: var(--color-texto-principal);
+            font-weight: 700;
+        }
+
+        .combo-savings {
+            font-family: var(--fuente-h3-h4);
+            color: var(--color-naranja-primario);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+
+        /* SECCIÓN FAQS (ACORDEÓN) */
+        .faqs-section {
+            max-width: 900px;
+            margin: 6rem auto;
+            padding: 0 5%;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 1rem;
+        }
+
+        .accordion-header {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 1.5rem 0;
+            font-family: var(--fuente-h3-h4);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-texto-principal);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .accordion-header:hover {
             color: var(--color-naranja-primario);
         }
 
-        @media (max-width: 992px) {
-            .hero-text-title {
-                font-size: 3rem;
-            }
+        .accordion-header::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--color-naranja-primario);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .accordion-content p {
+            font-family: var(--fuente-cuerpo);
+            font-size: 1rem;
+            color: var(--color-texto-secundario);
+            line-height: 1.65;
+            padding-bottom: 1.5rem;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
             .tools-grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .combos-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .tool-spec-card {
-                padding: 2rem;
-            }
-            .tool-gallery-placeholder {
-                grid-template-columns: 1fr;
-            }
-            .sub-gallery-img {
-                display: none;
             }
             .tool-info-grid {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tools-grid-container {
+                grid-template-columns: 1fr;
+            }
+            .tool-spec-card {
+                padding: 2rem 1.5rem;
             }
             .tool-actions {
                 flex-direction: column;
@@ -309,106 +437,100 @@
     <!-- Header (inyectado por app.js) -->
     <header id="main-header"></header>
 
-    <!-- HERO EDITORIAL (ESTÁNDAR DEL SITIO: LETRAS GIGANTES Y LÍNEA FLOTANTE) -->
+    <!-- HERO EDITORIAL -->
     <section class="hero-editorial" style="background-color: var(--color-fondo-general); min-height: auto; padding: 14rem 5% 4rem; width: 100%;">
         <div class="hero-premium-container gsap-fade-up" style="max-width: 1200px;">
-            <!-- Título Gigante Textura -->
-            <div class="hero-bg-text-top" style="font-size: 10vw; color: var(--color-naranja-claro); line-height: 0.85;">PLANILLAS</div>
-            
-            <!-- Línea Divisora Flotante -->
+            <div class="hero-bg-text-top" style="font-size: 10vw; color: var(--color-naranja-claro); line-height: 0.85;">HERRAMIENTAS</div>
             <div class="floating-line-hero" style="margin: 1.5rem auto;"></div>
-            
-            <!-- Título Gigante Inferior -->
             <div class="hero-bg-text-bottom" style="font-size: 10vw; color: var(--color-naranja-claro); line-height: 0.85; margin-bottom: 3rem;">DE GESTIÓN</div>
             
-            <!-- Bloque de lectura centrado -->
             <div style="max-width: 850px; text-align: center; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
                 <h3 style="font-family: var(--fuente-h3-h4); font-size: 1.15rem; font-weight: 600; color: var(--color-texto-principal); letter-spacing: 0.15em; text-transform: uppercase; margin: 0;">
-                    Planillas profesionales para gestión gastronómica
+                    Gestioná tu restaurante con datos, no con intuición
                 </h3>
                 <p style="font-family: var(--fuente-cuerpo); font-size: 1.25rem; line-height: 1.6; color: var(--color-texto-secundario); font-weight: 300; margin: 0;">
-                    Control financiero, control de stock e ingeniería de menús optimizados para tomar mejores decisiones.
+                    Cuatro herramientas profesionales en Google Sheets, diseñadas desde la experiencia contable y gastronómica, para tomar decisiones con números reales.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- GRILLA DE CARDS DE PLANILLAS (4 EN UNA LÍNEA) -->
+    <!-- GRILLA DE CARDS DE PLANILLAS (4 HERRAMIENTAS) -->
     <section class="tools-grid-section">
         <div class="tools-grid-container gsap-stagger-container">
             
-            <!-- Card 1: LAB COST & MENU -->
+            <!-- Card 1: LAB COST & MENU V-1.0 -->
             <div class="tool-card gsap-stagger-item">
                 <div class="tool-card-img">
-                    <img src="assets/images/laura-bailone-optimizacion-menu.webp" alt="LAB COST & MENU™">
+                    <img src="assets/images/laura-bailone-optimizacion-menu.webp" alt="LAB Cost & Ingeniería de Menú V-1.0">
                 </div>
-                <span class="tool-card-category">Ingeniería de Menú y Rentabilidad</span>
-                <h3 class="tool-card-title">LAB COST & MENU™</h3>
+                <span class="tool-card-category">Ingeniería de Menú - Nivel Base</span>
+                <h3 class="tool-card-title">LAB Cost & Ingeniería de Menú V-1.0</h3>
                 <p class="tool-card-desc">
-                    Calculá el costo real de tus recetas, estandarizá con fichas técnicas y analizá tus platos.
+                    Calculá el costo exacto de tus recetas, tu Margen de Contribución y clasificá tu menú en Estrellas, Caballos, Rompecabezas y Perros.
                 </p>
                 <div class="tool-card-footer">
-                    <span class="tool-card-price">$15.000 ARS / u$s 25</span>
+                    <span class="tool-card-price">$40.000 ARS</span>
                     <div class="tool-card-actions">
-                        <a href="#lab-cost-menu" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">DETALLES</a>
-                        <button class="btn btn-add-to-cart" data-id="lab-cost-menu" data-price-ars="15000" data-price-usd="25" data-title="LAB COST & MENU™" data-subtitle="Ingeniería de Menú y Rentabilidad" data-image="assets/images/laura-bailone-optimizacion-menu.webp" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">COMPRAR</button>
+                        <a href="#lab-cost-menu" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem;">DETALLES</a>
+                        <button class="btn btn-add-to-cart" data-id="lab-cost-menu" data-price-ars="40000" data-price-usd="45" data-title="LAB Cost & Ingeniería de Menú V-1.0" data-subtitle="Nivel Base" data-image="assets/images/laura-bailone-optimizacion-menu.webp" style="padding: 0.6rem 1rem; font-size: 0.72rem;">COMPRAR</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 2: LAB STOCK -->
+            <!-- Card 2: LAB LEY DE OMNES V-1.1 -->
             <div class="tool-card gsap-stagger-item">
                 <div class="tool-card-img">
-                    <img src="assets/images/laura-bailone-stock.webp" alt="LAB STOCK™" style="object-position: center bottom;">
+                    <img src="assets/images/laura-bailone-consultoria-gastronomica.webp" alt="LAB Ley de Omnes & Ingeniería V-1.1">
                 </div>
-                <span class="tool-card-category">Inventarios y Stock</span>
-                <h3 class="tool-card-title">LAB STOCK™</h3>
+                <span class="tool-card-category">Ingeniería de Menú - Nivel Avanzado</span>
+                <h3 class="tool-card-title">LAB Ley de Omnes & Ingeniería V-1.1</h3>
                 <p class="tool-card-desc">
-                    Controlá inventario en tiempo real, registrá mermas y alertas automáticas de mínimos.
+                    Incluye todo lo anterior más el análisis de precios con Ley de Omnes, dispersión de precios y amplitud de gama de toda la carta.
                 </p>
                 <div class="tool-card-footer">
-                    <span class="tool-card-price">$15.000 ARS / u$s 25</span>
+                    <span class="tool-card-price">$50.000 ARS</span>
                     <div class="tool-card-actions">
-                        <a href="#lab-stock" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">DETALLES</a>
-                        <button class="btn btn-add-to-cart" data-id="lab-stock" data-price-ars="15000" data-price-usd="25" data-title="LAB STOCK™" data-subtitle="Sistema de Gestión de Inventarios y Control de Stock" data-image="assets/images/laura-bailone-stock.webp" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">COMPRAR</button>
+                        <a href="#lab-ley-omnes" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem;">DETALLES</a>
+                        <button class="btn btn-add-to-cart" data-id="lab-ley-omnes" data-price-ars="50000" data-price-usd="55" data-title="LAB Ley de Omnes & Ingeniería V-1.1" data-subtitle="Nivel Avanzado" data-image="assets/images/laura-bailone-consultoria-gastronomica.webp" style="padding: 0.6rem 1rem; font-size: 0.72rem;">COMPRAR</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 3: LAB FINANCE -->
+            <!-- Card 3: LAB FICHAS TÉCNICAS PRO -->
             <div class="tool-card gsap-stagger-item">
                 <div class="tool-card-img">
-                    <img src="assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png" alt="LAB FINANCE™">
+                    <img src="assets/images/laura-bailone-experiencias-gastronomicas.webp" alt="LAB Fichas Técnicas & Estandarización PRO">
                 </div>
-                <span class="tool-card-category">Gestión Financiera</span>
-                <h3 class="tool-card-title">LAB FINANCE™</h3>
+                <span class="tool-card-category">Gestión Operativa</span>
+                <h3 class="tool-card-title">LAB Fichas Técnicas PRO</h3>
                 <p class="tool-card-desc">
-                    Estructurá gastos fijos/variables, calculá tu Punto de Equilibrio y KPIs clave.
+                    Estandarizá tus recetas con cantidades exactas y conocé el costo real incluyendo mermas, mano de obra y packaging.
                 </p>
                 <div class="tool-card-footer">
-                    <span class="tool-card-price">$15.000 ARS / u$s 25</span>
+                    <span class="tool-card-price">$20.000 ARS</span>
                     <div class="tool-card-actions">
-                        <a href="#lab-finance" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">DETALLES</a>
-                        <button class="btn btn-add-to-cart" data-id="lab-finance" data-price-ars="15000" data-price-usd="25" data-title="LAB FINANCE™" data-subtitle="Sistema de Gestión Financiera" data-image="assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">COMPRAR</button>
+                        <a href="#lab-fichas-tecnicas" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem;">DETALLES</a>
+                        <button class="btn btn-add-to-cart" data-id="lab-fichas-tecnicas" data-price-ars="20000" data-price-usd="25" data-title="LAB Fichas Técnicas PRO" data-subtitle="Estandarización de Recetas" data-image="assets/images/laura-bailone-experiencias-gastronomicas.webp" style="padding: 0.6rem 1rem; font-size: 0.72rem;">COMPRAR</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 4: LAB MENU ENGINEERING -->
+            <!-- Card 4: LAB CONTROL DE STOCK V-1.0 -->
             <div class="tool-card gsap-stagger-item">
                 <div class="tool-card-img">
-                    <img src="assets/images/laura-bailone-consultoria-gastronomica.webp" alt="LAB MENU ENGINEERING™">
+                    <img src="assets/images/laura-bailone-stock.webp" alt="LAB Control de Stock V-1.0" style="object-position: center bottom;">
                 </div>
-                <span class="tool-card-category">Ingeniería de Menú + Pricing</span>
-                <h3 class="tool-card-title">LAB MENU ENGINEERING™</h3>
+                <span class="tool-card-category">Inventarios y Depósito</span>
+                <h3 class="tool-card-title">LAB Control de Stock V-1.0</h3>
                 <p class="tool-card-desc">
-                    Matriz y simulador de precios avanzado bajo Omnes para optimizar tu carta.
+                    Controlá tu inventario con semáforo automático, comparación entre lo teórico y contado, y Orden de Compra automática.
                 </p>
                 <div class="tool-card-footer">
-                    <span class="tool-card-price">$15.000 ARS / u$s 25</span>
+                    <span class="tool-card-price">$45.000 ARS</span>
                     <div class="tool-card-actions">
-                        <a href="#lab-menu-engineering" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">DETALLES</a>
-                        <button class="btn btn-add-to-cart" data-id="lab-menu-engineering" data-price-ars="15000" data-price-usd="25" data-title="LAB MENU ENGINEERING™" data-subtitle="Ingeniería de Menú + Pricing (Omnes)" data-image="assets/images/laura-bailone-consultoria-gastronomica.webp" style="padding: 0.6rem 1rem; font-size: 0.72rem; letter-spacing: 0.05em;">COMPRAR</button>
+                        <a href="#lab-control-stock" class="btn btn-border-dark" style="padding: 0.6rem 1rem; font-size: 0.72rem;">DETALLES</a>
+                        <button class="btn btn-add-to-cart" data-id="lab-control-stock" data-price-ars="45000" data-price-usd="50" data-title="LAB Control de Stock V-1.0" data-subtitle="Sistema de Gestión de Inventarios" data-image="assets/images/laura-bailone-stock.webp" style="padding: 0.6rem 1rem; font-size: 0.72rem;">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -416,22 +538,21 @@
         </div>
     </section>
 
-    <!-- DETALLES DE PRODUCTOS (ENCAPSULADOS EN TARJETAS CON ESPACIO MULTI-IMAGEN) -->
+    <!-- DETALLES DE PRODUCTOS (4 SECCIONES DETALLADAS) -->
     <div class="detail-page-container">
         
-        <!-- PRODUCTO 1: LAB COST & MENU -->
+        <!-- PRODUCTO 1: LAB COST & MENU V-1.0 -->
         <div id="lab-cost-menu" class="tool-spec-card gsap-fade-up">
             <div class="tool-header">
-                <span class="tool-subtitle">Ingeniería de Menú y Rentabilidad</span>
-                <h1 class="tool-title">LAB COST & MENU™</h1>
+                <span class="tool-subtitle">Ingeniería de Menú - Nivel Base</span>
+                <h1 class="tool-title">LAB Cost & Ingeniería de Menú V-1.0</h1>
                 <p class="tool-description">
-                    La herramienta diseñada para ayudarte a conocer el costo real de tus recetas, optimizar tus precios y tomar decisiones basadas en datos. Transformá tu menú en una herramienta de rentabilidad. Ideal para cafeterías, restaurantes, bares y emprendimientos gastronómicos que buscan ordenar su operación y aumentar sus ganancias.
+                    Una herramienta diseñada para ayudarte a conocer el costo real de tus recetas, optimizar tus precios y tomar decisiones basadas en datos. Transformá tu menú en una herramienta de rentabilidad. Ideal para cafeterías, restaurantes, bares y emprendimientos gastronómicos que buscan ordenar su operación.
                 </p>
             </div>
             
-            <!-- Contenedor Multi-imagen preparado para el futuro -->
             <div class="tool-gallery-placeholder">
-                <img src="assets/images/laura-bailone-optimizacion-menu.webp" alt="LAB COST & MENU Vista Principal" class="main-gallery-img">
+                <img src="assets/images/laura-bailone-optimizacion-menu.webp" alt="LAB Cost Vista Principal" class="main-gallery-img">
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem;">
                     <img src="assets/images/laura-bailone-blog-1.webp" alt="Vista Detalle 1" class="sub-gallery-img">
                     <img src="assets/images/laura-bailone-metodo-lab.webp" alt="Vista Detalle 2" class="sub-gallery-img">
@@ -440,172 +561,56 @@
 
             <div class="tool-info-grid">
                 <div>
-                    <span class="info-col-title">¿Qué obtenés?</span>
+                    <span class="info-col-title">¿Qué vas a obtener?</span>
                     <ul class="info-list">
-                        <li>Calculás el costo real de cada receta de forma automática.</li>
-                        <li>Estandarizás tus recetas con fichas técnicas completas, fotos, procedimientos y criterios de producción.</li>
-                        <li>Controlás el Food Cost y conocés el margen de rentabilidad de cada plato.</li>
-                        <li>Definís precios de venta con una estrategia basada en objetivos de rentabilidad.</li>
-                        <li>Identificás qué platos generan más ganancias y cuáles necesitan ser revisados.</li>
-                        <li>Aplicás Ingeniería de Menú para clasificar tus platos en Estrella, Puzzle, Caballo o Perro.</li>
-                        <li>Visualizás toda la información en un Dashboard con los principales indicadores de tu negocio.</li>
+                        <li>Costo exacto de cada receta y porción incorporando mermas.</li>
+                        <li>Food Cost % y Margen de Contribución automático.</li>
+                        <li>Clasificación de menú: Estrellas, Caballos, Rompecabezas y Perros.</li>
+                        <li>Panel de Control ejecutivo para visualizar la salud de tu carta.</li>
+                        <li>Claridad para decidir qué promocionar, ajustar o retirar.</li>
+                        <li>Tomar decisiones basadas en datos y no solo en intuición.</li>
                     </ul>
                 </div>
                 <div>
-                    <span class="info-col-title">¿Qué incluye?</span>
+                    <span class="info-col-title">¿Qué incluye tu compra?</span>
                     <ul class="info-list">
-                        <li>Módulo de Compra de Ingredientes.</li>
-                        <li>Fichas Técnicas con control de mermas.</li>
-                        <li>Base de Recetas automáticas.</li>
-                        <li>Matriz de Ingeniería de Menú.</li>
-                        <li>Dashboard Ejecutivo.</li>
-                        <li>Cálculo automático de Food Cost y Precio de Venta Sugerido.</li>
-                        <li>Manual de Uso digital.</li>
-                    </ul>
-                </div>
-                <div class="recibir-card">
-                    <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
-                    <ul class="recibir-list">
                         <li>Plantilla profesional en Google Sheets.</li>
-                        <li>Video completo explicando cómo utilizar cada módulo.</li>
-                        <li>Manual de uso digital.</li>
-                        <li>Actualizaciones futuras gratuitas.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tool-actions">
-                <span class="tool-price-tag">$15.000 ARS / u$s 25</span>
-                <button class="btn btn-add-to-cart" data-id="lab-cost-menu" data-price-ars="15000" data-price-usd="25" data-title="LAB COST & MENU™" data-subtitle="Ingeniería de Menú y Rentabilidad" data-image="assets/images/laura-bailone-optimizacion-menu.webp">COMPRAR PLANILLA</button>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 2: LAB STOCK -->
-        <div id="lab-stock" class="tool-spec-card gsap-fade-up">
-            <div class="tool-header">
-                <span class="tool-subtitle">Sistema de Gestión de Inventarios y Control de Stock</span>
-                <h1 class="tool-title">LAB STOCK™</h1>
-                <p class="tool-description">
-                    Menos pérdidas. Más control. Más rentabilidad. Controlá tu inventario de forma simple y profesional para evitar faltantes, reducir desperdicios y mejorar la gestión de compras. Resuelve problemas críticos como compras desordenadas, excesos, quiebres de stock, productos vencidos y falta de registro de mermas.
-                </p>
-            </div>
-
-            <!-- Contenedor Multi-imagen preparado para el futuro -->
-            <div class="tool-gallery-placeholder">
-                <img src="assets/images/laura-bailone-stock.webp" alt="LAB STOCK Vista Principal" class="main-gallery-img" style="object-position: center bottom;">
-                <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem;">
-                    <img src="assets/images/laura-bailone-blog-7.webp" alt="Vista Detalle 1" class="sub-gallery-img">
-                    <img src="assets/images/laura-bailone-metodo-lab.webp" alt="Vista Detalle 2" class="sub-gallery-img">
-                </div>
-            </div>
-
-            <div class="tool-info-grid">
-                <div>
-                    <span class="info-col-title">¿Qué obtenés?</span>
-                    <ul class="info-list">
-                        <li>Control del inventario en tiempo real.</li>
-                        <li>Reducción sistemática de desperdicios y pérdidas.</li>
-                        <li>Mejor planificación y orden en compras.</li>
-                        <li>Mayor eficiencia operativa diaria.</li>
-                        <li>Alertas automáticas de faltantes.</li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="info-col-title">¿Qué incluye?</span>
-                    <ul class="info-list">
-                        <li>Inventario Maestro de Ingredientes.</li>
-                        <li>Control de Stock en tiempo real.</li>
-                        <li>Registro de Entradas y Salidas de insumos.</li>
-                        <li>Registro detallado de Mermas.</li>
-                        <li>Alertas de Stock Mínimo automático.</li>
-                        <li>Base de Datos de proveedores.</li>
-                        <li>Gestión bajo sistema FIFO (PEPS).</li>
-                        <li>Dashboard de Inventario y Reportes.</li>
+                        <li>Módulo de Compras de Ingredientes centralizado.</li>
+                        <li>Fichas Técnicas con cálculo automático de costo por porción.</li>
+                        <li>Base de Recetas y Matriz de Ingeniería de Menú.</li>
+                        <li>Panel de Control / Dashboard Ejecutivo.</li>
+                        <li>Manual de Uso "De los Datos a la Acción" (PDF).</li>
+                        <li>Video tutorial paso a paso y fórmulas protegidas.</li>
                     </ul>
                 </div>
                 <div class="recibir-card">
                     <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
                     <ul class="recibir-list">
-                        <li>Plantilla profesional en Google Sheets.</li>
-                        <li>Videos explicativos detallados paso a paso.</li>
-                        <li>Manual de implementación en formato digital.</li>
+                        <li>Acceso inmediato por correo electrónico.</li>
+                        <li>Copia privada e ilimitada en tu Google Drive.</li>
+                        <li>Soporte por WhatsApp durante 1 mes.</li>
+                        <li>Metodología lista para usar.</li>
                     </ul>
                 </div>
             </div>
             <div class="tool-actions">
-                <span class="tool-price-tag">$15.000 ARS / u$s 25</span>
-                <button class="btn btn-add-to-cart" data-id="lab-stock" data-price-ars="15000" data-price-usd="25" data-title="LAB STOCK™" data-subtitle="Sistema de Gestión de Inventarios y Control de Stock" data-image="assets/images/laura-bailone-stock.webp">COMPRAR PLANILLA</button>
+                <span class="tool-price-tag">$40.000 ARS</span>
+                <button class="btn btn-add-to-cart" data-id="lab-cost-menu" data-price-ars="40000" data-price-usd="45" data-title="LAB Cost & Ingeniería de Menú V-1.0" data-subtitle="Nivel Base" data-image="assets/images/laura-bailone-optimizacion-menu.webp">COMPRAR PLANILLA</button>
             </div>
         </div>
 
-        <!-- PRODUCTO 3: LAB FINANCE -->
-        <div id="lab-finance" class="tool-spec-card gsap-fade-up">
+        <!-- PRODUCTO 2: LAB LEY DE OMNES V-1.1 -->
+        <div id="lab-ley-omnes" class="tool-spec-card gsap-fade-up">
             <div class="tool-header">
-                <span class="tool-subtitle">Sistema de Gestión Financiera</span>
-                <h1 class="tool-title">LAB FINANCE™</h1>
+                <span class="tool-subtitle">Ingeniería de Menú + Pricing - Nivel Avanzado</span>
+                <h1 class="tool-title">LAB Ley de Omnes & Ingeniería V-1.1</h1>
                 <p class="tool-description">
-                    Convertí los números de tu negocio en mejores decisiones. Una herramienta creada específicamente para comprender la salud financiera de tu negocio gastronómico de manera real, proyectar su crecimiento a corto y mediano plazo y tomar decisiones basadas en información clara.
+                    Combina dos de las metodologías más potentes en consultoría gastronómica: la Ingeniería de Menú (Kasavana & Smith) y la Ley de Omnes. Diseñada para responder no solo qué ocurre en tu carta, sino también qué decisiones tomar para mejorar la rentabilidad analizando la estructura de precios completa.
                 </p>
             </div>
 
-            <!-- Contenedor Multi-imagen preparado para el futuro -->
             <div class="tool-gallery-placeholder">
-                <img src="assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png" alt="LAB FINANCE Vista Principal" class="main-gallery-img">
-                <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem;">
-                    <img src="assets/images/laura-bailone-blog-1.webp" alt="Vista Detalle 1" class="sub-gallery-img">
-                    <img src="assets/images/laura-bailone-metodo-lab.webp" alt="Vista Detalle 2" class="sub-gallery-img">
-                </div>
-            </div>
-
-            <div class="tool-info-grid">
-                <div>
-                    <span class="info-col-title">¿Qué obtenés?</span>
-                    <ul class="info-list">
-                        <li>Mayor claridad financiera global de la operation.</li>
-                        <li>Control total de todos los gastos de tu negocio.</li>
-                        <li>Visualización rápida de indicadores clave de rentabilidad.</li>
-                        <li>Información estructurada para tomar decisiones estratégicas.</li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="info-col-title">¿Qué incluye?</span>
-                    <ul class="info-list">
-                        <li>Cálculo exacto del Punto de Equilibrio.</li>
-                        <li>Estructura de Gastos Fijos detallada.</li>
-                        <li>Estructura de Gastos Variables.</li>
-                        <li>KPIs financieros de tu negocio.</li>
-                        <li>Mapeo de Rentabilidad mensual.</li>
-                        <li>Indicadores automáticos interactivos.</li>
-                        <li>Dashboard financiero ejecutivo.</li>
-                    </ul>
-                </div>
-                <div class="recibir-card">
-                    <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
-                    <ul class="recibir-list">
-                        <li>Plantilla profesional optimizada.</li>
-                        <li>Videos explicativos.</li>
-                        <li>Manual de uso digital.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tool-actions">
-                <span class="tool-price-tag">$15.000 ARS / u$s 25</span>
-                <button class="btn btn-add-to-cart" data-id="lab-finance" data-price-ars="15000" data-price-usd="25" data-title="LAB FINANCE™" data-subtitle="Sistema de Gestión Financiera" data-image="assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png">COMPRAR PLANILLA</button>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 4: LAB MENU ENGINEERING -->
-        <div id="lab-menu-engineering" class="tool-spec-card gsap-fade-up">
-            <div class="tool-header">
-                <span class="tool-subtitle">Ingeniería de Menú + Pricing Estratégico (Omnes)</span>
-                <h1 class="tool-title">LAB MENU ENGINEERING™</h1>
-                <p class="tool-description">
-                    Diseñá una carta que venda más y genere mayor rentabilidad. Una herramienta metodológica avanzada para analizar cada plato de tu carta desde la rentabilidad, la popularidad y la percepción del cliente, utilizando los principios psicológicos del Método de Omnes para definir precios estratégicos.
-                </p>
-            </div>
-
-            <!-- Contenedor Multi-imagen preparado para el futuro -->
-            <div class="tool-gallery-placeholder">
-                <img src="assets/images/laura-bailone-consultoria-gastronomica.webp" alt="LAB MENU ENGINEERING Vista Principal" class="main-gallery-img">
+                <img src="assets/images/laura-bailone-consultoria-gastronomica.webp" alt="LAB Ley de Omnes Vista Principal" class="main-gallery-img">
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem;">
                     <img src="assets/images/laura-bailone-blog-2.webp" alt="Vista Detalle 1" class="sub-gallery-img">
                     <img src="assets/images/laura-bailone-blog-7.webp" alt="Vista Detalle 2" class="sub-gallery-img">
@@ -614,41 +619,280 @@
 
             <div class="tool-info-grid">
                 <div>
-                    <span class="info-col-title">¿Qué obtenés?</span>
+                    <span class="info-col-title">¿Qué vas a obtener?</span>
                     <ul class="info-list">
-                        <li>Menús estructurados para ser significativamente más rentables.</li>
-                        <li>Precios de venta definidos bajo parámetros estratégicos.</li>
-                        <li>Mejor balance entre popularidad del plato y rentabilidad.</li>
-                        <li>Aumento del ticket promedio de consumo.</li>
+                        <li>Todo lo incluido en la versión V-1.0 de Ingeniería de Menú.</li>
+                        <li>Análisis de dispersión de precios y amplitud de gama con la Ley de Omnes.</li>
+                        <li>Comprensión de cómo influyen los precios en las decisiones de tus clientes.</li>
+                        <li>Estrategias de pricing sin aumentar todos los precios indiscriminadamente.</li>
+                        <li>Recomendaciones prácticas y escenarios reales de optimización.</li>
                     </ul>
                 </div>
                 <div>
-                    <span class="info-col-title">¿Qué incluye?</span>
+                    <span class="info-col-title">¿Qué incluye tu compra?</span>
                     <ul class="info-list">
-                        <li>Matriz interactiva de Ingeniería de Menú.</li>
-                        <li>Clasificación automática de platos.</li>
-                        <li>Análisis de rentabilidad y popularidad.</li>
-                        <li>Módulo de aplicación del Método de Omnes.</li>
-                        <li>Simulador de estrategias de Pricing.</li>
-                        <li>Recomendaciones de optimización de carta.</li>
+                        <li>Plantilla completa con módulo de Ley de Omnes integrado.</li>
+                        <li>Simulador de precios y dispersión de gamas.</li>
+                        <li>Fichas Técnicas, Módulo de Compras y Base de Recetas.</li>
+                        <li>Dashboard Ejecutivo avanzado.</li>
+                        <li>Manual de Uso digital en PDF con guías educativas.</li>
+                        <li>Video tutorial y soporte por WhatsApp.</li>
                     </ul>
                 </div>
                 <div class="recibir-card">
                     <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
                     <ul class="recibir-list">
-                        <li>Plantilla profesional optimizada.</li>
-                        <li>Video tutorial de implementación.</li>
-                        <li>Manual de uso paso a paso.</li>
+                        <li>Acceso inmediato a tu correo electrónico.</li>
+                        <li>Copia privada en tu propia cuenta de Google Drive.</li>
+                        <li>Un mes de soporte vía WhatsApp.</li>
                     </ul>
                 </div>
             </div>
             <div class="tool-actions">
-                <span class="tool-price-tag">$15.000 ARS / u$s 25</span>
-                <button class="btn btn-add-to-cart" data-id="lab-menu-engineering" data-price-ars="15000" data-price-usd="25" data-title="LAB MENU ENGINEERING™" data-subtitle="Ingeniería de Menú + Pricing (Omnes)" data-image="assets/images/laura-bailone-consultoria-gastronomica.webp">COMPRAR PLANILLA</button>
+                <span class="tool-price-tag">$50.000 ARS</span>
+                <button class="btn btn-add-to-cart" data-id="lab-ley-omnes" data-price-ars="50000" data-price-usd="55" data-title="LAB Ley de Omnes & Ingeniería V-1.1" data-subtitle="Nivel Avanzado" data-image="assets/images/laura-bailone-consultoria-gastronomica.webp">COMPRAR PLANILLA</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 3: LAB FICHAS TÉCNICAS PRO -->
+        <div id="lab-fichas-tecnicas" class="tool-spec-card gsap-fade-up">
+            <div class="tool-header">
+                <span class="tool-subtitle">Estandarización y Costeo de Recetas</span>
+                <h1 class="tool-title">LAB Fichas Técnicas PRO</h1>
+                <p class="tool-description">
+                    Organizá tu cocina desde la base: cada receta queda documentada, cada ingrediente tiene una cantidad definida y cada preparación mantiene siempre el mismo estándar de calidad. Calcula automáticamente el costo por porción, Food Cost, mermas, mano de obra y packaging.
+                </p>
+            </div>
+
+            <div class="tool-gallery-placeholder">
+                <img src="assets/images/laura-bailone-experiencias-gastronomicas.webp" alt="LAB Fichas Técnicas Vista Principal" class="main-gallery-img">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem;">
+                    <img src="assets/images/laura-bailone-blog-1.webp" alt="Vista Detalle 1" class="sub-gallery-img">
+                    <img src="assets/images/laura-bailone-metodo-lab.webp" alt="Vista Detalle 2" class="sub-gallery-img">
+                </div>
+            </div>
+
+            <div class="tool-info-grid">
+                <div>
+                    <span class="info-col-title">¿Qué vas a obtener?</span>
+                    <ul class="info-list">
+                        <li>Costo de ingredientes por receta y por porción automático.</li>
+                        <li>Food Cost % exacto incluyendo mermas, packaging y mano de obra.</li>
+                        <li>Recetas estandarizadas listas para capacitar a tu equipo.</li>
+                        <li>Base de datos de recetas que se actualiza sola al cambiar precios.</li>
+                        <li>Reducción sistemática de desperdicios e improvisaciones.</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="info-col-title">¿Qué incluye tu compra?</span>
+                    <ul class="info-list">
+                        <li>Plantilla profesional de Fichas Técnicas en Google Sheets.</li>
+                        <li>Registro centralizado de Compras e Ingredientes.</li>
+                        <li>Base de Recetas automatizada.</li>
+                        <li>Manual de Uso en PDF con buenas prácticas.</li>
+                        <li>Video tutorial paso a paso y soporte por WhatsApp.</li>
+                    </ul>
+                </div>
+                <div class="recibir-card">
+                    <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
+                    <ul class="recibir-list">
+                        <li>Acceso inmediato vía correo electrónico.</li>
+                        <li>Copia privada en tu cuenta de Google Drive.</li>
+                        <li>1 mes de soporte vía WhatsApp.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tool-actions">
+                <span class="tool-price-tag">$20.000 ARS</span>
+                <button class="btn btn-add-to-cart" data-id="lab-fichas-tecnicas" data-price-ars="20000" data-price-usd="25" data-title="LAB Fichas Técnicas PRO" data-subtitle="Estandarización de Recetas" data-image="assets/images/laura-bailone-experiencias-gastronomicas.webp">COMPRAR PLANILLA</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 4: LAB CONTROL DE STOCK V-1.0 -->
+        <div id="lab-control-stock" class="tool-spec-card gsap-fade-up">
+            <div class="tool-header">
+                <span class="tool-subtitle">Inventarios y Control de Depósito</span>
+                <h1 class="tool-title">LAB Control de Stock V-1.0</h1>
+                <p class="tool-description">
+                    Un sistema que te avisa antes de que sea tarde. Centraliza tu información de inventario, proveedores y conteos físicos, calculando automáticamente cuánto necesitás de cada producto, cuándo estás en zona de riesgo y generando tu Orden de Compra traducida a las presentaciones de tus proveedores.
+                </p>
+            </div>
+
+            <div class="tool-gallery-placeholder">
+                <img src="assets/images/laura-bailone-stock.webp" alt="LAB Control de Stock Vista Principal" class="main-gallery-img" style="object-position: center bottom;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem;">
+                    <img src="assets/images/laura-bailone-blog-7.webp" alt="Vista Detalle 1" class="sub-gallery-img">
+                    <img src="assets/images/laura-bailone-metodo-lab.webp" alt="Vista Detalle 2" class="sub-gallery-img">
+                </div>
+            </div>
+
+            <div class="tool-info-grid">
+                <div>
+                    <span class="info-col-title">¿Qué vas a obtener?</span>
+                    <ul class="info-list">
+                        <li>Semáforo de 4 estados (Crítico, Bajo, Correcto, Sobrestock).</li>
+                        <li>Cálculo automático de Stock Mínimo, Múltiples Proveedores y Mantenimiento de Mínimos.</li>
+                        <li>Orden de Compra generada automáticamente en presentaciones reales.</li>
+                        <li>Comparación entre stock teórico y conteo físico para detectar mermas.</li>
+                        <li>Dashboard con valor total de inventario y alertas.</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="info-col-title">¿Qué incluye tu compra?</span>
+                    <ul class="info-list">
+                        <li>Maestro de Productos y Módulo de Proveedores.</li>
+                        <li>Hojas de Conteo Físico y Análisis de Inventario.</li>
+                        <li>Generador de Orden de Compra automática.</li>
+                        <li>Dashboard interactivo con gráficos de depósito.</li>
+                        <li>Manual de Uso en PDF y tutorial en video.</li>
+                        <li>Soporte por WhatsApp durante 1 mes.</li>
+                    </ul>
+                </div>
+                <div class="recibir-card">
+                    <span class="info-col-title" style="border:none; padding:0; margin-bottom:1rem;">¿Cómo lo recibís?</span>
+                    <ul class="recibir-list">
+                        <li>Enlace directo para generar tu copia privada en Google Drive.</li>
+                        <li>Acceso inmediato al material educativo.</li>
+                        <li>Canal abierto de soporte durante un mes.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tool-actions">
+                <span class="tool-price-tag">$45.000 ARS</span>
+                <button class="btn btn-add-to-cart" data-id="lab-control-stock" data-price-ars="45000" data-price-usd="50" data-title="LAB Control de Stock V-1.0" data-subtitle="Sistema de Gestión de Inventarios" data-image="assets/images/laura-bailone-stock.webp">COMPRAR PLANILLA</button>
             </div>
         </div>
 
     </div>
+
+    <!-- SECCIÓN COMBOS DE LANZAMIENTO -->
+    <section class="combos-section">
+        <div class="combos-container">
+            <div class="combos-title-area gsap-fade-up">
+                <span class="tool-subtitle" style="color: var(--color-naranja-primario);">Opciones Recomendadas</span>
+                <h2 style="font-family: var(--fuente-h1-h2); font-size: 2.5rem; color: var(--color-texto-principal); margin: 0.5rem 0;">Combos de Lanzamiento</h2>
+                <p style="font-family: var(--fuente-cuerpo); font-size: 1.1rem; color: var(--color-texto-secundario); max-width: 650px; margin: 0 auto;">
+                    Costeá tu menú y ordená tu depósito con un ahorro real combinando nuestras herramientas principales.
+                </p>
+            </div>
+
+            <div class="combos-grid gsap-stagger-container">
+                
+                <!-- Combo 1 -->
+                <div class="combo-card gsap-stagger-item">
+                    <span class="combo-badge">Ahorrás $20.000</span>
+                    <div>
+                        <h3 class="combo-title">LAB Cost + Control de Stock</h3>
+                        <p class="combo-desc">
+                            Llevá las dos juntas para tener el control completo de tu negocio: cuánto te cuesta cada plato y cuánto tenés que comprar.
+                        </p>
+                    </div>
+                    <div class="combo-price-area">
+                        <div class="combo-price">$65.000 ARS</div>
+                        <div class="combo-savings">Precio regular: $85.000 ARS</div>
+                        <button class="btn btn-add-to-cart" data-id="combo-cost-stock" data-price-ars="65000" data-price-usd="70" data-title="Combo: LAB Cost + Control de Stock" data-subtitle="Ahorrás $20.000 ARS" data-image="assets/images/laura-bailone-optimizacion-menu.webp" style="width: 100%; margin-top: 1.5rem;">QUIERO ESTE COMBO</button>
+                    </div>
+                </div>
+
+                <!-- Combo 2 -->
+                <div class="combo-card gsap-stagger-item" style="border-color: var(--color-naranja-primario); background-color: var(--color-blanco);">
+                    <span class="combo-badge" style="background-color: var(--color-texto-principal);">Más Completo</span>
+                    <div>
+                        <h3 class="combo-title">LAB Ley de Omnes + Control de Stock</h3>
+                        <p class="combo-desc">
+                            La versión más avanzada de análisis de menú e ingeniería de precios junto con el control total de tu inventario.
+                        </p>
+                    </div>
+                    <div class="combo-price-area">
+                        <div class="combo-price">$75.000 ARS</div>
+                        <div class="combo-savings">Ahorrás $20.000 (Regular: $95.000)</div>
+                        <button class="btn btn-add-to-cart" data-id="combo-omnes-stock" data-price-ars="75000" data-price-usd="80" data-title="Combo: LAB Ley de Omnes + Control de Stock" data-subtitle="Ahorrás $20.000 ARS" data-image="assets/images/laura-bailone-consultoria-gastronomica.webp" style="width: 100%; margin-top: 1.5rem;">QUIERO ESTE COMBO</button>
+                    </div>
+                </div>
+
+                <!-- Combo 3 -->
+                <div class="combo-card gsap-stagger-item">
+                    <span class="combo-badge">Ahorrás $15.000</span>
+                    <div>
+                        <h3 class="combo-title">Stock + Fichas Técnicas PRO</h3>
+                        <p class="combo-desc">
+                            Estandarizá tus recetas y controlá tu inventario al mismo tiempo. La base operativa completa para tu cocina.
+                        </p>
+                    </div>
+                    <div class="combo-price-area">
+                        <div class="combo-price">$50.000 ARS</div>
+                        <div class="combo-savings">Precio regular: $65.000 ARS</div>
+                        <button class="btn btn-add-to-cart" data-id="combo-stock-fichas" data-price-ars="50000" data-price-usd="55" data-title="Combo: Stock + Fichas Técnicas PRO" data-subtitle="Ahorrás $15.000 ARS" data-image="assets/images/laura-bailone-stock.webp" style="width: 100%; margin-top: 1.5rem;">QUIERO ESTE COMBO</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PREGUNTAS FRECUENTES (FAQS) -->
+    <section class="faqs-section gsap-fade-up">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <span class="tool-subtitle">Resolvé tus dudas</span>
+            <h2 style="font-family: var(--fuente-h1-h2); font-size: 2.2rem; color: var(--color-texto-principal);">Preguntas Frecuentes</h2>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿Necesito saber usar Google Sheets?</button>
+            <div class="accordion-content">
+                <p>No. La plantilla está diseñada para que cualquier persona pueda utilizarla, aunque nunca haya trabajado con Google Sheets. Solo tenés que completar las celdas de carga y el sistema realiza automáticamente todos los cálculos. Además, incluyes un video tutorial paso a paso y un Manual de Uso.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿La plantilla funciona para cualquier tipo de negocio gastronómico?</button>
+            <div class="accordion-content">
+                <p>Sí. Está pensada para restaurantes, cafeterías, bares, hoteles, emprendimientos gastronómicos, servicios de catering y cualquier negocio que necesite conocer el costo real de sus recetas y optimizar su menú.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿Necesito instalar algún programa?</button>
+            <div class="accordion-content">
+                <p>No. La herramienta funciona 100% en Google Sheets. Solo necesitás una cuenta gratuita de Google (Gmail) y acceso a internet para crear tu copia.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿La plantilla queda en mi computadora o en la nube?</button>
+            <div class="accordion-content">
+                <p>La plantilla queda guardada en tu propio Google Drive. Una vez que hacés tu copia, el archivo es completamente tuyo y solo vos tenés acceso a la información de tu negocio.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿Puedo modificar la plantilla?</button>
+            <div class="accordion-content">
+                <p>Sí. Las celdas destinadas a la carga de información son totalmente editables. Las fórmulas están protegidas para evitar errores accidentales, pero si querés realizar modificaciones más avanzadas, podés hacerlo creando una copia adicional.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿Qué pasa cuando cambian los precios de los ingredientes?</button>
+            <div class="accordion-content">
+                <p>Solo actualizás el precio de compra en el módulo correspondiente y la plantilla recalcula automáticamente los costos de las recetas, el Food Cost y todos los indicadores relacionados en un solo clic.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿Qué soporte incluye la compra?</button>
+            <div class="accordion-content">
+                <p>Durante un mes contás con soporte directo por WhatsApp para consultas relacionadas con el funcionamiento de la plantilla, la carga de datos y la interpretación de los indicadores.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">¿Esta plantilla reemplaza una asesoría gastronómica?</button>
+            <div class="accordion-content">
+                <p>No. Es una herramienta diseñada para que puedas gestionar mejor tu negocio de forma autónoma. Si además buscás un acompañamiento personalizado para analizar tu restaurante u optimizar procesos, podés complementarla con una consultoría individual de LAB.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer (inyectado por app.js) -->
     <footer id="main-footer"></footer>
@@ -659,8 +903,8 @@
     <script src="js/config.js"></script>
     <script src="js/app.js"></script>
     <script>
-        // Set event listeners for local add to cart buttons
         document.addEventListener('DOMContentLoaded', () => {
+            // Event listener para añadir al carrito
             const btns = document.querySelectorAll('.btn-add-to-cart');
             btns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -673,6 +917,20 @@
                     
                     if (typeof addToCart === 'function') {
                         addToCart({ id, priceArs, priceUsd, title, subtitle, image });
+                    }
+                });
+            });
+
+            // Acordeón de FAQs
+            const headers = document.querySelectorAll('.faqs-section .accordion-header');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    header.classList.toggle('active');
+                    const content = header.nextElementSibling;
+                    if (header.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
                     }
                 });
             });

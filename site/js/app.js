@@ -347,29 +347,67 @@ function initCartSystem(cfg) {
     // 4. Checkout button event listener
     const checkoutBtn = document.getElementById('cart-checkout-btn');
     if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
+        checkoutBtn.addEventListener('click', async () => {
             if (cart.length === 0) return;
             
-            // If checking out multiple items in ARS, forward to WhatsApp to close custom order or pay via Mercado Pago
-            // If Stripe is used (USD), redirect to Stripe payment links.
             if (cartCurrency === 'USD') {
-                // Stripe Payment Link for the items.
-                // In a production environment, we could redirect to a pre-built stripe checkout session
-                // For this project, redirect to Stripe link of the first item, or a custom WhatsApp order detailing the payment in USD.
-                if (cart.length === 1) {
-                    const itemData = findProductConfig(cart[0].id, cfg);
-                    if (itemData && itemData.link_stripe) {
-                        window.open(itemData.link_stripe, '_blank');
-                    } else {
-                        window.open(`${cfg.enlaces.whatsapp}?text=${encodeURIComponent(generateWhatsAppMessage())}`, '_blank');
-                    }
+                // Checkout PayPal en USD
+                if (cart.length === 1 && cart[0].linkPaypal) {
+                    window.open(cart[0].linkPaypal, '_blank');
                 } else {
-                    // Multiple items USD checkout redirects to WhatsApp checkout
                     window.open(`${cfg.enlaces.whatsapp}?text=${encodeURIComponent(generateWhatsAppMessage())}`, '_blank');
                 }
             } else {
-                // ARS Checkout redirects to WhatsApp checkout
-                window.open(`${cfg.enlaces.whatsapp}?text=${encodeURIComponent(generateWhatsAppMessage())}`, '_blank');
+                // Checkout Mercado Pago Checkout Pro en ARS
+                checkoutBtn.disabled = true;
+                checkoutBtn.textContent = "CONECTANDO CON MERCADO PAGO...";
+                
+                try {
+                    let initPoint = null;
+                    try {
+                        const response = await fetch('api/create_preference.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ items: cart })
+                        });
+                        const resData = await response.json();
+                        if (resData.init_point) initPoint = resData.init_point;
+                    } catch (e) {
+                        console.warn('API PHP local no disponible, ejecutando llamada directa a Mercado Pago...');
+                    }
+
+                    // Fallback directo a la API REST de MP para pruebas en servidor local
+                    if (!initPoint) {
+                        const mpItems = cart.map(item => ({
+                            title: item.title,
+                            unit_price: Number(item.priceArs),
+                            quantity: Number(item.quantity),
+                            currency_id: 'ARS'
+                        }));
+                        const mpRes = await fetch('https://api.mercadopago.com/checkout/preferences', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': 'Bearer APP_USR-4347499602251908-072908-511329bd3054feb075ad5ef350835cfe-3575896132',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ items: mpItems })
+                        });
+                        const mpData = await mpRes.json();
+                        if (mpData.init_point) initPoint = mpData.sandbox_init_point || mpData.init_point;
+                    }
+
+                    if (initPoint) {
+                        window.location.href = initPoint;
+                    } else {
+                        window.open(`${cfg.enlaces.whatsapp}?text=${encodeURIComponent(generateWhatsAppMessage())}`, '_blank');
+                    }
+                } catch (err) {
+                    console.error('Error al generar checkout de Mercado Pago:', err);
+                    window.open(`${cfg.enlaces.whatsapp}?text=${encodeURIComponent(generateWhatsAppMessage())}`, '_blank');
+                } finally {
+                    checkoutBtn.disabled = false;
+                    checkoutBtn.textContent = "INICIAR PAGO";
+                }
             }
         });
     }

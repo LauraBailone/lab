@@ -3364,9 +3364,9 @@ footer {
     }
 }
 
-/* Ocultar carrito hasta lanzamiento */
+/* Carrito habilitado */
 .cart-nav-btn {
-    display: none !important;
+    display: flex !important;
 }
 
 /* Botón flotante de WhatsApp */
@@ -3412,6 +3412,76 @@ footer {
         height: 26px;
     }
 }
+
+/* SUBMENÚ / DROPDOWN NAVIGATION */
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-blanco);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 0.8rem 0;
+    min-width: 260px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    z-index: 1000;
+}
+
+.has-submenu:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.has-submenu .dropdown-menu li {
+    width: 100%;
+}
+
+.has-submenu .dropdown-menu a {
+    display: block;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+    color: var(--color-texto-principal);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.has-submenu .dropdown-menu a:hover {
+    background-color: var(--color-fondo-secundario);
+    color: var(--color-naranja-primario);
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .has-submenu .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        padding-left: 1rem;
+    }
+    .has-submenu.active-mobile-dropdown .dropdown-menu {
+        display: flex;
+    }
+}
+
 
 
 
