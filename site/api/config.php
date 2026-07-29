@@ -8,29 +8,36 @@ define('MP_ACCESS_TOKEN', 'APP_USR-4347499602251908-072908-511329bd3054feb075ad5
 define('SENDER_EMAIL', 'contacto@laurabailone.com');
 define('SENDER_NAME', 'LAB Consultoria Gastronomica');
 
+// URL del conector de permisos automáticos de Google Drive (Google Apps Script)
+define('GOOGLE_APPS_SCRIPT_URL', 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE');
+
 // Mapeo de Accesos y Entregas por ID de Producto / Combo
 $PRODUCT_FULFILLMENT = [
     'lab-cost-menu' => [
         'nombre' => 'LAB Cost & Ingenieria de Menu V-1.0',
-        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_COST/copy',
+        'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_COST',
+        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_COST/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Cost.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_COST'
     ],
     'lab-ley-omnes' => [
         'nombre' => 'LAB Ley de Omnes & Ingenieria V-1.1',
-        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_OMNES/copy',
+        'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_OMNES',
+        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_OMNES/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Omnes.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_OMNES'
     ],
     'lab-fichas-tecnicas' => [
         'nombre' => 'LAB Fichas Tecnicas PRO',
-        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_FICHAS/copy',
+        'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_FICHAS',
+        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_FICHAS/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Fichas.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_FICHAS'
     ],
     'lab-control-stock' => [
         'nombre' => 'LAB Control de Stock V-1.0',
-        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_STOCK/copy',
+        'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_STOCK',
+        'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_STOCK/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Stock.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_STOCK'
     ],

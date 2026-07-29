@@ -50,13 +50,47 @@ if (isset($payment['status']) && $payment['status'] === 'approved') {
     if ($payer_email) {
         $purchased_items = $payment['additional_info']['items'] ?? [];
         
-        // Armar contenido del email de entrega
+        // 1. Otorgar permisos de lectura en Google Drive al email del comprador
+        grantGoogleDrivePermissions($payer_email, $purchased_items, $PRODUCT_FULFILLMENT);
+
+        // 2. Enviar el email de entrega con los accesos
         sendDeliveryEmail($payer_email, $payer_first_name . ' ' . $payer_last_name, $purchased_items, $id, $PRODUCT_FULFILLMENT);
     }
 }
 
 http_response_code(200);
 echo "OK Notification Handled";
+
+function grantGoogleDrivePermissions($email, $items, $fulfillment_data) {
+    if (!defined('GOOGLE_APPS_SCRIPT_URL') || strpos(GOOGLE_APPS_SCRIPT_URL, 'YOUR_') === 0) return;
+    
+    $file_ids = [];
+    foreach ($items as $item) {
+        $id = $item['id'];
+        $sub_keys = isset($fulfillment_data[$id]['items']) ? $fulfillment_data[$id]['items'] : [$id];
+        foreach ($sub_keys as $k) {
+            if (isset($fulfillment_data[$k]['sheet_id']) && strpos($fulfillment_data[$k]['sheet_id'], 'YOUR_') === false) {
+                $file_ids[] = $fulfillment_data[$k]['sheet_id'];
+            }
+        }
+    }
+    
+    if (empty($file_ids)) return;
+    
+    $payload = [
+        'email' => $email,
+        'fileIds' => array_values(array_unique($file_ids))
+    ];
+    
+    $ch = curl_init(GOOGLE_APPS_SCRIPT_URL);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_exec($ch);
+    curl_close($ch);
+}
 
 function sendDeliveryEmail($to_email, $customer_name, $items, $payment_id, $fulfillment_data) {
     $subject = "Tus accesos a las Herramientas de Gestion LAB (Pago #" . $payment_id . ")";
