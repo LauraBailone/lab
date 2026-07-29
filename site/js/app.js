@@ -351,11 +351,83 @@ function initCartSystem(cfg) {
             if (cart.length === 0) return;
             
             if (cartCurrency === 'USD') {
-                // Checkout PayPal en USD
-                if (cart.length === 1 && cart[0].linkPaypal) {
-                    window.open(cart[0].linkPaypal, '_blank');
-                } else {
+                // Checkout PayPal Sandbox en USD
+                checkoutBtn.disabled = true;
+                checkoutBtn.textContent = "CONECTANDO CON PAYPAL...";
+                
+                try {
+                    if (!window.paypal) {
+                        await new Promise((resolve, reject) => {
+                            const script = document.createElement('script');
+                            script.src = "https://www.paypal.com/sdk/js?client-id=AaGe2Trn6hYANijULfk0ysb2l8VzqJWPSM30JlhSvOKbXzzVX1dEgWJVNMepi1UayextFMTxuNocc58T&currency=USD";
+                            script.onload = resolve;
+                            script.onerror = reject;
+                            document.head.appendChild(script);
+                        });
+                    }
+
+                    const totalUsd = cart.reduce((sum, item) => sum + (Number(item.priceUsd) * item.quantity), 0);
+                    
+                    let paypalContainer = document.getElementById('paypal-button-container');
+                    if (!paypalContainer) {
+                        paypalContainer = document.createElement('div');
+                        paypalContainer.id = 'paypal-button-container';
+                        paypalContainer.style.cssText = 'margin-top: 1rem; width: 100%;';
+                        checkoutBtn.parentNode.insertBefore(paypalContainer, checkoutBtn.nextSibling);
+                    }
+                    paypalContainer.innerHTML = '';
+                    
+                    window.paypal.Buttons({
+                        createOrder: (data, actions) => {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    description: "Herramientas de Gestión LAB",
+                                    amount: {
+                                        currency_code: "USD",
+                                        value: totalUsd.toFixed(2)
+                                    }
+                                }]
+                            });
+                        },
+                        onApprove: async (data, actions) => {
+                            const details = await actions.order.capture();
+                            const payerEmail = details.payer.email_address;
+                            const payerName = (details.payer.name.given_name || '') + ' ' + (details.payer.name.surname || '');
+                            
+                            try {
+                                await fetch('api/paypal_fulfillment.php', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({
+                                        order_id: details.id,
+                                        payer_email: payerEmail,
+                                        payer_name: payerName,
+                                        items: cart
+                                    })
+                                });
+                            } catch(e) {
+                                console.warn('Notificación PayPal local:', e);
+                            }
+
+                            alert(`¡Gracias ${payerName}! Tu pago fue procesado con éxito en PayPal. Enviamos las carpetas de Google Drive a ${payerEmail}.`);
+                            cart = [];
+                            saveCart();
+                            updateBadgeCount();
+                            renderCart(cfg);
+                            paypalContainer.innerHTML = '';
+                        },
+                        onError: (err) => {
+                            console.error('Error PayPal:', err);
+                            alert('Hubo un inconveniente al procesar el pago con PayPal.');
+                        }
+                    }).render('#paypal-button-container');
+                    
+                } catch (err) {
+                    console.error('Error iniciando PayPal:', err);
                     window.open(`${cfg.enlaces.whatsapp}?text=${encodeURIComponent(generateWhatsAppMessage())}`, '_blank');
+                } finally {
+                    checkoutBtn.disabled = false;
+                    checkoutBtn.textContent = "INICIAR PAGO";
                 }
             } else {
                 // Checkout Mercado Pago Checkout Pro en ARS

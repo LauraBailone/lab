@@ -4,6 +4,9 @@
 // Access Token de Mercado Pago Sandbox
 define('MP_ACCESS_TOKEN', 'APP_USR-4347499602251908-072908-511329bd3054feb075ad5ef350835cfe-3575896132');
 
+// Client ID de PayPal (Sandbox)
+define('PAYPAL_CLIENT_ID', 'AaGe2Trn6hYANijULfk0ysb2l8VzqJWPSM30JlhSvOKbXzzVX1dEgWJVNMepi1UayextFMTxuNocc58T');
+
 // Email remitente
 define('SENDER_EMAIL', 'contacto@laurabailone.com');
 define('SENDER_NAME', 'LAB Consultoria Gastronomica');
