@@ -113,12 +113,12 @@ function sendDeliveryEmail($to_email, $customer_name, $items, $payment_id, $fulf
         foreach ($sub_item_keys as $key) {
             if (isset($fulfillment_data[$key])) {
                 $p = $fulfillment_data[$key];
+                $folder_link = $p['link_folder'] ?? '#';
                 $links_html .= '
-                <div style="background-color: #FFF8F0; border-left: 4px solid #E8913A; padding: 15px; margin-bottom: 15px; border-radius: 4px;">
-                    <h3 style="margin: 0 0 10px 0; color: #2D2016;">' . htmlspecialchars($p['nombre']) . '</h3>
-                    <p style="margin: 5px 0;">👉 <a href="' . htmlspecialchars($p['link_sheets']) . '" target="_blank" style="color: #E8913A; font-weight: bold;">Hacer una copia en Google Sheets</a></p>
-                    ' . (isset($p['link_manual']) ? '<p style="margin: 5px 0;">📄 <a href="' . htmlspecialchars($p['link_manual']) . '" target="_blank" style="color: #6B5744;">Descargar Manual de Uso (PDF)</a></p>' : '') . '
-                    ' . (isset($p['video_tutorial']) ? '<p style="margin: 5px 0;">▶️ <a href="' . htmlspecialchars($p['video_tutorial']) . '" target="_blank" style="color: #6B5744;">Ver Video Tutorial</a></p>' : '') . '
+                <div style="background-color: #FFF8F0; border-left: 4px solid #E8913A; padding: 18px; margin-bottom: 20px; border-radius: 8px;">
+                    <h3 style="margin: 0 0 10px 0; color: #2D2016; font-size: 18px;">' . htmlspecialchars($p['nombre']) . '</h3>
+                    <p style="margin: 5px 0 15px 0; font-size: 14px; color: #6B5744;">Tu carpeta privada contiene la plantilla de Google Sheets, el manual en PDF y el video tutorial explicativo.</p>
+                    <a href="' . htmlspecialchars($folder_link) . '" target="_blank" style="display: inline-block; background-color: #E8913A; color: #FFFFFF; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 14px;">📁 ACCEDER A LA CARPETA EN GOOGLE DRIVE</a>
                 </div>';
             }
         }
