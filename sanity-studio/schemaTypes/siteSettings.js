@@ -5,13 +5,10 @@ export default {
   groups: [
     { name: 'general', title: 'General & Redes' },
     { name: 'home', title: 'Home (Inicio)' },
+    { name: 'bio', title: 'Detrás de LAB (Bio)' },
     { name: 'asesorias', title: 'Asesorías' },
-    { name: 'bloques', title: 'Bloques Generales' },
-  ],
-  fieldsets: [
-    { name: 'bloqueBio', title: 'Detrás de LAB (Bio)', options: { collapsible: true, collapsed: true } },
-    { name: 'bloqueMetodo', title: 'Método LAB', options: { collapsible: true, collapsed: true } },
-    { name: 'bloqueHerramientas', title: 'Herramientas (Productos)', options: { collapsible: true, collapsed: true } },
+    { name: 'metodo', title: 'Método LAB' },
+    { name: 'herramientas', title: 'Herramientas' },
   ],
   fields: [
     // === GRUPO: GENERAL ===
@@ -94,23 +91,20 @@ export default {
       name: 'bioTituloHero',
       title: 'Título del Hero (Bio)',
       type: 'string',
-      group: 'bloques',
-      fieldset: 'bloqueBio',
+      group: 'bio',
     },
     {
       name: 'bioIntro',
       title: 'Texto Introductorio (Cursiva)',
       type: 'text',
-      group: 'bloques',
-      fieldset: 'bloqueBio',
+      group: 'bio',
     },
     // Bloques overlap de trayectoria
     {
       name: 'bloque1',
       title: 'Bloque 1: Europa & Finanzas',
       type: 'object',
-      group: 'bloques',
-      fieldset: 'bloqueBio',
+      group: 'bio',
       fields: [
         { name: 'titulo', title: 'Título', type: 'string' },
         { name: 'descripcion', title: 'Descripción', type: 'text' },
@@ -121,8 +115,7 @@ export default {
       name: 'bloque2',
       title: 'Bloque 2: Wellness & Yoga',
       type: 'object',
-      group: 'bloques',
-      fieldset: 'bloqueBio',
+      group: 'bio',
       fields: [
         { name: 'titulo', title: 'Título', type: 'string' },
         { name: 'descripcion', title: 'Descripción', type: 'text' },
@@ -133,8 +126,7 @@ export default {
       name: 'bloque3',
       title: 'Bloque 3: Hospitalidad & Costa Rica',
       type: 'object',
-      group: 'bloques',
-      fieldset: 'bloqueBio',
+      group: 'bio',
       fields: [
         { name: 'titulo', title: 'Título', type: 'string' },
         { name: 'descripcion', title: 'Descripción', type: 'text' },
@@ -145,8 +137,7 @@ export default {
       name: 'bioDestacadoFinal',
       title: 'Texto Destacado Final (Negrita)',
       type: 'text',
-      group: 'bloques',
-      fieldset: 'bloqueBio',
+      group: 'bio',
     },
 
     // === GRUPO: ASESORÍAS ===
@@ -199,8 +190,7 @@ export default {
       name: 'fasesGastronomy',
       title: 'Cronograma: Consultoría Gastronómica',
       type: 'array',
-      group: 'bloques',
-      fieldset: 'bloqueMetodo',
+      group: 'metodo',
       of: [
         {
           type: 'object',
@@ -216,8 +206,7 @@ export default {
       name: 'fasesHospitality',
       title: 'Cronograma: Consultoría de Hospitalidad',
       type: 'array',
-      group: 'bloques',
-      fieldset: 'bloqueMetodo',
+      group: 'metodo',
       of: [
         {
           type: 'object',
@@ -247,37 +236,32 @@ export default {
       name: 'metodoTituloHero',
       title: 'Título del Hero (Método)',
       type: 'string',
-      group: 'bloques',
-      fieldset: 'bloqueMetodo',
+      group: 'metodo',
     },
     {
       name: 'metodoImagenHero',
       title: 'Imagen de Fondo del Hero',
       type: 'image',
       options: { hotspot: true },
-      group: 'bloques',
-      fieldset: 'bloqueMetodo',
+      group: 'metodo',
     },
     {
       name: 'metodoDetallesGastronomy',
       title: 'Detalle: Gastronomía Estratégica',
       type: 'text',
-      group: 'bloques',
-      fieldset: 'bloqueMetodo',
+      group: 'metodo',
     },
     {
       name: 'metodoDetallesHospitality',
       title: 'Detalle: Hospitalidad y Wellness',
       type: 'text',
-      group: 'bloques',
-      fieldset: 'bloqueMetodo',
+      group: 'metodo',
     },
     {
       name: 'brochureMetodoFile',
       title: 'Archivo PDF del Brochure (Método)',
       type: 'file',
-      group: 'bloques',
-      fieldset: 'bloqueMetodo',
+      group: 'metodo',
     },
 
     // === GRUPO: HERRAMIENTAS ===
@@ -285,23 +269,20 @@ export default {
       name: 'herramientasTituloHero',
       title: 'Título del Hero (Herramientas)',
       type: 'string',
-      group: 'bloques',
-      fieldset: 'bloqueHerramientas',
+      group: 'herramientas',
     },
     {
       name: 'herramientasImagenHero',
       title: 'Imagen de Fondo del Hero',
       type: 'image',
       options: { hotspot: true },
-      group: 'bloques',
-      fieldset: 'bloqueHerramientas',
+      group: 'herramientas',
     },
     {
       name: 'herramientasLista',
       title: 'Listado de Herramientas',
       type: 'array',
-      group: 'bloques',
-      fieldset: 'bloqueHerramientas',
+      group: 'herramientas',
       of: [
         {
           type: 'object',
