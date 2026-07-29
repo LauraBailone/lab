@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Uso — Panel de Administración LAB</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2D2016;
+            background: #ffffff;
+            line-height: 1.65;
+            font-size: 13px;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            background: linear-gradient(135deg, #2D2016 0%, #6B5744 60%, #E8913A 100%);
+            color: white;
+            padding: 70px 60px 50px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: avoid;
+        }
+
+        .cover-logo {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 30px;
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .cover h1 strong {
+            font-weight: 700;
+            color: #F5C88A;
+        }
+
+        .cover-sub {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 16px;
+        }
+
+        .cover-url {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-top: 24px;
+            color: #F5C88A;
+        }
+
+        /* BODY */
+        .content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 50px 60px;
+        }
+
+        /* SECTION HEADINGS */
+        h2 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2D2016;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8913A;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: #E8913A;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        h3 {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6B5744;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #3d3026;
+        }
+
+        ol, ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            color: #3d3026;
+        }
+
+        code {
+            background: #F5E6D0;
+            color: #C86B47;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* CALLOUT BOXES */
+        .callout {
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 14px 0;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .callout-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        .callout-body {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .callout-body strong {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 3px;
+        }
+
+        .callout.tip { background: #F0F8E8; border-left: 3px solid #4A8A3B; }
+        .callout.tip .callout-body strong { color: #3A6B2D; }
+
+        .callout.important { background: #FFF6E8; border-left: 3px solid #E8913A; }
+        .callout.important .callout-body strong { color: #C86B30; }
+
+        .callout.caution { background: #FFF0E8; border-left: 3px solid #D64E2A; }
+        .callout.caution .callout-body strong { color: #B03A1C; }
+
+        .callout.note { background: #EEF4FF; border-left: 3px solid #4A6BCC; }
+        .callout.note .callout-body strong { color: #3A55A8; }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 12px;
+        }
+
+        thead tr {
+            background: #2D2016;
+            color: white;
+        }
+
+        thead th {
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            font-size: 11px;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #FFF8F0;
+        }
+
+        tbody td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #EDE0D0;
+            vertical-align: top;
+        }
+
+        tbody td:first-child {
+            font-weight: 600;
+            color: #C86B30;
+            white-space: nowrap;
+        }
+
+        /* DIVIDER */
+        hr {
+            border: none;
+            border-top: 1px solid #EDE0D0;
+            margin: 30px 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 20px 50px;
+            border-top: 1px solid #EDE0D0;
+            font-size: 10px;
+            color: #9B8B6B;
+            letter-spacing: 0.04em;
+        }
+
+        /* PRINT */
+        @media print {
+            body { font-size: 12px; }
+            .content { padding: 30px 40px; }
+            h2 { page-break-after: avoid; }
+            table { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- COVER -->
+    <div class="cover">
+        <div>
+            <div class="cover-logo">LAB Gastronomy Advisory</div>
+            <h1>Manual de Uso<br><strong>Panel de Administración</strong></h1>
+            <p style="color:rgba(255,255,255,0.6); font-size:13px; margin-top:10px;">Guía completa para editar textos, fotos y folletos del sitio web sin necesitar conocimientos técnicos.</p>
+        </div>
+        <div>
+            <div class="cover-url">labgastronomy.com/studio/</div>
+            <p style="color:rgba(255,255,255,0.45); font-size:10px; margin-top:12px; letter-spacing:0.04em;">DOCUMENTO CONFIDENCIAL — USO EXCLUSIVO DEL CLIENTE</p>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <h2><span class="step-number">1</span> Primer Acceso (solo la primera vez)</h2>
+        <ol>
+            <li>Vas a recibir un email de invitación de parte de Sanity con el asunto <strong>"You've been invited to collaborate"</strong>.</li>
+            <li>Hacé clic en el botón del email.</li>
+            <li>Creá tu contraseña o conectá con tu cuenta de Google.</li>
+            <li>¡Listo! Ya podés ingresar siempre que quieras desde cualquier navegador.</li>
+        </ol>
+
+        <h2><span class="step-number">2</span> Cómo Ingresar al Panel</h2>
+        <ol>
+            <li>Abrí tu navegador (Chrome o Safari recomendados).</li>
+            <li>Escribí en la barra de dirección: <code>labgastronomy.com/studio/</code></li>
+            <li>Ingresá con tu email y contraseña.</li>
+        </ol>
+
+        <h2><span class="step-number">3</span> Navegar por el Panel</h2>
+        <p>Una vez adentro, vas a ver en la <strong>barra lateral izquierda</strong> dos secciones:</p>
+        <ul>
+            <li><strong>Configuración de la Web</strong> → Aquí editás TODO el contenido del sitio.</li>
+            <li><strong>Blog</strong> → Aquí gestionás los artículos del blog.</li>
+        </ul>
+        <div class="callout tip">
+            <div class="callout-icon">💡</div>
+            <div class="callout-body"><strong>Consejo</strong>Para editar cualquier cosa del sitio, siempre hacé clic en "Configuración de la Web" primero.</div>
+        </div>
+
+        <h2><span class="step-number">4</span> Editar Contenido del Sitio</h2>
+        <p>Al hacer clic en <strong>Configuración de la Web</strong>, vas a ver <strong>6 pestañas</strong> en la parte superior:</p>
+
+        <table>
+            <thead>
+                <tr><th>Pestaña</th><th>¿Qué podés editar?</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>General &amp; Redes</td><td>Logo, links de Instagram, Facebook y WhatsApp</td></tr>
+                <tr><td>Home (Inicio)</td><td>Títulos del Hero, imagen de fondo, texto del Método</td></tr>
+                <tr><td>Detrás de LAB (Bio)</td><td>Tu historia, textos e imágenes de los 3 bloques biográficos</td></tr>
+                <tr><td>Asesorías</td><td>Imagen del hero, servicios, texto de inversión, brochure PDF</td></tr>
+                <tr><td>Método LAB</td><td>Textos del método y brochure PDF</td></tr>
+                <tr><td>Herramientas</td><td>Tarjetas de herramientas de gestión</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Para editar un texto</h3>
+        <ol>
+            <li>Hacé clic en la pestaña correspondiente.</li>
+            <li>Buscá el campo que querés cambiar y hacé clic sobre él.</li>
+            <li>Escribí el texto nuevo.</li>
+        </ol>
+
+        <h3>Para cambiar una imagen</h3>
+        <ol>
+            <li>Hacé clic en la pestaña correspondiente.</li>
+            <li>Buscá el campo de imagen.</li>
+            <li>Hacé clic en <strong>"Upload"</strong> para subir una foto desde tu computadora.</li>
+        </ol>
+
+        <h2><span class="step-number">5</span> ⭐ Cómo Posicionar una Imagen Dentro del Frame</h2>
+        <p>Este es el paso más importante para que la foto quede perfecta sin importar su tamaño o formato.</p>
+        <p>Después de subir una imagen, vas a ver un <strong>punto circular</strong> sobre la foto:</p>
+        <ol>
+            <li><strong>Hacé clic y arrastrá ese punto</strong> al área de la foto que querés enfocar (por ejemplo, tu cara o el plato de comida).</li>
+            <li>El sitio web recortará automáticamente la imagen ajustándola al frame sin deformarla.</li>
+            <li>La estructura y el diseño del sitio <strong>nunca van a cambiar</strong>.</li>
+        </ol>
+        <div class="callout important">
+            <div class="callout-icon">⚠️</div>
+            <div class="callout-body"><strong>Importante</strong>Siempre posicioná el punto focal antes de publicar. Si la foto queda cortada de una forma que no te gusta, simplemente mové el punto y volvé a publicar.</div>
+        </div>
+
+        <h2><span class="step-number">6</span> Subir un Folleto PDF</h2>
+        <ol>
+            <li>Andá a la pestaña <strong>Asesorías</strong> o <strong>Método LAB</strong>.</li>
+            <li>Buscá el campo <strong>"Archivo PDF del Brochure"</strong>.</li>
+            <li>Hacé clic en <strong>"Upload"</strong> y seleccioná el PDF desde tu computadora.</li>
+            <li>El botón "BROCHURE" del sitio apuntará automáticamente al nuevo PDF.</li>
+        </ol>
+
+        <h2><span class="step-number">7</span> Publicar los Cambios</h2>
+        <div class="callout caution">
+            <div class="callout-icon">🔴</div>
+            <div class="callout-body"><strong>Atención</strong>Los cambios no se guardan automáticamente. Antes de cerrar el navegador, siempre hacé clic en "Publish".</div>
+        </div>
+        <ol>
+            <li>Después de realizar todos los cambios, buscá el botón <strong>verde "Publish"</strong> en la parte inferior (o esquina superior derecha).</li>
+            <li>Hacé clic en <strong>"Publish"</strong>.</li>
+            <li>En pocos segundos los cambios se verán reflejados en <code>labgastronomy.com</code>.</li>
+        </ol>
+        <div class="callout note">
+            <div class="callout-icon">📝</div>
+            <div class="callout-body"><strong>Nota</strong>Si cerrás la página sin publicar, los cambios se guardan como borrador. La próxima vez que ingreses vas a ver un indicador "Draft" que indica que hay cambios pendientes de publicar.</div>
+        </div>
+
+        <h2><span class="step-number">8</span> Editar Artículos del Blog</h2>
+        <ol>
+            <li>En la barra lateral izquierda, hacé clic en <strong>"Post"</strong>.</li>
+            <li>Para crear uno nuevo: botón <strong>"+ Create"</strong> en la parte superior derecha.</li>
+            <li>Para editar uno existente: hacé clic sobre el artículo de la lista.</li>
+            <li>Completá los campos: Título, Imagen de portada, Categoría y cuerpo del artículo.</li>
+            <li>Publicá con el botón <strong>"Publish"</strong>.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Solución de Problemas</h2>
+        <table>
+            <thead>
+                <tr><th>Problema</th><th>Solución</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>No puedo ingresar al panel</td><td>Verificá que la URL sea exactamente <code>labgastronomy.com/studio/</code> (con la barra al final)</td></tr>
+                <tr><td>Los cambios no aparecen en la web</td><td>Verificá que hayas hecho clic en <strong>"Publish"</strong> (no solo guardar)</td></tr>
+                <tr><td>La imagen aparece cortada</td><td>Mové el punto focal sobre la parte de la foto que querés mostrar y volvé a publicar</td></tr>
+                <tr><td>Olvidé mi contraseña</td><td>En la pantalla de login, hacé clic en <strong>"Forgot password"</strong></td></tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="footer">
+        LAB Gastronomy Advisory &nbsp;·&nbsp; labgastronomy.com &nbsp;·&nbsp; Documento de uso exclusivo del cliente
+    </div>
+
+</body>
+</html>
