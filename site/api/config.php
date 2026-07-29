@@ -9,7 +9,7 @@ define('SENDER_EMAIL', 'contacto@laurabailone.com');
 define('SENDER_NAME', 'LAB Consultoria Gastronomica');
 
 // URL del conector de permisos automáticos de Google Drive (Google Apps Script)
-define('GOOGLE_APPS_SCRIPT_URL', 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE');
+define('GOOGLE_APPS_SCRIPT_URL', 'https://script.google.com/macros/s/AKfycbwTYHuMrcYMSFTbpprmJ1utqycuXig-kkObWfjkHb4t2Kd_HLPZonPkE2dDN4G_jxR1pw/exec');
 
 // Mapeo de Accesos y Entregas por ID de Producto / Combo
 $PRODUCT_FULFILLMENT = [
