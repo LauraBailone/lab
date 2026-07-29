@@ -64,22 +64,25 @@ echo "OK Notification Handled";
 function grantGoogleDrivePermissions($email, $items, $fulfillment_data) {
     if (!defined('GOOGLE_APPS_SCRIPT_URL') || strpos(GOOGLE_APPS_SCRIPT_URL, 'YOUR_') === 0) return;
     
-    $file_ids = [];
+    $resources = [];
     foreach ($items as $item) {
         $id = $item['id'];
         $sub_keys = isset($fulfillment_data[$id]['items']) ? $fulfillment_data[$id]['items'] : [$id];
         foreach ($sub_keys as $k) {
+            if (isset($fulfillment_data[$k]['folder_id']) && strpos($fulfillment_data[$k]['folder_id'], 'YOUR_') === false) {
+                $resources[] = ['id' => $fulfillment_data[$k]['folder_id'], 'type' => 'folder'];
+            }
             if (isset($fulfillment_data[$k]['sheet_id']) && strpos($fulfillment_data[$k]['sheet_id'], 'YOUR_') === false) {
-                $file_ids[] = $fulfillment_data[$k]['sheet_id'];
+                $resources[] = ['id' => $fulfillment_data[$k]['sheet_id'], 'type' => 'file'];
             }
         }
     }
     
-    if (empty($file_ids)) return;
+    if (empty($resources)) return;
     
     $payload = [
         'email' => $email,
-        'fileIds' => array_values(array_unique($file_ids))
+        'resources' => array_values($resources)
     ];
     
     $ch = curl_init(GOOGLE_APPS_SCRIPT_URL);

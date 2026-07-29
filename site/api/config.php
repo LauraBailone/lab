@@ -15,28 +15,36 @@ define('GOOGLE_APPS_SCRIPT_URL', 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE');
 $PRODUCT_FULFILLMENT = [
     'lab-cost-menu' => [
         'nombre' => 'LAB Cost & Ingenieria de Menu V-1.0',
+        'folder_id' => 'YOUR_GOOGLE_DRIVE_FOLDER_ID_COST',
         'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_COST',
+        'link_folder' => 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID_COST',
         'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_COST/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Cost.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_COST'
     ],
     'lab-ley-omnes' => [
         'nombre' => 'LAB Ley de Omnes & Ingenieria V-1.1',
+        'folder_id' => 'YOUR_GOOGLE_DRIVE_FOLDER_ID_OMNES',
         'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_OMNES',
+        'link_folder' => 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID_OMNES',
         'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_OMNES/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Omnes.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_OMNES'
     ],
     'lab-fichas-tecnicas' => [
         'nombre' => 'LAB Fichas Tecnicas PRO',
+        'folder_id' => 'YOUR_GOOGLE_DRIVE_FOLDER_ID_FICHAS',
         'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_FICHAS',
+        'link_folder' => 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID_FICHAS',
         'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_FICHAS/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Fichas.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_FICHAS'
     ],
     'lab-control-stock' => [
         'nombre' => 'LAB Control de Stock V-1.0',
+        'folder_id' => 'YOUR_GOOGLE_DRIVE_FOLDER_ID_STOCK',
         'sheet_id' => 'YOUR_GOOGLE_SHEET_ID_STOCK',
+        'link_folder' => 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID_STOCK',
         'link_sheets' => 'https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_STOCK/copy',
         'link_manual' => 'https://laurabailone.com/assets/manuales/Manual-LAB-Stock.pdf',
         'video_tutorial' => 'https://youtube.com/watch?v=EXAMPLE_STOCK'
