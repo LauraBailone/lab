@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (page === "" || page === "index.html") {
         renderLanding(cfg);
         if (sanityData) {
+            renderHomeBio(sanityData);
             // Aplicar hotspot a la imagen del hero de la home si existe
             const heroImg = document.querySelector('#hero img');
             if (heroImg && sanityData.heroImagen) {
@@ -918,10 +919,10 @@ function injectProductBlocks(cfg) {
             <div class="seccion-linea gsap-fade-up" style="background: linear-gradient(to right, transparent, #C85A17 50%, transparent);"></div>
             <div class="productos-grid gsap-stagger-container">
                 ${cfg.landing.servicios_preview.items.map((item, idx) => {
-                    let img = cfg.imagenes.servicios_img_1;
-                    if (idx === 0) img = "assets/images/laura-bailone-blog-1.webp";
-                    else if (idx === 1) img = "assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png";
-                    else if (idx === 2) img = cfg.imagenes.servicios_img_3;
+                    let img = item.imagen || cfg.imagenes.servicios_img_1;
+                    if (!item.imagen && idx === 0) img = "assets/images/laura-bailone-blog-1.webp";
+                    else if (!item.imagen && idx === 1) img = "assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png";
+                    else if (!item.imagen && idx === 2) img = cfg.imagenes.servicios_img_3;
                     return `
                         <div class="producto-card gsap-stagger-item">
                             <div class="producto-img">
@@ -1084,8 +1085,20 @@ function mapSanityDataToConfig(cfg, data) {
             cfg.enlaces.brochure_hospitality = pdfUrl;
         }
     }
+    if (data.asesoriasServicios && data.asesoriasServicios.length > 0) {
+        cfg.landing.servicios_preview.items = data.asesoriasServicios.map(s => {
+            return {
+                titulo: s.titulo,
+                subtitulo: s.subtitulo,
+                descripcion: s.descripcion,
+                imagen: getSanityImageUrl(s.imagenTarjeta) || null
+            };
+        });
+    }
 
     // Pestaña 5: Método LAB (Fases del método & Brochure PDF override)
+    if (data.metodoTarjetaGastronomyResumen) cfg.landing.metodo_cards.card_1.descripcion = data.metodoTarjetaGastronomyResumen;
+    if (data.metodoTarjetaHospitalityResumen) cfg.landing.metodo_cards.card_2.descripcion = data.metodoTarjetaHospitalityResumen;
     if (data.metodoDetallesGastronomy) cfg.metodo_lab.plan_gastronomy.descripcion = data.metodoDetallesGastronomy;
     if (data.metodoDetallesHospitality) cfg.metodo_lab.plan_hospitality.descripcion = data.metodoDetallesHospitality;
     if (data.fasesGastronomy && data.fasesGastronomy.length > 0) {
@@ -1256,5 +1269,38 @@ function renderAsesoriasPage(cfg, data) {
     const inversionEl = document.querySelector('.inversion-servicio-box p');
     if (inversionEl && data.inversionTexto) {
         inversionEl.innerText = data.inversionTexto;
+    }
+}
+
+function renderHomeBio(data) {
+    if (!data) return;
+    
+    if (data.bioTarjetaTitular) {
+        const el = document.getElementById('home-bio-headline');
+        if (el) el.innerText = data.bioTarjetaTitular;
+    }
+    if (data.bioTarjetaResumen) {
+        const el = document.getElementById('home-bio-description');
+        if (el) el.innerText = data.bioTarjetaResumen;
+    }
+    if (data.bioTarjetaImagenPaisaje) {
+        const url = getSanityImageUrl(data.bioTarjetaImagenPaisaje);
+        if (url) {
+            const el = document.getElementById('home-bio-landscape');
+            if (el) {
+                el.src = url;
+                applySanityHotspot(el, data.bioTarjetaImagenPaisaje);
+            }
+        }
+    }
+    if (data.bioTarjetaImagenPerfil) {
+        const url = getSanityImageUrl(data.bioTarjetaImagenPerfil);
+        if (url) {
+            const el = document.getElementById('home-bio-portrait');
+            if (el) {
+                el.src = url;
+                applySanityHotspot(el, data.bioTarjetaImagenPerfil);
+            }
+        }
     }
 }

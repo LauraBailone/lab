@@ -139,6 +139,32 @@ export default {
       type: 'text',
       group: 'bio',
     },
+    {
+      name: 'bioTarjetaTitular',
+      title: 'Titular para Tarjeta Home (ej: Soy Laura Bailone...)',
+      type: 'string',
+      group: 'bio',
+    },
+    {
+      name: 'bioTarjetaResumen',
+      title: 'Resumen para Tarjeta Home',
+      type: 'text',
+      group: 'bio',
+    },
+    {
+      name: 'bioTarjetaImagenPaisaje',
+      title: 'Imagen Apaisada para Tarjeta Home',
+      type: 'image',
+      options: { hotspot: true },
+      group: 'bio',
+    },
+    {
+      name: 'bioTarjetaImagenPerfil',
+      title: 'Imagen Retrato para Tarjeta Home',
+      type: 'image',
+      options: { hotspot: true },
+      group: 'bio',
+    },
 
     // === GRUPO: ASESORÍAS ===
     {
@@ -182,6 +208,7 @@ export default {
             { name: 'descripcion', title: 'Descripción / Resumen', type: 'text' },
             { name: 'para', title: 'Puntos de "PARA" (uno por línea)', type: 'text', description: 'Escribe cada ítem en una línea distinta.' },
             { name: 'resultados', title: 'Puntos de "RESULTADOS" (uno por línea)', type: 'text', description: 'Escribe cada ítem en una línea distinta.' },
+            { name: 'imagenTarjeta', title: 'Imagen para la Tarjeta Global', type: 'image', options: { hotspot: true } },
           ],
         },
       ],
@@ -261,6 +288,18 @@ export default {
       name: 'brochureMetodoFile',
       title: 'Archivo PDF del Brochure (Método)',
       type: 'file',
+      group: 'metodo',
+    },
+    {
+      name: 'metodoTarjetaGastronomyResumen',
+      title: 'Resumen Tarjeta: Gastronomía Estratégica',
+      type: 'text',
+      group: 'metodo',
+    },
+    {
+      name: 'metodoTarjetaHospitalityResumen',
+      title: 'Resumen Tarjeta: Hospitalidad y Wellness',
+      type: 'text',
       group: 'metodo',
     },
 
