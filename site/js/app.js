@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // === META PIXEL ===
-    const META_PIXEL_ID = '4495071064037883';
+    const META_PIXEL_ID = '2226261661268668';
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
