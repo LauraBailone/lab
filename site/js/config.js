@@ -207,8 +207,8 @@ const SITE_CONFIG = {
             ]
         },
         "copyright": "©2026 LAB Gastronomy Advisory. Todos los derechos reservados",
-        "privacy": "Privacy & Policy",
-        "terms": "Terms & Condition"
+        "privacy": "Políticas de Privacidad",
+        "terms": "Términos y Condiciones"
     },
 
     // === TEXTOS LANDING PAGE ===
