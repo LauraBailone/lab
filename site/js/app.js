@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         gsap.registerPlugin(ScrollTrigger);
     }
 
-    initThemeSelector(cfg.temas);
     injectNavbar(cfg);
     injectFooter(cfg);
     initCartSystem(cfg);
@@ -154,35 +153,6 @@ function initGsapAnimations() {
             }
         });
     });
-}
-
-function initThemeSelector(temas) {
-    const selectorContainer = document.createElement('div');
-    selectorContainer.className = 'theme-selector';
-    
-    const label = document.createElement('label');
-    label.innerText = 'Seleccionar Tema (Demo):';
-    label.style.fontSize = '0.7rem';
-    label.style.textTransform = 'uppercase';
-    label.style.letterSpacing = '0.1em';
-    
-    const select = document.createElement('select');
-    
-    temas.forEach(tema => {
-        const option = document.createElement('option');
-        option.value = tema.id;
-        option.innerText = `${tema.nombre} (${tema.tipo})`;
-        select.appendChild(option);
-    });
-
-    select.addEventListener('change', (e) => {
-        applyTheme(e.target.value, temas);
-    });
-
-    selectorContainer.appendChild(label);
-    selectorContainer.appendChild(select);
-    document.body.appendChild(selectorContainer);
-    applyTheme(temas[0].id, temas);
 }
 
 function applyTheme(themeId, temas) {
