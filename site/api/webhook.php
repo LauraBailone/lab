@@ -128,22 +128,30 @@ function sendDeliveryEmail($to_email, $customer_name, $items, $payment_id, $fulf
     <!DOCTYPE html>
     <html>
     <head><meta charset="UTF-8"></head>
-    <body style="font-family: Arial, sans-serif; color: #2D2016; background-color: #F8F9FA; padding: 20px;">
-        <div style="max-width: 600px; margin: 0 auto; background: #FFFFFF; padding: 30px; border-radius: 12px; border: 1px solid #EEEEEE;">
-            <h2 style="color: #E8913A; margin-top: 0;">¡Gracias por tu compra, ' . htmlspecialchars($customer_name) . '!</h2>
-            <p>Tu pago ha sido verificado con éxito (Operación #' . htmlspecialchars($payment_id) . ').</p>
-            <p>A continuación tenés los accesos directos e instrucciones para comenzar a utilizar tus herramientas:</p>
+    <body style="font-family: Arial, sans-serif; color: #2D2016; background-color: #F8F9FA; padding: 40px 20px; margin: 0;">
+        <div style="max-width: 600px; margin: 0 auto; background: #FFFFFF; padding: 40px 30px; border-radius: 12px; border: 1px solid #EEEEEE; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
             
-            <hr style="border: none; border-top: 1px solid #EEEEEE; margin: 20px 0;">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h1 style="font-family: Georgia, serif; font-size: 28px; color: #2D2016; margin: 0; letter-spacing: 0.1em; text-transform: uppercase;">lab</h1>
+                <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: #E8913A; margin-top: 4px; font-weight: bold;">Gastronomy Advisory</p>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #F0ECE8; margin: 20px 0 25px 0;">
+
+            <h2 style="color: #E8913A; margin-top: 0; font-size: 22px; font-weight: 600;">¡Gracias por tu compra, ' . htmlspecialchars($customer_name) . '!</h2>
+            <p style="font-size: 15px; line-height: 1.6; color: #4A3E35;">Tu pago ha sido verificado con éxito <strong>(Operación #' . htmlspecialchars($payment_id) . ')</strong>.</p>
+            <p style="font-size: 15px; line-height: 1.6; color: #4A3E35;">A continuación tenés los accesos directos e instrucciones para comenzar a utilizar tus herramientas:</p>
+            
+            <div style="margin: 25px 0;"></div>
             
             ' . $links_html . '
             
-            <hr style="border: none; border-top: 1px solid #EEEEEE; margin: 20px 0;">
+            <hr style="border: none; border-top: 1px solid #F0ECE8; margin: 30px 0 20px 0;">
             
-            <p style="font-size: 0.9em; color: #666666;">
+            <p style="font-size: 13px; color: #776A5E; line-height: 1.6; margin-bottom: 15px;">
                 <strong>¿Necesitás soporte?</strong> Durante 1 mes contás con soporte prioritario vía WhatsApp. Podés responder a este correo o escribirnos a nuestro WhatsApp de soporte.
             </p>
-            <p style="font-size: 0.9em; color: #999999; margin-bottom: 0;">
+            <p style="font-size: 12px; color: #A09386; margin-bottom: 0; font-weight: 500;">
                 LAB Consultoría Gastronómica — Laura Bailone
             </p>
         </div>
