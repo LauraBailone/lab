@@ -8,7 +8,7 @@ define('MP_ACCESS_TOKEN', 'APP_USR-4943048114598751-072309-a07394acc8666615438b6
 define('PAYPAL_CLIENT_ID', 'BAAuCw8J0NdSC0cAt7fKfj4KkyuYysD38xo3eMs453TYG3cmZ-Jti4Adu3jQXR06sHEsQ8-hVHo2e0qoCs');
 
 // Email remitente
-define('SENDER_EMAIL', 'contacto@laurabailone.com');
+define('SENDER_EMAIL', 'info@labgastronomy.com');
 define('SENDER_NAME', 'LAB Consultoria Gastronomica');
 
 // URL del conector de permisos automáticos de Google Drive (Google Apps Script)
