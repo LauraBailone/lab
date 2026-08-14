@@ -359,7 +359,7 @@ function initCartSystem(cfg) {
                     if (!window.paypal) {
                         await new Promise((resolve, reject) => {
                             const script = document.createElement('script');
-                            script.src = "https://www.paypal.com/sdk/js?client-id=AaGe2Trn6hYANijULfk0ysb2l8VzqJWPSM30JlhSvOKbXzzVX1dEgWJVNMepi1UayextFMTxuNocc58T&currency=USD";
+                            script.src = "https://www.paypal.com/sdk/js?client-id=BAAuCw8J0NdSC0cAt7fKfj4KkyuYysD38xo3eMs453TYG3cmZ-Jti4Adu3jQXR06sHEsQ8-hVHo2e0qoCs&currency=USD";
                             script.onload = resolve;
                             script.onerror = reject;
                             document.head.appendChild(script);

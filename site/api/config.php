@@ -1,11 +1,11 @@
 <?php
 // Configuración de Mercado Pago & Entrega Digital LAB
 
-// Access Token de Mercado Pago Sandbox
-define('MP_ACCESS_TOKEN', 'APP_USR-4347499602251908-072908-511329bd3054feb075ad5ef350835cfe-3575896132');
+// Access Token de Mercado Pago Producción
+define('MP_ACCESS_TOKEN', 'APP_USR-4943048114598751-072309-a07394acc8666615438b682a8e2bc321-1124624049');
 
-// Client ID de PayPal (Sandbox)
-define('PAYPAL_CLIENT_ID', 'AaGe2Trn6hYANijULfk0ysb2l8VzqJWPSM30JlhSvOKbXzzVX1dEgWJVNMepi1UayextFMTxuNocc58T');
+// Client ID de PayPal (Producción / Live)
+define('PAYPAL_CLIENT_ID', 'BAAuCw8J0NdSC0cAt7fKfj4KkyuYysD38xo3eMs453TYG3cmZ-Jti4Adu3jQXR06sHEsQ8-hVHo2e0qoCs');
 
 // Email remitente
 define('SENDER_EMAIL', 'contacto@laurabailone.com');
