@@ -12,8 +12,8 @@ const SITE_CONFIG = {
     },
 
     "imagenes": {
-        "logo_navbar": "assets/logo/logo-lab.svg", // Configurable
-        "logo_footer": "assets/logo/logo-lab.svg", // Configurable
+        "logo_navbar": "assets/logo/logo-lab-v2.png",
+        "logo_footer": "assets/logo/logo-lab-v2.png",
         "hero_bg": "assets/images/laura-bailone-blog-1.webp",
         "metodo_preview": "assets/images/presentando-lab.webp",
         "servicios_img_1": "assets/images/laura-bailone-consultoria-gastronomica.webp",
@@ -329,7 +329,7 @@ const SITE_CONFIG = {
                 "Fidelización de clientes",
                 "Crecimiento sostenible"
             ],
-            "precio": "Desde USD 800"
+            "precio": "Cotización personalizada a medida"
         },
         "plan_hospitality": {
             "titulo": "LAB CONSCIOUS HOSPITALITY",
