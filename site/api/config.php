@@ -27,7 +27,7 @@ $PRODUCT_FULFILLMENT = [
         'link_folder' => 'https://drive.google.com/drive/folders/1mC7DNYc56jOVqftvpx4i-grcocaw40rh'
     ],
     'lab-fichas-tecnicas' => [
-        'nombre' => 'LAB Fichas Tecnicas PRO',
+        'nombre' => 'LAB Fichas Técnicas & Punto de Equilibrio PRO',
         'folder_id' => '1aP3Ri9k1Q8LOltPcLZ1AH7wJFhUFRYV7',
         'link_folder' => 'https://drive.google.com/drive/folders/1aP3Ri9k1Q8LOltPcLZ1AH7wJFhUFRYV7'
     ],

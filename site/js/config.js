@@ -509,6 +509,17 @@ const SITE_CONFIG = {
                 "imagen": "assets/images/laura-bailone-consultoria-gastronomica.webp",
                 "link_mp": "https://mpago.la/placeholder-menu-eng",
                 "link_stripe": "https://buy.stripe.com/placeholder-menu-eng"
+            },
+            {
+                "id": "lab-fichas-tecnicas",
+                "titulo": "LAB Fichas Técnicas & Punto de Equilibrio PRO",
+                "subtitulo": "De la receta al número que define si tu negocio es viable",
+                "resumen": "Estandarizá tus recetas, y analizá cuánto tenés que vender para no perder dinero. Suma al costeo de recetas el cálculo automático de tu Punto de Equilibrio",
+                "precio_ars": 30000,
+                "precio_usd": 25,
+                "imagen": "assets/images/laura-bailone-experiencias-gastronomicas.webp",
+                "link_mp": "https://mpago.la/placeholder-fichas-pe",
+                "link_stripe": "https://buy.stripe.com/placeholder-fichas-pe"
             }
         ],
         "academia": [
