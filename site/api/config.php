@@ -28,8 +28,8 @@ $PRODUCT_FULFILLMENT = [
     ],
     'lab-fichas-tecnicas' => [
         'nombre' => 'LAB Fichas Técnicas & Punto de Equilibrio PRO',
-        'folder_id' => '1aP3Ri9k1Q8LOltPcLZ1AH7wJFhUFRYV7',
-        'link_folder' => 'https://drive.google.com/drive/folders/1aP3Ri9k1Q8LOltPcLZ1AH7wJFhUFRYV7'
+        'folder_id' => '1hwBpkT1RPwe1461_pbV2S76tqNblm-ER',
+        'link_folder' => 'https://drive.google.com/drive/folders/1hwBpkT1RPwe1461_pbV2S76tqNblm-ER'
     ],
     'lab-control-stock' => [
         'nombre' => 'LAB Control de Stock V-1.0',
