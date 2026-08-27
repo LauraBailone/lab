@@ -959,9 +959,10 @@ function injectProductBlocks(cfg) {
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
     const isIndex = (currentPath === "" || currentPath === "index.html");
     const isMetodoLab = (currentPath === "metodo-lab.html");
+    const isAsesorias = (currentPath === "asesorias.html");
     
     container.innerHTML = `
-        ${(!isIndex && !isMetodoLab) ? `
+        ${(!isIndex && !isMetodoLab && !isAsesorias) ? `
         <!-- Bloque 1: Método LAB -->
         <section id="metodo-lab-block" class="productos-seccion" style="padding-top: 6rem;">
             <h2 class="section-title text-light gsap-fade-up">MÉTODO LAB</h2>
@@ -994,7 +995,7 @@ function injectProductBlocks(cfg) {
         ` : ''}
 
         <!-- Bloque 2: Asesorías (Fondo Naranja Suave, pegado a Herramientas) -->
-        <section id="asesorias-block" class="productos-seccion" style="background-color: var(--color-naranja-claro); padding-top: 6rem; padding-bottom: 6rem; margin-bottom: 0;">
+        <section id="asesorias-block" class="productos-seccion" style="background-color: var(--color-naranja-claro); padding-top: 4rem; padding-bottom: 5rem; margin-bottom: 0;">
             <h2 class="section-title text-light gsap-fade-up" style="color: #C85A17;">ASESORÍAS</h2>
             <div class="seccion-linea gsap-fade-up" style="background: linear-gradient(to right, transparent, #C85A17 50%, transparent);"></div>
             <div class="productos-grid gsap-stagger-container">
@@ -1003,6 +1004,14 @@ function injectProductBlocks(cfg) {
                     if (!item.imagen && idx === 0) img = "assets/images/laura-bailone-blog-1.webp";
                     else if (!item.imagen && idx === 1) img = "assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png";
                     else if (!item.imagen && idx === 2) img = cfg.imagenes.servicios_img_3;
+
+                    let targetAnchor = "asesorias.html";
+                    if (isAsesorias) {
+                        if (idx === 0) targetAnchor = "#ingenieria-de-menu";
+                        else if (idx === 1) targetAnchor = "#costos-y-metricas";
+                        else if (idx === 2) targetAnchor = "#experiencias-gastronomicas";
+                    }
+
                     return `
                         <div class="producto-card gsap-stagger-item">
                             <div class="producto-img">
@@ -1012,7 +1021,7 @@ function injectProductBlocks(cfg) {
                             <h4 class="producto-titulo">${item.titulo}</h4>
                             <p class="producto-descripcion"><strong style="color: #C85A17;">${item.subtitulo}</strong><br><br>${item.descripcion}</p>
                             <div class="card-actions-wrapper">
-                                <a href="asesorias.html" class="link-details">VER DETALLES ➔</a>
+                                <a href="${targetAnchor}" class="link-details">VER DETALLES ➔</a>
                             </div>
                         </div>
                     `;
