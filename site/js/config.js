@@ -158,9 +158,9 @@ const SITE_CONFIG = {
     // === TEXTOS COMPARTIDOS ===
     "navegacion": [
         { "nombre": "INICIO", "url": "index.html" },
+        { "nombre": "ASESORÍAS", "url": "asesorias.html" },
         { "nombre": "MÉTODO LAB", "url": "metodo-lab.html" },
         { "nombre": "HERRAMIENTAS LAB", "url": "herramientas-gestion.html" },
-        { "nombre": "ASESORÍAS", "url": "asesorias.html" },
         { "nombre": "DETRÁS DE LAB", "url": "quien-soy.html" },
         { "nombre": "BLOG", "url": "blog.html" }
     ],
