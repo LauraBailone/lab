@@ -3482,6 +3482,190 @@ footer {
     }
 }
 
+/* GRILLA Y TARJETAS REUTILIZABLES (TOOL-CARD) */
+.tools-grid-section {
+    padding: 2rem 5% 5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.tools-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-card {
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.tool-card-img {
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    background-color: var(--color-fondo-secundario);
+}
+
+.tool-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tool-card-category {
+    font-family: var(--fuente-h3-h4);
+    font-size: 0.75rem;
+    color: var(--color-naranja-primario);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.tool-card-title {
+    font-family: var(--fuente-h1-h2);
+    font-size: 1.35rem;
+    color: var(--color-texto-principal);
+    margin: 0 0 0.8rem 0;
+    line-height: 1.2;
+}
+
+.tool-card-desc {
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-weight: 300;
+}
+
+.tool-card-footer {
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.tool-card-price {
+    font-family: var(--fuente-h3-h4);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+}
+
+.tool-card-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* GRILLA Y TARJETAS GLOBALES (PRODUCTO-CARD & PRODUCTOS-GRID) */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.producto-card {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.producto-img {
+    height: 220px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.4rem;
+    background-color: var(--color-fondo-secundario);
+}
+
+.producto-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-categoria {
+    font-family: var(--fuente-h3-h4);
+    font-size: 0.78rem;
+    color: var(--color-naranja-primario);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.producto-titulo {
+    font-family: var(--fuente-h1-h2);
+    font-size: 1.4rem;
+    color: var(--color-texto-principal);
+    margin: 0 0 0.8rem 0;
+    line-height: 1.25;
+}
+
+.producto-descripcion {
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.92rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.card-actions-wrapper {
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.link-details {
+    font-family: var(--fuente-h3-h4);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-naranja-primario);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.link-details:hover {
+    color: var(--color-texto-principal);
+    transform: translateX(4px);
+}
+
 
 
 
