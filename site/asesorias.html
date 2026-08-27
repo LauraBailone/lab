@@ -35,64 +35,47 @@
         </div>
     </section>
 
-    <!-- Tarjetas de Acceso Rápido a las 3 Asesorías -->
-    <section class="asesorias-cards-section" style="padding: 1rem 5% 4rem;">
+    <!-- Bloque de Tarjetas Existentes de Asesorías -->
+    <section class="asesorias-cards-preview" style="padding: 1rem 5% 4rem;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 2.5rem;" class="gsap-fade-up">
-                <span style="font-family: var(--fuente-sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; color: var(--color-naranja-primario); text-transform: uppercase;">NUESTRAS PROPUESTAS</span>
-                <h3 style="font-family: var(--fuente-h1-h2); font-size: 2.2rem; color: var(--color-texto-principal); margin-top: 0.4rem;">Conocé las Asesorías Especializadas</h3>
-            </div>
-            
-            <div class="tools-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="productos-grid gsap-stagger-container">
                 
-                <!-- Card 1: Ingeniería de Menú -->
-                <div class="tool-card gsap-stagger-item" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <div class="tool-card-img" style="height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
-                            <img src="assets/images/laura-bailone-optimizacion-menu.webp" alt="Ingeniería de Menú" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <span class="tool-card-category">ENFOQUE EN EL MENÚ</span>
-                        <h3 class="tool-card-title" style="font-size: 1.35rem; margin: 0.5rem 0;">INGENIERÍA DE MENÚ</h3>
-                        <p class="tool-card-desc" style="font-size: 0.92rem; color: var(--color-texto-secundario); line-height: 1.6; margin-bottom: 1.5rem;">
-                            Análisis y rediseño de menú para mejorar la rentabilidad y adaptar la oferta a las nuevas necesidades del consumidor.
-                        </p>
+                <!-- Tarjeta 1: Menús Estratégicos -->
+                <div class="producto-card gsap-stagger-item">
+                    <div class="producto-img">
+                        <img src="assets/images/laura-bailone-blog-1.webp" alt="MENÚS ESTRATÉGICOS" style="object-position: center bottom;">
                     </div>
-                    <div>
-                        <a href="#ingenieria-de-menu" class="btn" style="width: 100%; text-align: center; display: inline-block; padding: 0.8rem 1rem;">VER ASESORÍA ➔</a>
+                    <span class="producto-categoria" style="color: #C85A17;">CONSULTORÍA ESTRATÉGICA</span>
+                    <h4 class="producto-titulo">MENÚS ESTRATÉGICOS</h4>
+                    <p class="producto-descripcion"><strong style="color: #C85A17;">Ingeniería de Menú, Pricing y Optimización de la Oferta Gastronómica</strong><br><br>Diseñamos menús que venden mejor y generan mayor rentabilidad. Un menú no es solo una lista de platos y precios. Es una herramienta estratégica que influye en las ventas, la rentabilidad, la operación diaria y la experiencia del cliente.</p>
+                    <div class="card-actions-wrapper">
+                        <a href="#ingenieria-de-menu" class="link-details">VER DETALLES ➔</a>
                     </div>
                 </div>
 
-                <!-- Card 2: Costos y Métricas Financieras -->
-                <div class="tool-card gsap-stagger-item" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <div class="tool-card-img" style="height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
-                            <img src="assets/images/laura-bailone-rentabilidad-gastronomica.webp" alt="Costos y Métricas Financieras" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <span class="tool-card-category">CONTROL DE NÚMEROS</span>
-                        <h3 class="tool-card-title" style="font-size: 1.35rem; margin: 0.5rem 0;">COSTOS Y MÉTRICAS FINANCIERAS</h3>
-                        <p class="tool-card-desc" style="font-size: 0.92rem; color: var(--color-texto-secundario); line-height: 1.6; margin-bottom: 1.5rem;">
-                            Transformamos los datos diarios de tu operación en indicadores claros para controlar costos y aumentar la rentabilidad.
-                        </p>
+                <!-- Tarjeta 2: Rentabilidad y Gestión Financiera -->
+                <div class="producto-card gsap-stagger-item">
+                    <div class="producto-img">
+                        <img src="assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png" alt="RENTABILIDAD Y GESTIÓN FINANCIERA" style="object-position: center bottom;">
                     </div>
-                    <div>
-                        <a href="#costos-y-metricas" class="btn" style="width: 100%; text-align: center; display: inline-block; padding: 0.8rem 1rem;">VER ASESORÍA ➔</a>
+                    <span class="producto-categoria" style="color: #C85A17;">CONSULTORÍA ESTRATÉGICA</span>
+                    <h4 class="producto-titulo">RENTABILIDAD Y GESTIÓN FINANCIERA</h4>
+                    <p class="producto-descripcion"><strong style="color: #C85A17;">Ordenamos tus números para que puedas tomar mejores decisiones</strong><br><br>Muchos negocios gastronómicos venden bien, pero toman decisiones basadas en intuición. En LAB transformamos la información diaria de tu operación en indicadores claros que te permiten controlar costos, optimizar procesos y mejorar la rentabilidad de manera sostenible.</p>
+                    <div class="card-actions-wrapper">
+                        <a href="#costos-y-metricas" class="link-details">VER DETALLES ➔</a>
                     </div>
                 </div>
 
-                <!-- Card 3: Experiencias Gastronómicas -->
-                <div class="tool-card gsap-stagger-item" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <div class="tool-card-img" style="height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
-                            <img src="assets/images/laura-bailone-experiencias-gastronomicas.webp" alt="Experiencias Gastronómicas" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <span class="tool-card-category">IDENTIDAD Y HOSPITALIDAD</span>
-                        <h3 class="tool-card-title" style="font-size: 1.35rem; margin: 0.5rem 0;">EXPERIENCIAS GASTRONÓMICAS</h3>
-                        <p class="tool-card-desc" style="font-size: 0.92rem; color: var(--color-texto-secundario); line-height: 1.6; margin-bottom: 1.5rem;">
-                            Diseño integral de experiencias culinarias para diferenciar tu marca y elevar el valor percibido por tus clientes.
-                        </p>
+                <!-- Tarjeta 3: Experiencias Gastronómicas -->
+                <div class="producto-card gsap-stagger-item">
+                    <div class="producto-img">
+                        <img src="assets/images/laura-bailone-experiencias-gastronomicas.webp" alt="EXPERIENCIAS GASTRONÓMICAS" style="object-position: center bottom;">
                     </div>
-                    <div>
-                        <a href="#experiencias-gastronomicas" class="btn" style="width: 100%; text-align: center; display: inline-block; padding: 0.8rem 1rem;">VER ASESORÍA ➔</a>
+                    <span class="producto-categoria" style="color: #C85A17;">CONSULTORÍA ESTRATÉGICA</span>
+                    <h4 class="producto-titulo">EXPERIENCIAS GASTRONÓMICAS</h4>
+                    <p class="producto-descripcion"><strong style="color: #C85A17;">Diseño de experiencias memorables, identidad y hospitalidad</strong><br><br>En LAB diseñamos propuestas gastronómicas donde cada detalle —desde el concepto del negocio hasta la experiencia del cliente— trabaja para diferenciar tu marca, fortalecer la conexión con las personas y aumentar el valor percibido de tu negocio.</p>
+                    <div class="card-actions-wrapper">
+                        <a href="#experiencias-gastronomicas" class="link-details">VER DETALLES ➔</a>
                     </div>
                 </div>
 
