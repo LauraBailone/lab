@@ -35,11 +35,76 @@
         </div>
     </section>
 
+    <!-- Tarjetas de Acceso Rápido a las 3 Asesorías -->
+    <section class="asesorias-cards-section" style="padding: 1rem 5% 4rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 2.5rem;" class="gsap-fade-up">
+                <span style="font-family: var(--fuente-sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; color: var(--color-naranja-primario); text-transform: uppercase;">NUESTRAS PROPUESTAS</span>
+                <h3 style="font-family: var(--fuente-h1-h2); font-size: 2.2rem; color: var(--color-texto-principal); margin-top: 0.4rem;">Conocé las Asesorías Especializadas</h3>
+            </div>
+            
+            <div class="tools-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                
+                <!-- Card 1: Ingeniería de Menú -->
+                <div class="tool-card gsap-stagger-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="tool-card-img" style="height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
+                            <img src="assets/images/laura-bailone-optimizacion-menu.webp" alt="Ingeniería de Menú" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <span class="tool-card-category">ENFOQUE EN EL MENÚ</span>
+                        <h3 class="tool-card-title" style="font-size: 1.35rem; margin: 0.5rem 0;">INGENIERÍA DE MENÚ</h3>
+                        <p class="tool-card-desc" style="font-size: 0.92rem; color: var(--color-texto-secundario); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Análisis y rediseño de menú para mejorar la rentabilidad y adaptar la oferta a las nuevas necesidades del consumidor.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#ingenieria-de-menu" class="btn" style="width: 100%; text-align: center; display: inline-block; padding: 0.8rem 1rem;">VER ASESORÍA ➔</a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Costos y Métricas Financieras -->
+                <div class="tool-card gsap-stagger-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="tool-card-img" style="height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
+                            <img src="assets/images/laura-bailone-rentabilidad-gastronomica.webp" alt="Costos y Métricas Financieras" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <span class="tool-card-category">CONTROL DE NÚMEROS</span>
+                        <h3 class="tool-card-title" style="font-size: 1.35rem; margin: 0.5rem 0;">COSTOS Y MÉTRICAS FINANCIERAS</h3>
+                        <p class="tool-card-desc" style="font-size: 0.92rem; color: var(--color-texto-secundario); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Transformamos los datos diarios de tu operación en indicadores claros para controlar costos y aumentar la rentabilidad.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#costos-y-metricas" class="btn" style="width: 100%; text-align: center; display: inline-block; padding: 0.8rem 1rem;">VER ASESORÍA ➔</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Experiencias Gastronómicas -->
+                <div class="tool-card gsap-stagger-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="tool-card-img" style="height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
+                            <img src="assets/images/laura-bailone-experiencias-gastronomicas.webp" alt="Experiencias Gastronómicas" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <span class="tool-card-category">IDENTIDAD Y HOSPITALIDAD</span>
+                        <h3 class="tool-card-title" style="font-size: 1.35rem; margin: 0.5rem 0;">EXPERIENCIAS GASTRONÓMICAS</h3>
+                        <p class="tool-card-desc" style="font-size: 0.92rem; color: var(--color-texto-secundario); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Diseño integral de experiencias culinarias para diferenciar tu marca y elevar el valor percibido por tus clientes.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#experiencias-gastronomicas" class="btn" style="width: 100%; text-align: center; display: inline-block; padding: 0.8rem 1rem;">VER ASESORÍA ➔</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Sección de Asesorías Listado -->
     <section class="asesorias-list-section">
         <div class="consultancies-timeline-wrapper">
             <!-- Asesoría 1 -->
-            <div class="consultancy-grid gsap-fade-up">
+            <div id="ingenieria-de-menu" class="consultancy-grid gsap-fade-up">
                 <!-- Columna Izquierda -->
                 <div class="consultancy-left-col">
                     
@@ -80,7 +145,7 @@
             </div>
 
             <!-- Asesoría 2 -->
-            <div class="consultancy-grid gsap-fade-up">
+            <div id="costos-y-metricas" class="consultancy-grid gsap-fade-up">
                 <!-- Columna Izquierda -->
                 <div class="consultancy-left-col">
                     
@@ -119,7 +184,7 @@
             </div>
 
             <!-- Asesoría 3 -->
-            <div class="consultancy-grid gsap-fade-up">
+            <div id="experiencias-gastronomicas" class="consultancy-grid gsap-fade-up">
                 <!-- Columna Izquierda -->
                 <div class="consultancy-left-col">
                     
