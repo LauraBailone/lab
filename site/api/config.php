@@ -45,7 +45,7 @@ $PRODUCT_FULFILLMENT = [
         'items' => ['lab-ley-omnes', 'lab-control-stock']
     ],
     'combo-stock-fichas' => [
-        'nombre' => 'Combo: Stock + Fichas Tecnicas PRO',
+        'nombre' => 'Combo: Stock + Fichas Técnicas & Punto de Equilibrio PRO',
         'items' => ['lab-control-stock', 'lab-fichas-tecnicas']
     ]
 ];

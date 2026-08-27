@@ -132,8 +132,7 @@ function sendDeliveryEmail($to_email, $customer_name, $items, $payment_id, $fulf
         <div style="max-width: 600px; margin: 0 auto; background: #FFFFFF; padding: 40px 30px; border-radius: 12px; border: 1px solid #EEEEEE; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
             
             <div style="text-align: center; margin-bottom: 25px;">
-                <h1 style="font-family: Georgia, serif; font-size: 28px; color: #2D2016; margin: 0; letter-spacing: 0.1em; text-transform: uppercase;">lab</h1>
-                <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: #E8913A; margin-top: 4px; font-weight: bold;">Gastronomy Advisory</p>
+                <img src="https://laurabailone.com/site/assets/logo/logo-lab-v2.png" alt="LAB Logo V2.0" style="max-height: 60px; width: auto;">
             </div>
 
             <hr style="border: none; border-top: 1px solid #F0ECE8; margin: 20px 0 25px 0;">
