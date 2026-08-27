@@ -497,7 +497,10 @@ nav a:hover, nav a.active {
     padding-top: 8rem;
 }
 
-#asesorias .productos-grid {
+#asesorias .productos-grid,
+#asesorias-block .productos-grid,
+.asesorias-cards-preview .productos-grid,
+#productos-secciones-globales .productos-grid {
     grid-template-columns: repeat(3, 1fr);
 }
 
