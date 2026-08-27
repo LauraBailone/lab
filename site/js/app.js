@@ -994,10 +994,9 @@ function injectProductBlocks(cfg) {
         </section>
         ` : ''}
 
-        <!-- Bloque 2: Asesorías (Fondo Naranja Suave, pegado a Herramientas) -->
-        <section id="asesorias-block" class="productos-seccion" style="background-color: var(--color-naranja-claro); padding-top: 4rem; padding-bottom: 5rem; margin-bottom: 0;">
-            <h2 class="section-title text-light gsap-fade-up" style="color: #C85A17;">ASESORÍAS</h2>
-            <div class="seccion-linea gsap-fade-up" style="background: linear-gradient(to right, transparent, #C85A17 50%, transparent);"></div>
+        <!-- Bloque 2: Asesorías -->
+        ${isAsesorias ? `
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5% 4rem;">
             <div class="productos-grid gsap-stagger-container">
                 ${cfg.landing.servicios_preview.items.map((item, idx) => {
                     let img = item.imagen || cfg.imagenes.servicios_img_1;
@@ -1005,12 +1004,9 @@ function injectProductBlocks(cfg) {
                     else if (!item.imagen && idx === 1) img = "assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png";
                     else if (!item.imagen && idx === 2) img = cfg.imagenes.servicios_img_3;
 
-                    let targetAnchor = "asesorias.html";
-                    if (isAsesorias) {
-                        if (idx === 0) targetAnchor = "#ingenieria-de-menu";
-                        else if (idx === 1) targetAnchor = "#costos-y-metricas";
-                        else if (idx === 2) targetAnchor = "#experiencias-gastronomicas";
-                    }
+                    let targetAnchor = "#ingenieria-de-menu";
+                    if (idx === 1) targetAnchor = "#costos-y-metricas";
+                    else if (idx === 2) targetAnchor = "#experiencias-gastronomicas";
 
                     return `
                         <div class="producto-card gsap-stagger-item">
@@ -1027,7 +1023,35 @@ function injectProductBlocks(cfg) {
                     `;
                 }).join('')}
             </div>
+        </div>
+        ` : `
+        <section id="asesorias-block" class="productos-seccion" style="background-color: var(--color-naranja-claro); padding-top: 4rem; padding-bottom: 5rem; margin-bottom: 0;">
+            <h2 class="section-title text-light gsap-fade-up" style="color: #C85A17;">ASESORÍAS</h2>
+            <div class="seccion-linea gsap-fade-up" style="background: linear-gradient(to right, transparent, #C85A17 50%, transparent);"></div>
+            <div class="productos-grid gsap-stagger-container">
+                ${cfg.landing.servicios_preview.items.map((item, idx) => {
+                    let img = item.imagen || cfg.imagenes.servicios_img_1;
+                    if (!item.imagen && idx === 0) img = "assets/images/laura-bailone-blog-1.webp";
+                    else if (!item.imagen && idx === 1) img = "assets/images/laura-bailone-finanzas-contabilidad-gastronomica.png";
+                    else if (!item.imagen && idx === 2) img = cfg.imagenes.servicios_img_3;
+
+                    return `
+                        <div class="producto-card gsap-stagger-item">
+                            <div class="producto-img">
+                                <img src="${img}" alt="${item.titulo}" style="object-position: center bottom;">
+                            </div>
+                            <span class="producto-categoria" style="color: #C85A17;">CONSULTORÍA ESTRATÉGICA</span>
+                            <h4 class="producto-titulo">${item.titulo}</h4>
+                            <p class="producto-descripcion"><strong style="color: #C85A17;">${item.subtitulo}</strong><br><br>${item.descripcion}</p>
+                            <div class="card-actions-wrapper">
+                                <a href="asesorias.html" class="link-details">VER DETALLES ➔</a>
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
         </section>
+        `}
 
         <!-- Bloque 3: Herramientas de Gestión LAB (Pegado a Asesorías) -->
         <section id="herramientas" class="productos-seccion tools-section-highlighted" style="display: none !important; padding: 6rem 5% 8rem; margin-top: 0;">
