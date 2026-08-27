@@ -962,39 +962,7 @@ function injectProductBlocks(cfg) {
     const isAsesorias = (currentPath === "asesorias.html");
     
     container.innerHTML = `
-        ${(!isIndex && !isMetodoLab && !isAsesorias) ? `
-        <!-- Bloque 1: Método LAB -->
-        <section id="metodo-lab-block" class="productos-seccion" style="padding-top: 6rem;">
-            <h2 class="section-title text-light gsap-fade-up">MÉTODO LAB</h2>
-            <div class="seccion-linea gsap-fade-up"></div>
-            <div class="productos-grid gsap-stagger-container">
-                <div class="producto-card gsap-stagger-item">
-                    <div class="producto-img">
-                        <img src="${cfg.imagenes.cards_img_1}" alt="${m.card_1.titulo}" style="object-position: center 60%;">
-                    </div>
-                    <span class="producto-categoria">MÉTODO LAB</span>
-                    <h4 class="producto-titulo">${m.card_1.titulo}</h4>
-                    <p class="producto-descripcion">${m.card_1.descripcion}</p>
-                    <div class="card-actions-wrapper">
-                        <a href="metodo-lab.html#gastronomy" class="link-details">VER DETALLES ➔</a>
-                    </div>
-                </div>
-                <div class="producto-card gsap-stagger-item">
-                    <div class="producto-img">
-                        <img src="${cfg.imagenes.laura_bio}" alt="${m.card_2.titulo}" style="object-position: center 70%;">
-                    </div>
-                    <span class="producto-categoria">MÉTODO LAB</span>
-                    <h4 class="producto-titulo">${m.card_2.titulo}</h4>
-                    <p class="producto-descripcion">${m.card_2.descripcion}</p>
-                    <div class="card-actions-wrapper">
-                        <a href="metodo-lab.html#hospitality" class="link-details">VER DETALLES ➔</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        ` : ''}
-
-        <!-- Bloque 2: Asesorías -->
+        <!-- Bloque 1: Asesorías -->
         ${isAsesorias ? `
         <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5% 4rem;">
             <div class="productos-grid gsap-stagger-container">
@@ -1052,6 +1020,38 @@ function injectProductBlocks(cfg) {
             </div>
         </section>
         `}
+
+        ${(!isIndex && !isMetodoLab && !isAsesorias) ? `
+        <!-- Bloque 2: Método LAB -->
+        <section id="metodo-lab-block" class="productos-seccion" style="padding-top: 6rem;">
+            <h2 class="section-title text-light gsap-fade-up">MÉTODO LAB</h2>
+            <div class="seccion-linea gsap-fade-up"></div>
+            <div class="productos-grid gsap-stagger-container">
+                <div class="producto-card gsap-stagger-item">
+                    <div class="producto-img">
+                        <img src="${cfg.imagenes.cards_img_1}" alt="${m.card_1.titulo}" style="object-position: center 60%;">
+                    </div>
+                    <span class="producto-categoria">MÉTODO LAB</span>
+                    <h4 class="producto-titulo">${m.card_1.titulo}</h4>
+                    <p class="producto-descripcion">${m.card_1.descripcion}</p>
+                    <div class="card-actions-wrapper">
+                        <a href="metodo-lab.html#gastronomy" class="link-details">VER DETALLES ➔</a>
+                    </div>
+                </div>
+                <div class="producto-card gsap-stagger-item">
+                    <div class="producto-img">
+                        <img src="${cfg.imagenes.laura_bio}" alt="${m.card_2.titulo}" style="object-position: center 70%;">
+                    </div>
+                    <span class="producto-categoria">MÉTODO LAB</span>
+                    <h4 class="producto-titulo">${m.card_2.titulo}</h4>
+                    <p class="producto-descripcion">${m.card_2.descripcion}</p>
+                    <div class="card-actions-wrapper">
+                        <a href="metodo-lab.html#hospitality" class="link-details">VER DETALLES ➔</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        ` : ''}
 
         <!-- Bloque 3: Herramientas de Gestión LAB (Pegado a Asesorías) -->
         <section id="herramientas" class="productos-seccion tools-section-highlighted" style="display: none !important; padding: 6rem 5% 8rem; margin-top: 0;">
