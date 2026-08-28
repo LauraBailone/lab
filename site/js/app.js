@@ -729,7 +729,7 @@ function renderLanding(cfg) {
                 </div>
                 <div class="producto-card gsap-stagger-item">
                     <div class="producto-img">
-                        <img src="${cfg.imagenes.laura_bio}" alt="${d.metodo_cards.card_2.titulo}" style="object-position: center 70%;">
+                        <img src="${cfg.imagenes.cards_img_2}" alt="${d.metodo_cards.card_2.titulo}" style="object-position: center 70%;">
                     </div>
                     <span class="producto-categoria">MÉTODO LAB</span>
                     <h4 class="producto-titulo">${d.metodo_cards.card_2.titulo}</h4>
@@ -1040,7 +1040,7 @@ function injectProductBlocks(cfg) {
                 </div>
                 <div class="producto-card gsap-stagger-item">
                     <div class="producto-img">
-                        <img src="${cfg.imagenes.laura_bio}" alt="${m.card_2.titulo}" style="object-position: center 70%;">
+                        <img src="${cfg.imagenes.cards_img_2}" alt="${m.card_2.titulo}" style="object-position: center 70%;">
                     </div>
                     <span class="producto-categoria">MÉTODO LAB</span>
                     <h4 class="producto-titulo">${m.card_2.titulo}</h4>
