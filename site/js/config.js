@@ -178,26 +178,40 @@ const SITE_CONFIG = {
     },
 
     "footer": {
-        "columna_1": {
+        "columna_asesorias": {
+            "titulo": "ASESORÍAS",
+            "links": [
+                { "texto": "Menús Estratégicos", "url": "asesorias.html#ingenieria-de-menu" },
+                { "texto": "Rentabilidad y Gestión Financiera", "url": "asesorias.html#costos-y-metricas" },
+                { "texto": "Experiencias Gastronómicas", "url": "asesorias.html#experiencias-gastronomicas" }
+            ]
+        },
+        "columna_metodo": {
             "titulo": "MÉTODO LAB",
             "links": [
                 { "texto": "Gastronomy Consulting", "url": "metodo-lab.html#gastronomy" },
                 { "texto": "Conscious Hospitality", "url": "metodo-lab.html#hospitality" }
             ]
         },
-        "columna_2": {
-            "titulo": "ASESORÍAS",
+        "columna_herramientas": {
+            "titulo": "HERRAMIENTAS LAB",
             "links": [
-                { "texto": "Menús Estratégicos", "url": "asesorias.html" },
-                { "texto": "Rentabilidad y Gestión Financiera", "url": "asesorias.html" },
-                { "texto": "Experiencias Gastronómicas", "url": "asesorias.html" }
+                { "texto": "Herramientas de Gestión LAB™", "url": "herramientas-gestion.html" },
+                { "texto": "Fichas Técnicas & Punto de Equilibrio PRO", "url": "herramientas-gestion.html" },
+                { "texto": "Control de Stock & Inventarios", "url": "herramientas-gestion.html" }
             ]
         },
-        "columna_3": {
+        "columna_quien_soy": {
             "titulo": "DETRÁS DE LAB",
             "links": [
-                { "texto": "Mi Historia", "url": "#quien-soy" },
-                { "texto": "Contacto", "url": "#" }
+                { "texto": "Mi Historia", "url": "quien-soy.html" }
+            ]
+        },
+        "columna_blog": {
+            "titulo": "BLOG",
+            "links": [
+                { "texto": "Restaurantes que venden pero no ganan", "url": "blog-post.html?id=restaurantes-que-venden-pero-no-ganan" },
+                { "texto": "Crea tu propia experiencia en tu hotel", "url": "blog-post.html?id=hospitalidad-consciente-hoteles" }
             ]
         },
         "copyright": "©2026 LAB Gastronomy Advisory. Todos los derechos reservados",

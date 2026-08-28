@@ -621,21 +621,33 @@ function injectFooter(cfg) {
                 </div>
             </div>
             <div class="footer-col gsap-fade-up">
-                <h4>${cfg.footer.columna_1.titulo}</h4>
+                <h4><a href="asesorias.html" style="color: inherit; text-decoration: none;">${cfg.footer.columna_asesorias.titulo}</a></h4>
                 <ul>
-                    ${cfg.footer.columna_1.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
+                    ${cfg.footer.columna_asesorias.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
                 </ul>
             </div>
             <div class="footer-col gsap-fade-up">
-                <h4>${cfg.footer.columna_2.titulo}</h4>
+                <h4><a href="metodo-lab.html" style="color: inherit; text-decoration: none;">${cfg.footer.columna_metodo.titulo}</a></h4>
                 <ul>
-                    ${cfg.footer.columna_2.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
+                    ${cfg.footer.columna_metodo.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
                 </ul>
             </div>
             <div class="footer-col gsap-fade-up">
-                <h4>${cfg.footer.columna_3.titulo}</h4>
+                <h4><a href="herramientas-gestion.html" style="color: inherit; text-decoration: none;">${cfg.footer.columna_herramientas.titulo}</a></h4>
                 <ul>
-                    ${cfg.footer.columna_3.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
+                    ${cfg.footer.columna_herramientas.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
+                </ul>
+            </div>
+            <div class="footer-col gsap-fade-up">
+                <h4><a href="quien-soy.html" style="color: inherit; text-decoration: none;">${cfg.footer.columna_quien_soy.titulo}</a></h4>
+                <ul>
+                    ${cfg.footer.columna_quien_soy.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
+                </ul>
+            </div>
+            <div class="footer-col gsap-fade-up">
+                <h4><a href="blog.html" style="color: inherit; text-decoration: none;">${cfg.footer.columna_blog.titulo}</a></h4>
+                <ul id="footer-blog-list">
+                    ${cfg.footer.columna_blog.links.map(l => `<li><a href="${l.url}">${l.texto}</a></li>`).join('')}
                 </ul>
             </div>
         </div>

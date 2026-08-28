@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const posts = await loadBlogPosts();
 
+    // Actualizar siempre los 4 posts más recientes en la columna del Footer
+    updateFooterBlogLinks(posts);
+
     if (isPostPage) {
         renderSinglePost(posts);
     } else if (isBlogPreview) {
@@ -104,6 +107,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         setTimeout(() => { ScrollTrigger.refresh(); }, 200);
     }
 });
+
+function updateFooterBlogLinks(posts) {
+    const list = document.getElementById('footer-blog-list');
+    if (!list || !posts || posts.length === 0) return;
+
+    const latestFour = posts.slice(0, 4);
+    list.innerHTML = latestFour.map(post => `
+        <li><a href="blog-post.html?id=${post.id}">${post.titulo}</a></li>
+    `).join('');
+}
 
 // ============================================================
 // RENDERS
