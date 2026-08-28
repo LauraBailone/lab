@@ -499,9 +499,12 @@ nav a:hover, nav a.active {
 
 #asesorias .productos-grid,
 #asesorias-block .productos-grid,
-.asesorias-cards-preview .productos-grid,
-#productos-secciones-globales .productos-grid {
+.asesorias-cards-preview .productos-grid {
     grid-template-columns: repeat(3, 1fr);
+}
+
+#metodo-lab-block .productos-grid {
+    grid-template-columns: 1fr 1fr;
 }
 
 .productos-seccion .section-title {
